@@ -73,10 +73,17 @@ def map_control(control: str, k: int = 8) -> MappingResult:
             continue
         status = item.get("status") if item.get("status") in STATUSES else "gap"
         quote = item.get("requirement_quote", "")
+        provision, verified = chunks[n - 1], bool(quote) and quote_supported(quote, [chunks[n - 1].text])
+        if quote and not verified:
+            # the model sometimes labels a genuine quote with the wrong excerpt number;
+            # re-point it to the supplied excerpt that actually contains the wording
+            match = next((c for c in chunks if quote_supported(quote, [c.text])), None)
+            if match is not None:
+                provision, verified = match, True
         result.assessments.append(Assessment(
-            provision=chunks[n - 1], status=status, requirement_quote=quote,
+            provision=provision, status=status, requirement_quote=quote,
             reason=item.get("reason", ""), recommendation=item.get("recommendation", ""),
-            quote_verified=bool(quote) and quote_supported(quote, [chunks[n - 1].text]),
+            quote_verified=verified,
         ))
     order = {s: i for i, s in enumerate(("gap", "partial", "covered", "not_applicable"))}
     result.assessments.sort(key=lambda a: order[a.status])

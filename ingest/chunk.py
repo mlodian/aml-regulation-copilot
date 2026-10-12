@@ -32,6 +32,8 @@ class Level:
     name: str            # label used in the citation ("Rule", "Sec.", "Part")
     pattern: re.Pattern  # group 1 = number, group 2 (optional) = title
     title_only: bool = False  # only a heading when group 2 reads like a title
+    sentence_body: bool = False  # a non-title group 2 opens the body instead of being dropped
+    sequential: bool = False  # letters must run a, b, c ... so roman "i." sub-items are not headings
 
 
 # Per-document heading grammar. Order = hierarchy depth.
@@ -48,7 +50,13 @@ PROFILES: dict[str, dict] = {
     "rrg2021": {
         "pages": (2, 17),    # Part 1 (policy); Parts 2-4 are portal and file-format manuals
         "min_font": 10.5,
-        "levels": [Level("Part", re.compile(r"^([IVX]{1,4})\.\s+([A-Z].{2,80})$"))],
+        "levels": [
+            Level("Part", re.compile(r"^([IVX]{1,4})\.\s+([A-Z].{2,80})$")),
+            Level("", re.compile(r"^([A-H])\.\s+(.+)$"), sentence_body=True),
+            # lettered items, e.g. each definition in Part II and each STR determination
+            # period in Part IV-D, so no item is split across chunks
+            Level("", re.compile(r"^([a-u])\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
+        ],
     },
     "fatf": {
         "pages": (1, None),
@@ -143,15 +151,24 @@ def structured_chunks(doc: dict) -> list[Chunk]:
             m = level.pattern.match(line.text)
             if not m or (level.title_only and not looks_like_title(m.group(2))):
                 continue
+            if level.sequential:
+                prev = path[depth][1] if path[depth] else None
+                expected = "a" if prev is None else chr(ord(prev) + 1)
+                if m.group(1) not in (expected, "a"):
+                    continue
             flush()
             number = m.group(1)
-            title = (m.group(2) or "").strip() if m.lastindex and m.lastindex >= 2 else ""
+            title = (m.group(2) or "").strip() if (m.lastindex or 0) >= 2 else ""
             if not title and i + 1 < len(lines):  # "RULE 6" with the title on the next line
                 title = lines[i + 1].text if lines[i + 1].text.isupper() else ""
+            if level.sentence_body and not looks_like_title(title.rstrip(".")):
+                body_lead, title = title, ""  # "A. CPs shall report ..." is text, not a title
+            else:
+                body_lead = ""
             path[depth] = (level, number, clean_title(title))
             for deeper in range(depth + 1, len(levels)):
                 path[deeper] = None
-            rest = line.text[m.end():].strip()
+            rest = body_lead or line.text[m.end():].strip()
             if rest:  # AMLA puts the body on the heading line
                 body.append(Line(line.page, rest))
             break

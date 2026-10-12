@@ -16,7 +16,8 @@ from dataclasses import dataclass, field
 from rapidfuzz import fuzz
 
 CITE_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
-QUOTE_RE = re.compile(r"[\"“]([^\"”]{12,})[\"”]")
+QUOTE_RE = re.compile(r"\"([^\"]*)\"|“([^”]*)”")  # pair quotes first, filter by length after
+MIN_QUOTE_CHARS = 12
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z(\-•*])")
 QUOTE_MATCH_THRESHOLD = 90
 REFUSAL = "NOT_IN_SOURCES"
@@ -42,14 +43,27 @@ def cited_numbers(text: str) -> list[int]:
     return nums
 
 
+def quotes(text: str) -> list[str]:
+    """Quoted spans long enough to be verbatim wording (short ones are usually terms)."""
+    found = [a or b for a, b in QUOTE_RE.findall(text)]
+    return [q for q in found if len(q.strip()) >= MIN_QUOTE_CHARS]
+
+
 def _normalise(s: str) -> str:
-    return re.sub(r"\s+", " ", s).strip().lower()
+    s = re.sub(r"[\"'“”‘’]", "", s)           # quote style differs between model and source
+    s = re.sub(r"\s*[–—-]\s*", "-", s)          # "tipping – off" vs "tipping-off"
+    return re.sub(r"\s+", " ", s).strip(" .;,").lower()
 
 
 def quote_supported(quote: str, sources: list[str]) -> bool:
-    q = _normalise(quote)
-    return any(q in _normalise(s) or fuzz.partial_ratio(q, _normalise(s)) >= QUOTE_MATCH_THRESHOLD
-               for s in sources)
+    """Every part of the quote (split on ellipses) must appear in one of the sources."""
+    parts = [p for p in re.split(r"\.{3}|…", quote) if len(p.strip()) >= 4]
+    normed = [_normalise(s) for s in sources]
+    for part in parts or [quote]:
+        q = _normalise(part)
+        if not any(q in s or fuzz.partial_ratio(q, s) >= QUOTE_MATCH_THRESHOLD for s in normed):
+            return False
+    return True
 
 
 def check(answer: str, contexts: list[str]) -> CitationReport:
@@ -70,7 +84,7 @@ def check(answer: str, contexts: list[str]) -> CitationReport:
         if not nums:
             report.uncited_sentences.append(s)
             continue
-        for quote in QUOTE_RE.findall(s):
+        for quote in quotes(s):
             if not quote_supported(quote, [contexts[n - 1] for n in nums]):
                 report.unsupported_quotes.append(quote)
     return report

@@ -93,6 +93,13 @@ def test_quote_checked_against_cited_block_only():
     assert check(ans, CONTEXTS).unsupported_quotes
 
 
+def test_short_quoted_term_does_not_shift_quote_pairing():
+    # "Occurrence" is too short to verify; the text between it and the next quote
+    # must not be mistaken for a quotation.
+    ans = '"Occurrence" means the day STRs are "promptly filed within the next working day" [2].'
+    assert check(ans, CONTEXTS).ok
+
+
 def test_uncited_claim_flagged():
     ans = "CTRs are due within five working days [1]. Penalties can reach five hundred thousand pesos per violation."
     report = check(ans, CONTEXTS)
@@ -107,6 +114,15 @@ def test_refusal_detected():
 @pytest.mark.parametrize("text,expected", [("[1]", [1]), ("[1, 3]", [1, 3]), ("[2][4]", [2, 4]), ("none", [])])
 def test_cited_numbers(text, expected):
     assert cited_numbers(text) == expected
+
+
+def test_ellipsis_quote_checks_each_part():
+    assert quote_supported("CTRs shall be filed ... unless the AMLC prescribes", CONTEXTS)
+    assert not quote_supported("CTRs shall be filed … within thirty calendar days of the end of month", CONTEXTS)
+
+
+def test_quote_style_and_dash_spacing_ignored():
+    assert quote_supported("no 'tipping – off' of customers", ["that no “tipping-off” of customers will happen"])
 
 
 def test_quote_supported_tolerates_whitespace():

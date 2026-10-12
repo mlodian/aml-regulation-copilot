@@ -1,0 +1,10 @@
+{
+  "answered_questions": 50,
+  "unanswerable_questions": 10,
+  "fact_accuracy": 0.98,
+  "cited_gold_provision": 0.98,
+  "citation_valid": 0.98,
+  "false_refusal_rate": 0.0,
+  "correct_refusal_rate": 1.0,
+  "median_seconds": 10.264757457996893
+}

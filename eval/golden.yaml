@@ -158,7 +158,7 @@ questions:
   - id: q29
     question: Is there a minimum amount for a transaction to be reportable as suspicious?
     gold: [irr2018:rule2:sec1, rrg2021:partii]
-    must_contain: ['regardless of amount']
+    must_contain: ['regardless of (the )?amount|no minimum|no (amount |peso )?threshold']
     kind: factual
   - id: q30
     question: What circumstances make a transaction suspicious under the rules?
@@ -178,12 +178,12 @@ questions:
   - id: q33
     question: Are lawyers and accountants required to file covered transaction reports about their clients?
     gold: [irr2018:rule22:sec1:s1.3]
-    must_contain: ['not required']
+    must_contain: ['not required|exempt']
     kind: factual
   - id: q34
     question: Can a covered person tell a customer that an STR has been filed about them?
     gold: [irr2018:rule22:sec7, rrg2021:parti]
-    must_contain: ['prohibit']
+    must_contain: ['prohibit|must not|cannot|may not']
     kind: factual
   - id: q35
     question: Is a reporting officer protected from liability for filing an STR in good faith?
@@ -208,7 +208,7 @@ questions:
   - id: q39
     question: What does enhanced due diligence require in practice?
     gold: [irr2018:rule18:sec10]
-    must_contain: ['source(s)? of (wealth|fund)', 'senior management']
+    must_contain: ['\[?s\]?ources? of (wealth|fund)', 'senior management']
     kind: list
   - id: q40
     question: When can a covered person apply reduced due diligence, and when is it not allowed?

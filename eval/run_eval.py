@@ -39,6 +39,11 @@ def load_golden() -> list[dict]:
     return yaml.safe_load(GOLDEN.read_text())["questions"]
 
 
+def is_gold(section_id: str, gold: list[str]) -> bool:
+    """A gold label may name a provision or any ancestor of it (e.g. a whole Part)."""
+    return any(section_id == g or section_id.startswith(g + ":") for g in gold)
+
+
 def facts_present(text: str, patterns: list[str]) -> bool:
     return all(re.search(p, text, re.I) for p in patterns)
 
@@ -57,7 +62,7 @@ def eval_retrieval() -> pd.DataFrame:
             for q in questions:
                 chunks = retrieve(q["question"], k=max(KS), mode=mode, strategy=strategy)
                 sections = [c.section_id for c in chunks]
-                first = next((i for i, s in enumerate(sections) if s in q["gold"]), None)
+                first = next((i for i, s in enumerate(sections) if is_gold(s, q["gold"])), None)
                 rr.append(0.0 if first is None else 1.0 / (first + 1))
                 words.append(sum(len(c.text.split()) for c in chunks[:max(KS)]))
                 for k in KS:
@@ -118,7 +123,7 @@ def eval_answers(limit: int | None = None, mode: str = "hybrid_rerank") -> pd.Da
                 "cited_sections": sorted(cited_sections),
                 "fact_ok": (not res.report.refused and facts_present(res.text, q["must_contain"]))
                 if q["kind"] != "unanswerable" else None,
-                "cited_gold": bool(cited_sections & set(q["gold"])) if q["gold"] else None,
+                "cited_gold": any(is_gold(s, q["gold"]) for s in cited_sections) if q["gold"] else None,
                 "seconds": res.seconds,
             }
             f.write(json.dumps(rec) + "\n")

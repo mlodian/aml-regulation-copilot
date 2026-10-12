@@ -1,0 +1,23 @@
+[
+ {
+  "run": "1 \u00b7 first build",
+  "fact": 1.0,
+  "cite_valid": 0.86,
+  "false_ref": 0.0,
+  "refusal": 1.0
+ },
+ {
+  "run": "2 \u00b7 stricter prompt, checker fixes",
+  "fact": 0.96,
+  "cite_valid": 0.9591836734693877,
+  "false_ref": 0.02,
+  "refusal": 1.0
+ },
+ {
+  "run": "3 \u00b7 item-level chunking (final)",
+  "fact": 0.98,
+  "cite_valid": 0.98,
+  "false_ref": 0.0,
+  "refusal": 1.0
+ }
+]
