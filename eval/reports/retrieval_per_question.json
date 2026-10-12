@@ -1,0 +1,4402 @@
+[
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q01",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed3",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q02",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed8",
+   "irr2018:fixed6",
+   "rrg2021:fixed3"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q03",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed6",
+   "rrg2021:fixed5",
+   "irr2018:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q04",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed3",
+   "irr2018:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q05",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed7",
+   "irr2018:fixed41"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q06",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed6",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q07",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "irr2018:fixed105",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q08",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed66",
+   "irr2018:fixed105",
+   "rrg2021:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q09",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed91",
+   "rrg2021:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q10",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "rrg2021:fixed16",
+   "irr2018:fixed83"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q11",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed57",
+   "irr2018:fixed56"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q12",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed74",
+   "irr2018:fixed47",
+   "irr2018:fixed73"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q13",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed72",
+   "irr2018:fixed47",
+   "irr2018:fixed73"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q14",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed77",
+   "irr2018:fixed39",
+   "irr2018:fixed78"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q15",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed57",
+   "irr2018:fixed19",
+   "irr2018:fixed58"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed4",
+   "irr2018:fixed87",
+   "irr2018:fixed94"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q17",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed101",
+   "irr2018:fixed3",
+   "irr2018:fixed111"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q18",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed117",
+   "irr2018:fixed116",
+   "irr2018:fixed38"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q19",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed54",
+   "rrg2021:fixed2",
+   "irr2018:fixed114"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q20",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed102",
+   "irr2018:fixed42"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q21",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed115",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed1",
+   "irr2018:fixed114"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q23",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed12",
+   "irr2018:fixed106"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q24",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed10",
+   "rrg2021:fixed11",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q25",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "rrg2021:fixed10",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q26",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed8",
+   "rrg2021:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q27",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed11",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q28",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed15",
+   "rrg2021:fixed4",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q29",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed21",
+   "rrg2021:fixed5",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q30",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed5",
+   "rrg2021:fixed6",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q31",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed104",
+   "rrg2021:fixed12",
+   "rrg2021:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q32",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed104",
+   "irr2018:fixed5",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q33",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "irr2018:fixed11",
+   "irr2018:fixed112"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed107",
+   "irr2018:fixed23",
+   "irr2018:fixed106"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q35",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed107",
+   "rrg2021:fixed10",
+   "rrg2021:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q36",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed106",
+   "irr2018:fixed107",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q37",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed106",
+   "irr2018:fixed82",
+   "rrg2021:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q38",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed92",
+   "rrg2021:fixed8",
+   "irr2018:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q39",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed91",
+   "irr2018:fixed8",
+   "irr2018:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q40",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed82",
+   "irr2018:fixed81",
+   "irr2018:fixed91"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q41",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed85",
+   "irr2018:fixed86",
+   "irr2018:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q42",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed83",
+   "irr2018:fixed82",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q43",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed93",
+   "irr2018:fixed99"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q44",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed93",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed103",
+   "irr2018:fixed49",
+   "irr2018:fixed47"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q46",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed76",
+   "rrg2021:fixed8",
+   "irr2018:fixed79"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q47",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed78",
+   "irr2018:fixed79",
+   "irr2018:fixed76"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q48",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed103",
+   "irr2018:fixed104",
+   "rrg2021:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q49",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed80",
+   "irr2018:fixed60",
+   "irr2018:fixed59"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "q50",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "rrg2021:fixed15",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q01",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed17",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q02",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed8",
+   "irr2018:fixed12",
+   "irr2018:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q03",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "irr2018:fixed3",
+   "irr2018:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q04",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed20",
+   "irr2018:fixed6",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q05",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed12",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q06",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed14",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q07",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed13",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q08",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed11",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q09",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed103",
+   "irr2018:fixed99"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q10",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed57",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q11",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed57",
+   "irr2018:fixed66"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q12",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed74",
+   "irr2018:fixed75",
+   "irr2018:fixed73"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q13",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed73",
+   "irr2018:fixed48",
+   "irr2018:fixed74"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q14",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed77",
+   "irr2018:fixed39",
+   "irr2018:fixed78"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q15",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed57",
+   "irr2018:fixed56",
+   "irr2018:fixed59"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed4",
+   "irr2018:fixed87",
+   "irr2018:fixed88"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q17",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed101",
+   "irr2018:fixed4",
+   "irr2018:fixed110"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q18",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed116",
+   "irr2018:fixed117",
+   "irr2018:fixed114"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q19",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed54",
+   "irr2018:fixed2"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q20",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed116",
+   "irr2018:fixed102"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q21",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed115",
+   "irr2018:fixed114",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed7",
+   "rrg2021:fixed1",
+   "irr2018:fixed23"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q23",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed12",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q24",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed11",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q25",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "irr2018:fixed132",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q26",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "irr2018:fixed42",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q27",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q28",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed15",
+   "rrg2021:fixed7",
+   "irr2018:fixed25"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q29",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed8",
+   "rrg2021:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q30",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed9",
+   "rrg2021:fixed5",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q31",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed1",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q32",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed7",
+   "rrg2021:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q33",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed1",
+   "irr2018:fixed107",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "irr2018:fixed104",
+   "irr2018:fixed111"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q35",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "irr2018:fixed107",
+   "rrg2021:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q36",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed106",
+   "irr2018:fixed47",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q37",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed82",
+   "irr2018:fixed111",
+   "irr2018:fixed86"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q38",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "irr2018:fixed92",
+   "irr2018:fixed81"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q39",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed9",
+   "irr2018:fixed82",
+   "irr2018:fixed91"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q40",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed92",
+   "irr2018:fixed111",
+   "irr2018:fixed30"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q41",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed85",
+   "irr2018:fixed86",
+   "irr2018:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q42",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed83",
+   "irr2018:fixed86",
+   "irr2018:fixed82"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q43",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed86",
+   "irr2018:fixed88"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q44",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed93",
+   "rrg2021:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed47",
+   "irr2018:fixed75",
+   "irr2018:fixed95"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q46",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed76",
+   "irr2018:fixed77",
+   "irr2018:fixed36"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q47",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed78",
+   "irr2018:fixed106",
+   "irr2018:fixed116"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q48",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed103",
+   "irr2018:fixed95",
+   "irr2018:fixed104"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q49",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed42",
+   "irr2018:fixed10",
+   "irr2018:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "q50",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "rrg2021:fixed11",
+   "rrg2021:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q01",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed5",
+   "irr2018:fixed97"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q02",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed8",
+   "irr2018:fixed6",
+   "irr2018:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q03",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "irr2018:fixed5",
+   "irr2018:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q04",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "irr2018:fixed20",
+   "rrg2021:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q05",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed11",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q06",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed12",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q07",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "rrg2021:fixed13",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q08",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed11",
+   "irr2018:fixed40"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q09",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed103",
+   "irr2018:fixed89"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q10",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed99",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q11",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed57",
+   "irr2018:fixed56"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q12",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed74",
+   "irr2018:fixed73",
+   "irr2018:fixed75"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q13",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed73",
+   "irr2018:fixed48",
+   "irr2018:fixed72"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q14",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed77",
+   "irr2018:fixed39",
+   "irr2018:fixed78"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q15",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed57",
+   "irr2018:fixed58",
+   "irr2018:fixed59"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed4",
+   "irr2018:fixed87",
+   "irr2018:fixed110"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q17",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed101",
+   "irr2018:fixed111",
+   "irr2018:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q18",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed116",
+   "irr2018:fixed117",
+   "irr2018:fixed114"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q19",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed54",
+   "irr2018:fixed114",
+   "rrg2021:fixed2"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q20",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed102",
+   "irr2018:fixed113"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q21",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed115",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed1",
+   "rrg2021:fixed8",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q23",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed12",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q24",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "rrg2021:fixed10",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q25",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "rrg2021:fixed14",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q26",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed8",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q27",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q28",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed15",
+   "rrg2021:fixed4",
+   "irr2018:fixed52"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q29",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed5",
+   "irr2018:fixed23"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q30",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed5",
+   "rrg2021:fixed8",
+   "rrg2021:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q31",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed1",
+   "rrg2021:fixed8",
+   "irr2018:fixed104"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q32",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed8",
+   "irr2018:fixed104"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q33",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed1",
+   "irr2018:fixed105",
+   "irr2018:fixed112"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "rrg2021:fixed7",
+   "irr2018:fixed107"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q35",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed107",
+   "rrg2021:fixed1",
+   "rrg2021:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q36",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed106",
+   "irr2018:fixed107",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q37",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed82",
+   "irr2018:fixed91",
+   "irr2018:fixed92"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q38",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed92",
+   "rrg2021:fixed8",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q39",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed9",
+   "irr2018:fixed91",
+   "irr2018:fixed82"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q40",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed82",
+   "irr2018:fixed91",
+   "irr2018:fixed92"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q41",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed85",
+   "irr2018:fixed86",
+   "irr2018:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q42",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed83",
+   "irr2018:fixed82",
+   "irr2018:fixed91"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q43",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed99",
+   "irr2018:fixed88"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q44",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed93",
+   "irr2018:fixed100"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed47",
+   "irr2018:fixed75",
+   "irr2018:fixed76"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q46",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed76",
+   "irr2018:fixed79",
+   "irr2018:fixed77"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q47",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed78",
+   "irr2018:fixed106",
+   "irr2018:fixed107"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q48",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed103",
+   "irr2018:fixed104",
+   "irr2018:fixed100"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q49",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed80",
+   "irr2018:fixed81",
+   "irr2018:fixed67"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "q50",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "rrg2021:fixed11",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q01",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed3",
+   "rrg2021:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q02",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed8",
+   "rrg2021:fixed3",
+   "irr2018:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q03",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "irr2018:fixed32",
+   "irr2018:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q04",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed6",
+   "rrg2021:fixed3",
+   "irr2018:fixed20"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q05",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed12",
+   "rrg2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q06",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "rrg2021:fixed13",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q07",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "rrg2021:fixed12",
+   "rrg2021:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q08",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed16",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q09",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed103",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q10",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "irr2018:fixed99",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q11",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "rrg2021:fixed14",
+   "irr2018:fixed67"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q12",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed74",
+   "irr2018:fixed73",
+   "irr2018:fixed78"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q13",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed73",
+   "irr2018:fixed72",
+   "irr2018:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q14",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed78",
+   "irr2018:fixed77",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q15",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed57",
+   "irr2018:fixed56",
+   "irr2018:fixed58"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed4",
+   "irr2018:fixed111",
+   "irr2018:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q17",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed101",
+   "irr2018:fixed4",
+   "irr2018:fixed111"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q18",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed117",
+   "irr2018:fixed116",
+   "irr2018:fixed115"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q19",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "rrg2021:fixed2",
+   "irr2018:fixed54"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q20",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed114",
+   "irr2018:fixed116",
+   "irr2018:fixed77"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q21",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed115",
+   "irr2018:fixed114",
+   "rrg2021:fixed2"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed2",
+   "rrg2021:fixed1",
+   "irr2018:fixed115"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q23",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed12",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q24",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "rrg2021:fixed10",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q25",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "rrg2021:fixed1",
+   "rrg2021:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q26",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "rrg2021:fixed12",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q27",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed14",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q28",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed15",
+   "rrg2021:fixed4",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q29",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed1",
+   "rrg2021:fixed5",
+   "rrg2021:fixed2"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q30",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed5",
+   "rrg2021:fixed9",
+   "rrg2021:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q31",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed104",
+   "rrg2021:fixed1",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q32",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed104",
+   "rrg2021:fixed8",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q33",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "irr2018:fixed104",
+   "rrg2021:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed8",
+   "irr2018:fixed104",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q35",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed105",
+   "rrg2021:fixed1",
+   "irr2018:fixed107"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q36",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed106",
+   "irr2018:fixed107",
+   "irr2018:fixed105"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q37",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed82",
+   "irr2018:fixed91",
+   "irr2018:fixed92"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q38",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed92",
+   "rrg2021:fixed8",
+   "rrg2021:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q39",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed9",
+   "irr2018:fixed91",
+   "irr2018:fixed82"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q40",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed92",
+   "irr2018:fixed91",
+   "irr2018:fixed82"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q41",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed85",
+   "irr2018:fixed87",
+   "irr2018:fixed86"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q42",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed83",
+   "irr2018:fixed82",
+   "irr2018:fixed85"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q43",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed99",
+   "irr2018:fixed88"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q44",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed94",
+   "irr2018:fixed93",
+   "irr2018:fixed100"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed75",
+   "irr2018:fixed79",
+   "irr2018:fixed95"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q46",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed76",
+   "irr2018:fixed79",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q47",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed79",
+   "irr2018:fixed78",
+   "irr2018:fixed106"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q48",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed104",
+   "irr2018:fixed103",
+   "irr2018:fixed100"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q49",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:fixed80",
+   "irr2018:fixed81",
+   "irr2018:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "q50",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "rrg2021:fixed15",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q01",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule19:sec6:s6.1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule24:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q02",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q03",
+  "first_gold_rank": 2,
+  "top3": [
+   "rrg2021:partii",
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q04",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule4:sec1",
+   "irr2018:rule2:sec1",
+   "rrg2021:partii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q05",
+  "first_gold_rank": 2,
+  "top3": [
+   "rrg2021:partv",
+   "irr2018:rule22:sec2",
+   "rrg2021:partiii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q06",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q07",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q08",
+  "first_gold_rank": 3,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "irr2018:rule22:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q09",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec1",
+   "irr2018:rule18:sec8:s8.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q10",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec2",
+   "irr2018:rule20:sec3",
+   "rrg2021:partv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q11",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule10:sec2:s2.8",
+   "irr2018:rule18:sec5:s5.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q12",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "irr2018:rule15:sec2",
+   "irr2018:rule13:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q13",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule13:sec2",
+   "irr2018:rule13:sec1",
+   "irr2018:rule7:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q14",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec4",
+   "irr2018:rule6:sec1:s1.5",
+   "irr2018:rule7:sec5:s5.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q15",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec2:s2.8",
+   "irr2018:rule10:sec2:s2.9",
+   "irr2018:rule10:sec2:s2.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q16",
+  "first_gold_rank": 4,
+  "top3": [
+   "irr2018:rule23:sec3:s3.2",
+   "irr2018:rule19:sec2",
+   "irr2018:rule18:sec6:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q17",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec7",
+   "irr2018:rule18:sec8:s8.3",
+   "irr2018:rule23:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q18",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule26:sec5",
+   "irr2018:rule6:sec1:s1.3",
+   "irr2018:rule26:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q19",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec1",
+   "irr2018:rule5:sec4:s4.1",
+   "irr2018:rule9:sec4:s4.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q20",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec3",
+   "irr2018:rule20:sec4",
+   "irr2018:rule20:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q21",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec4",
+   "rrg2021:parti",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:parti",
+   "rrg2021:partiv",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q23",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q24",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q25",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q26",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q27",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q28",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "irr2018:rule18:sec13"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q29",
+  "first_gold_rank": 3,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q30",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partii",
+   "rrg2021:parti",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q31",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q32",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q33",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.3",
+   "irr2018:rule24:sec1",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule22:sec5",
+   "irr2018:rule18:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q35",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec6",
+   "rrg2021:partiv",
+   "irr2018:rule10:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q36",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q37",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec12",
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec6:s6.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q38",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec13",
+   "rrg2021:partiv",
+   "irr2018:rule16:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q39",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec10",
+   "irr2018:rule18:sec3:s3.2",
+   "irr2018:rule14:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q40",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule18:sec1:s1.3",
+   "irr2018:rule18:sec11",
+   "irr2018:rule18:sec2:s2.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q41",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec6:s6.3",
+   "irr2018:rule18:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q42",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec3:s3.2",
+   "irr2018:rule18:sec3:s3.3",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q43",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec6:s6.3",
+   "rrg2021:partvii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q44",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule21:sec1",
+   "irr2018:rule7:sec5:s5.3",
+   "irr2018:rule7:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q46",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec2",
+   "irr2018:rule16:sec1",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q47",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec5",
+   "irr2018:rule16:sec7",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q48",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule21:sec1",
+   "irr2018:rule16:sec2",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q49",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule17:sec1",
+   "irr2018:rule17:sec2",
+   "irr2018:rule10:sec4:s4.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "q50",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partv",
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q01",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "rrg2021:partvii",
+   "rrg2021:partvii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q02",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q03",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule4:sec1",
+   "rrg2021:partvii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q04",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "rrg2021:partvii",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q05",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiii",
+   "irr2018:rule22:sec2",
+   "irr2018:rule20:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q06",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q07",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q08",
+  "first_gold_rank": 2,
+  "top3": [
+   "rrg2021:partiii",
+   "irr2018:rule22:sec2",
+   "irr2018:rule22:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q09",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec1",
+   "irr2018:rule20:sec4",
+   "irr2018:rule20:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q10",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec2",
+   "irr2018:rule20:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q11",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule11:sec1:s1.3",
+   "irr2018:rule12:sec2:s2.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q12",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "irr2018:rule15:sec2",
+   "irr2018:rule7:sec5:s5.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q13",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule13:sec2",
+   "irr2018:rule15:sec1",
+   "irr2018:rule13:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q14",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec4",
+   "irr2018:rule6:sec1:s1.5",
+   "irr2018:rule5:sec4:s3.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q15",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec2:s2.8",
+   "irr2018:rule10:sec2:s2.5",
+   "irr2018:rule10:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule18:sec6:s6.4",
+   "irr2018:rule24:sec4",
+   "irr2018:rule24:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q17",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec7",
+   "irr2018:rule23:sec3:s3.4",
+   "irr2018:rule16:sec10"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q18",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule26:sec5",
+   "irr2018:rule26:sec1",
+   "irr2018:rule25:sec5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q19",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule9:sec4:s4.4",
+   "irr2018:rule25:sec1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q20",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec3",
+   "irr2018:rule25:sec5",
+   "irr2018:rule25:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q21",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec4",
+   "irr2018:rule25:sec5",
+   "irr2018:rule25:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule22:sec7",
+   "rrg2021:parti",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q23",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q24",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q25",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:parti",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q26",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q27",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q28",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec1:s1.3",
+   "irr2018:rule22:sec1:s1.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q29",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q30",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partii",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q31",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q32",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q33",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.3",
+   "rrg2021:partiii",
+   "irr2018:rule22:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q35",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec6",
+   "irr2018:rule22:sec1:s1.3",
+   "irr2018:rule10:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q36",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3",
+   "irr2018:rule7:sec5:s5.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q37",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec12",
+   "irr2018:rule18:sec4",
+   "irr2018:rule18:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q38",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec13",
+   "rrg2021:partiv",
+   "irr2018:rule18:sec1:s1.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q39",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec10",
+   "irr2018:rule18:sec2:s2.3",
+   "irr2018:rule18:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q40",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule18:sec12",
+   "irr2018:rule18:sec1:s1.3",
+   "irr2018:rule18:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q41",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec6:s6.3",
+   "irr2018:rule18:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q42",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec3:s3.2",
+   "irr2018:rule18:sec3:s3.1",
+   "irr2018:rule18:sec3:s3.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q43",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec6:s6.3",
+   "irr2018:rule18:sec6:s6.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q44",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "rrg2021:partvii",
+   "irr2018:rule19:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q45",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule4:sec2",
+   "irr2018:rule7:sec1",
+   "irr2018:rule16:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q46",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec2",
+   "irr2018:rule5:sec4:s4.2",
+   "irr2018:rule5:sec3:s3.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q47",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec5",
+   "irr2018:rule22:sec5",
+   "irr2018:rule7:sec5:s5.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q48",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule21:sec1",
+   "irr2018:rule19:sec3",
+   "irr2018:rule18:sec8:s8.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q49",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule17:sec1",
+   "irr2018:rule17:sec2",
+   "irr2018:rule18:sec5:s5.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "q50",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partv",
+   "rrg2021:partiii",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q01",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule19:sec6:s6.1",
+   "rrg2021:partii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q02",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q03",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule4:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q04",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "irr2018:rule19:sec6:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q05",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiii",
+   "irr2018:rule22:sec2",
+   "irr2018:rule22:sec1:s1.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q06",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q07",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q08",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv",
+   "rrg2021:partiii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q09",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec1",
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q10",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec2",
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q11",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule11:sec1:s1.3",
+   "irr2018:rule10:sec2:s2.8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q12",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "irr2018:rule15:sec2",
+   "irr2018:rule14:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q13",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule13:sec2",
+   "irr2018:rule13:sec1",
+   "irr2018:rule15:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q14",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec4",
+   "irr2018:rule6:sec1:s1.5",
+   "irr2018:rule13:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q15",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec2:s2.8",
+   "irr2018:rule10:sec2:s2.7",
+   "irr2018:rule10:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q16",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule18:sec6:s6.4",
+   "irr2018:rule23:sec3:s3.2",
+   "irr2018:rule18:sec6:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q17",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec7",
+   "irr2018:rule16:sec10",
+   "irr2018:rule23:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q18",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule26:sec5",
+   "irr2018:rule26:sec1",
+   "irr2018:rule26:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q19",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec1",
+   "irr2018:rule9:sec4:s4.1",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q20",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec3",
+   "irr2018:rule25:sec1",
+   "irr2018:rule25:sec5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q21",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec4",
+   "rrg2021:parti",
+   "irr2018:rule25:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q22",
+  "first_gold_rank": null,
+  "top3": [
+   "rrg2021:parti",
+   "irr2018:rule22:sec7",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q23",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q24",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec5",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q25",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:parti",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q26",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q27",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "irr2018:rule22:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q28",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec1:s1.3",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q29",
+  "first_gold_rank": 3,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec1:s1.1",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q30",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partii",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q31",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q32",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q33",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.3",
+   "rrg2021:parti",
+   "rrg2021:partiii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule18:sec5:s5.1",
+   "rrg2021:partiv",
+   "irr2018:rule18:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q35",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec6",
+   "irr2018:rule10:sec7",
+   "irr2018:rule22:sec1:s1.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q36",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3",
+   "irr2018:rule6:sec1:s1.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q37",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec12",
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q38",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec13",
+   "rrg2021:partiv",
+   "irr2018:rule18:sec12"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q39",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec10",
+   "irr2018:rule18:sec2:s2.3",
+   "irr2018:rule18:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q40",
+  "first_gold_rank": 2,
+  "top3": [
+   "irr2018:rule18:sec1:s1.3",
+   "irr2018:rule18:sec11",
+   "irr2018:rule16:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q41",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec6:s6.3",
+   "irr2018:rule18:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q42",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec3:s3.2",
+   "irr2018:rule18:sec3:s3.3",
+   "irr2018:rule18:sec10"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q43",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec6:s6.3",
+   "irr2018:rule18:sec6:s6.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q44",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec6:s6.3",
+   "irr2018:rule19:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q45",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule7:sec1",
+   "irr2018:rule16:sec2",
+   "irr2018:rule7:sec5:s5.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q46",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec2",
+   "irr2018:rule16:sec1",
+   "irr2018:rule16:sec6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q47",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec5",
+   "irr2018:rule22:sec5",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q48",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule21:sec1",
+   "irr2018:rule19:sec3",
+   "irr2018:rule18:sec12"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q49",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule17:sec1",
+   "irr2018:rule17:sec2",
+   "irr2018:rule17:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "q50",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partv",
+   "rrg2021:partiii",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q01",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partii",
+   "irr2018:rule2:sec1",
+   "rrg2021:partii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q02",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "irr2018:rule2:sec1",
+   "rrg2021:partii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q03",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "rrg2021:partii",
+   "rrg2021:partii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q04",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule2:sec1",
+   "rrg2021:partii",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q05",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiii",
+   "irr2018:rule22:sec2",
+   "irr2018:rule35:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q06",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q07",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q08",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec2",
+   "rrg2021:partiii",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q09",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec1",
+   "irr2018:rule20:sec4",
+   "irr2018:rule20:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q10",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec2",
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q11",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec4",
+   "irr2018:rule12:sec2:s2.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q12",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "irr2018:rule15:sec2",
+   "irr2018:rule14:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q13",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule13:sec2",
+   "irr2018:rule13:sec3",
+   "irr2018:rule28:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q14",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec4",
+   "irr2018:rule13:sec2",
+   "irr2018:rule6:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q15",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec2:s2.8",
+   "irr2018:rule10:sec2:s2.7",
+   "irr2018:rule10:sec2:s2.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q16",
+  "first_gold_rank": 3,
+  "top3": [
+   "irr2018:rule23:sec4",
+   "irr2018:rule18:sec6:s6.4",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q17",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec7",
+   "irr2018:rule23:sec4",
+   "irr2018:rule23:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q18",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule26:sec5",
+   "irr2018:rule26:sec1",
+   "irr2018:rule6:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q19",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec1",
+   "irr2018:rule25:sec5",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q20",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec3",
+   "irr2018:rule25:sec5",
+   "irr2018:rule25:sec6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q21",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec4",
+   "rrg2021:parti",
+   "irr2018:rule25:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q22",
+  "first_gold_rank": 3,
+  "top3": [
+   "irr2018:rule22:sec7",
+   "rrg2021:parti",
+   "irr2018:rule25:sec5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q23",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q24",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q25",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q26",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "irr2018:rule10:sec2:s2.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q27",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q28",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q29",
+  "first_gold_rank": 2,
+  "top3": [
+   "rrg2021:partiv",
+   "rrg2021:partii",
+   "irr2018:rule22:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q30",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partii",
+   "rrg2021:partiv",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q31",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "irr2018:rule22:sec7",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q32",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q33",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec1:s1.3",
+   "rrg2021:partiii",
+   "rrg2021:parti"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q34",
+  "first_gold_rank": null,
+  "top3": [
+   "irr2018:rule18:sec13",
+   "irr2018:rule22:sec1:s1.1",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q35",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec6",
+   "rrg2021:parti",
+   "irr2018:rule25:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q36",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule22:sec5",
+   "irr2018:rule22:sec5:s5.3",
+   "irr2018:rule6:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q37",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec12",
+   "irr2018:rule18:sec10",
+   "irr2018:rule18:sec3:s3.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q38",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec13",
+   "rrg2021:partiv",
+   "rrg2021:partiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q39",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec10",
+   "irr2018:rule18:sec8:s8.3",
+   "irr2018:rule18:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q40",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec11",
+   "irr2018:rule18:sec1:s1.3",
+   "irr2018:rule18:sec8:s8.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q41",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec4:s4.3",
+   "irr2018:rule18:sec6:s6.3",
+   "irr2018:rule18:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q42",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule18:sec3:s3.2",
+   "irr2018:rule18:sec3:s3.1",
+   "irr2018:rule18:sec3:s3.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q43",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec6:s6.3",
+   "irr2018:rule18:sec6:s6.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q44",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec2",
+   "irr2018:rule19:sec1:s1.2",
+   "irr2018:rule2:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q45",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule4:sec2",
+   "irr2018:rule16:sec2",
+   "irr2018:rule15:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q46",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec2",
+   "irr2018:rule16:sec6",
+   "irr2018:rule22:sec5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q47",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule16:sec5",
+   "irr2018:rule22:sec5",
+   "irr2018:rule7:sec5:s5.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q48",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule21:sec1",
+   "rrg2021:partiv",
+   "irr2018:rule19:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q49",
+  "first_gold_rank": 1,
+  "top3": [
+   "irr2018:rule17:sec1",
+   "irr2018:rule17:sec2",
+   "irr2018:rule17:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "q50",
+  "first_gold_rank": 1,
+  "top3": [
+   "rrg2021:partv",
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv"
+  ]
+ }
+]

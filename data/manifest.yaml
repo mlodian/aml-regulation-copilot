@@ -1,0 +1,26 @@
+# Source documents for the corpus. Raw PDFs are downloaded locally and are
+# NOT committed (see .gitignore); this manifest is the reproducible record.
+# RA 11521 (2021 amendments) is not listed: the AMLC copy is a scanned image with no
+# text layer, and its changes are already consolidated in the January 2021 IRR below.
+# RA 9160 itself is not listed: the AMLC copy is the 2001 text as originally enacted
+# (e.g. a PHP 4M covered-transaction threshold, since lowered to PHP 500k), and the
+# 2018 IRR below restates the law as currently amended.
+documents:
+  - id: irr2018
+    title: 2018 Implementing Rules and Regulations of RA 9160, as amended (January 2021 amendment)
+    short: 2018 IRR
+    publisher: AMLC
+    url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/c18a7493-143b-4fda-af6d-39bc7b99d488_2018_IRR_2021_JAN%20AMENDMENT.pdf
+  - id: rrg2021
+    title: 2021 AMLC Registration and Reporting Guidelines
+    short: 2021 RRG
+    publisher: AMLC (copy hosted by the Insurance Commission)
+    url: https://www.insurance.gov.ph/wp-content/uploads/2023/03/2021-AMLC-REGISTRATION-AND-REPORTING-GUIDELINES.pdf
+  - id: fatf
+    title: FATF Recommendations (International Standards on Combating Money Laundering)
+    short: FATF
+    publisher: Financial Action Task Force
+    # fatf-gafi.org sits behind a browser challenge, so this one is manual:
+    # download the current edition and save it as data/manual/fatf.pdf
+    manual: data/manual/fatf.pdf
+    optional: true
