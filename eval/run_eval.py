@@ -1,7 +1,7 @@
 """Evaluation harness.
 
     python -m eval.run_eval retrieval          # no LLM: retrieval ablation table
-    python -m eval.run_eval answers [--limit N] # end-to-end answers on the Claude plan
+    python -m eval.run_eval answers [--limit N] # end-to-end answers through the LLM backend
 
 Retrieval metrics
   section_recall@k  a gold provision is among the top-k chunks (structured chunks only;

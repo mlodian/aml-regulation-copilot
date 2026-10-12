@@ -15,7 +15,7 @@ test:
 eval-retrieval:  ## retrieval ablation, no LLM
 	HF_HUB_OFFLINE=1 $(PY) -m eval.run_eval retrieval
 
-eval-answers:    ## end-to-end answers on the Claude plan (resumable)
+eval-answers:    ## end-to-end answers through the LLM backend (resumable)
 	HF_HUB_OFFLINE=1 $(PY) -m eval.run_eval answers
 
 app:

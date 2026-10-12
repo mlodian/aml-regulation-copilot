@@ -53,7 +53,7 @@ with ask_tab:
             try:
                 res = answer(question)
             except UsageLimitError:
-                st.error("The Claude plan's usage limit is reached. Try again when it resets.")
+                st.error("The LLM usage limit is reached. Try again when it resets.")
                 st.stop()
             except LLMError as e:
                 st.error(f"LLM call failed: {e}")

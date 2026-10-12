@@ -9,7 +9,7 @@ rank-bm25==0.2.2
 sentence-transformers==6.1.0
 torch==2.14.1
 
-# Answering and verification (LLM runs through the `claude` CLI on a Claude plan)
+# Answering and verification (pilot LLM backend is the `claude` CLI; see rag/llm.py)
 RapidFuzz==3.14.6
 
 # Evaluation and demo

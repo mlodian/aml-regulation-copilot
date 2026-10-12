@@ -4,6 +4,8 @@ Author: Lodian Mier
 
 A retrieval-augmented assistant that answers Philippine AML/CTF compliance questions **only from the regulations themselves**, cites the exact provision behind every claim, and **checks those citations deterministically** before showing the answer. A second mode maps an internal control or test case to the provisions it should satisfy and flags the gaps.
 
+> **Status: Phase 1 pilot.** The pipeline is built and evaluated on public AMLC regulations. The pilot exists to prove retrieval quality, citation integrity and refusal behaviour on a corpus anyone can verify, before the same pipeline is pointed at a larger regulatory library and internal policy, control and test-case documents. See [docs/production-plan.md](docs/production-plan.md) for the phased rollout.
+
 ```
  2018 AMLA IRR (as amended Jan 2021)          2021 AMLC Registration and
  106 pages                                    Reporting Guidelines, Part 1
@@ -14,7 +16,7 @@ A retrieval-augmented assistant that answers Philippine AML/CTF compliance quest
    |          font-aware parse: footnotes (superseded wording)  |
    |          dropped; Rule > Section > subsection chunking     |
    +-----------------------------------------------------------+
-                               |  330 chunks, each with a citable
+                               |  364 chunks, each with a citable
                                v  address ("2018 IRR, Rule 22, Sec. 2")
    +-----------------------------------------------------------+
    | index    BM25  +  bge-small vectors in DuckDB   (local)    |
@@ -29,8 +31,8 @@ A retrieval-augmented assistant that answers Philippine AML/CTF compliance quest
                                |
                                v
    +-----------------------------------------------------------+
-   | answer   Claude (via `claude -p` on a Claude plan) with    |
-   |          numbered excerpts; must cite [n] or refuse        |
+   | answer   LLM (Claude) with numbered excerpts only;         |
+   |          must cite [n] or reply NOT_IN_SOURCES             |
    +-----------------------------------------------------------+
                                |
                                v
@@ -42,7 +44,9 @@ A retrieval-augmented assistant that answers Philippine AML/CTF compliance quest
 
 ## Problem / objective
 
-Compliance teams answer the same regulatory questions again and again: how long they have to file an STR, which threshold makes a transaction covered, what enhanced due diligence actually requires. A generic chatbot answers these fluently and sometimes wrongly, and a wrong deadline is an audit finding. The goal was a copilot whose answers can be **audited**: every statement traceable to a provision and page, refusals when the regulations are silent, and an evaluation harness that measures all of this instead of asserting it.
+Compliance teams answer the same regulatory questions again and again: how long they have to file an STR, which threshold makes a transaction covered, what enhanced due diligence actually requires. A generic chatbot answers these fluently and sometimes wrongly, and a wrong deadline is an audit finding. The goal is a copilot whose answers can be **audited**: every statement traceable to a provision and page, refusals when the regulations are silent, and an evaluation harness that measures all of this instead of asserting it.
+
+The longer-term target is the compliance assurance workflow itself: mapping each control and automated test in a testing inventory to the regulatory requirements it evidences, so coverage gaps surface before an examiner finds them. Public regulations come first because results can be checked by anyone; internal documents come later, behind access controls.
 
 ## My specific contribution
 
@@ -67,7 +71,7 @@ I designed and built the whole system: the corpus selection and provenance manif
 
 ### End-to-end answers
 
-All 60 questions run through the full pipeline on a Claude plan (median 10 s per answer).
+All 60 questions run through the full pipeline (median 10 s per answer).
 
 ![Answer quality](docs/charts/answer_quality.png)
 
@@ -81,7 +85,7 @@ All 60 questions run through the full pipeline on a Claude plan (median 10 s per
 
 The out-of-corpus questions are deliberately close to the domain: Singapore thresholds, FinCEN deadlines, the FATF grey list, the current AMLC Executive Director, and the BSP's de minimis wire-transfer amount, which the IRR mentions but never states. The copilot declined all ten rather than answer from general knowledge.
 
-**What the verifier caught.** Over three development runs the verifier, not the model, drove the improvements:
+**What the verifier caught.** Over three test cycles the verifier, not the model, drove the improvements:
 
 | Run | Change | Facts correct | Citations verified |
 |---|---|---|---|
@@ -97,7 +101,7 @@ All three runs are graded with the same final answer patterns. The remaining two
 - **The 2001 Act itself is excluded.** The AMLC's copy of RA 9160 is the text as originally enacted (for example a PHP 4M covered-transaction threshold, since lowered to PHP 500k). The 2018 IRR restates the law as currently amended, so it is the authoritative source here. RA 11521 is also excluded: the published copy is a scanned image, and its amendments are already consolidated in the January 2021 IRR.
 - **Deterministic checks around the LLM.** Retrieval, citation verification and the coverage table in the mapper are plain code. The model is only asked to judge and to write, and anything it quotes is checked against the source.
 - **Strict grading, disclosed.** Gold provisions were labelled before any results and kept strict (an answer that cites the CDD tipping-off rule for a question about STR confidentiality still counts as a miss). Four answer patterns (q29, q33, q34, q39) were broadened after manual review showed they rejected correct paraphrases such as "exempt" for "not required"; every run above is re-graded with the final patterns. The golden set was also used during development, so treat these numbers as a regression baseline, not a held-out benchmark.
-- **Runs on a subscription, not per-token billing.** Generation calls the `claude` CLI headless (`claude -p`), so evaluation runs count against a Claude plan's usage instead of API spend. Embeddings and reranking run locally. A usage limit pauses the eval, and rerunning resumes where it stopped.
+- **Cheap to iterate during the pilot.** Embeddings and reranking run locally, and generation goes through the `claude` CLI in headless mode (`claude -p`, behind one function in `rag/llm.py`), so a full 60-question evaluation costs nothing per run. The eval is resumable if a usage limit is hit. Production swaps this for an API backend with enterprise data controls (see the production plan); nothing else in the pipeline changes.
 
 ## Corpus
 
@@ -118,7 +122,7 @@ make index            # download, chunk and embed (first run downloads two small
 make test             # unit tests: chunking, fusion, citation verifier, refusal
 make eval-retrieval   # retrieval ablation, no LLM
 
-# answering needs the Claude Code CLI signed in to a Claude plan (`claude` then /login)
+# answering uses the `claude` CLI (signed in) as the pilot LLM backend
 python copilot.py ask "When must an STR be filed, and what counts as the occurrence date?"
 python copilot.py map "Monthly TMS run; analyst reviews alerts and escalates to the Compliance Officer"
 make eval-answers     # end-to-end evaluation, resumable
@@ -134,12 +138,24 @@ rag/        retrieve.py, fusion.py (RRF), answer.py, cite_check.py, mapper.py, l
 eval/       golden.yaml (60 questions), run_eval.py, charts.py, reports/
 app/        streamlit_app.py
 tests/      deterministic unit tests
-docs/       charts and example sessions
+docs/       production-plan.md, charts, example answers
 ```
 
-## Limitations and next steps
+## Current limitations
 
-- Two documents. The natural next additions are the BSP's AML regulations (MORB Part 8) and the Insurance Commission's AML circulars, which would bring in sector-specific rules.
-- The golden set is 60 questions written by one person. It is a regression suite, not a benchmark, and a second annotator would make it stronger.
-- Citations point to a provision and page, not to a paragraph highlight in the PDF.
-- This is research support, not legal advice.
+- Two documents. Phase 2 adds the BSP's AML regulations (MORB Part 8), Insurance Commission and SEC AML circulars, and later AMLC issuances.
+- No effective-date versioning yet: the corpus is a single point-in-time snapshot. Amendments need provisions tracked by effective date before the corpus grows.
+- The golden set is 60 questions written by one person and was used during development. It is a regression suite, not a held-out benchmark; a second annotator and a held-out split are part of Phase 2.
+- Citations point to a provision and page, not to a highlighted paragraph in the PDF.
+- Research support for compliance analysts, not legal advice.
+
+## Roadmap
+
+| Phase | Scope | Exit criteria |
+|---|---|---|
+| **1 · Pilot** (done) | Public AMLC rules and guidelines, CLI and demo app, evaluation harness | ≥ 95% facts and verified citations, 100% refusal on out-of-corpus questions |
+| **2 · Regulatory library** | BSP, IC and SEC AML issuances; effective-date versioning; 200+ question golden set with a held-out split | Metrics hold on the held-out split as the corpus grows 10× |
+| **3 · Internal documents** | Policies, MTPP, control inventory and test scripts behind role-based access | Control mapping reviewed against an existing compliance testing inventory |
+| **4 · Production** | API LLM backend, managed vector store, logging and monitoring, evaluation gate in CI | Agreed SLOs and sign-off from compliance and information security |
+
+Details, risks and controls: [docs/production-plan.md](docs/production-plan.md).
