@@ -42,6 +42,8 @@ A retrieval-augmented assistant that answers Philippine AML/CTF compliance quest
    +-----------------------------------------------------------+
 ```
 
+**Presentation:** [project web page](docs/presentation/Mier_AML_Regulation_Copilot.html) (open locally).
+
 ## Problem / objective
 
 Compliance teams answer the same regulatory questions again and again: how long they have to file an STR, which threshold makes a transaction covered, what enhanced due diligence actually requires. A generic chatbot answers these fluently and sometimes wrongly, and a wrong deadline is an audit finding. The goal is a copilot whose answers can be **audited**: every statement traceable to a provision and page, refusals when the regulations are silent, and an evaluation harness that measures all of this instead of asserting it.

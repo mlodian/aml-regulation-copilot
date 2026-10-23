@@ -8,3 +8,11 @@ data/processed/
 data/index/
 .pytest_cache/
 .DS_Store
+
+# Video project workspace (final MP4 is copied to docs/)
+videos/
+
+# Local-only deliverables (not published)
+docs/presentation/*.pptx
+docs/presentation/*.mp4
+docs/linkedin-post.md

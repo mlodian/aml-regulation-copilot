@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AML Regulation Copilot</title>
+<meta name="author" content="Lodian Mier">
+<meta name="description" content="A pilot copilot for Philippine AML/CTF regulations. Every claim cites its provision and is checked against the source before it is shown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --ink: #0e1116;
+  --ink-2: #4b5260;
+  --ink-3: #7c8390;
+  --line: #e4e7eb;
+  --tint: #f4f6f7;
+  --accent: #0f7b5f;
+  --accent-ink: #0b5e49;
+  --accent-tint: #e6f3ee;
+  --partial: #a8650b;
+  --partial-tint: #fbf1e1;
+  --gap: #bf3a26;
+  --gap-tint: #fbe9e5;
+  --grey-bar: #c9ced6;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --wrap: 1200px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+.mono { font-family: var(--mono); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- reveal on scroll ---------- */
+.r { opacity: 0; transform: translateY(20px); filter: blur(6px); }
+.in .r, .r.in { opacity: 1; transform: none; filter: blur(0); transition: opacity 640ms var(--ease-out), transform 820ms var(--ease-out), filter 640ms var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+
+/* ---------- nav ---------- */
+.nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.82); backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav .wrap { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-weight: 800; letter-spacing: -0.03em; font-size: 18px; text-decoration: none; white-space: nowrap; }
+.brand span { color: var(--accent); }
+.links { display: flex; align-items: center; gap: 30px; }
+.links a { text-decoration: none; font-size: 15px; color: var(--ink-2); position: relative; padding: 4px 0; transition: color 160ms ease; white-space: nowrap; }
+.links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 260ms var(--ease-out); }
+.links a.active { color: var(--ink); }
+.links a.active::after { transform: scaleX(1); }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 22px; border-radius: 999px; font: 600 15px/1 var(--sans); text-decoration: none; white-space: nowrap; border: 1px solid transparent; cursor: pointer; transition: transform 160ms var(--ease-out), background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease; }
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--ink); color: #fff; }
+.btn.secondary { background: var(--bg); color: var(--ink); border-color: var(--line); }
+.btn.small { height: 38px; padding: 0 16px; font-size: 14px; }
+.btn svg { width: 16px; height: 16px; }
+@media (hover: hover) and (pointer: fine) {
+  .btn.primary:hover { background: #22262e; box-shadow: 0 8px 24px -10px rgba(14,17,22,.45); }
+  .btn.secondary:hover { border-color: var(--ink-3); }
+  .links a:hover { color: var(--ink); }
+}
+
+/* ---------- hero ---------- */
+.hero { min-height: calc(100dvh - 68px); display: flex; align-items: center; padding: 56px 0 72px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; width: 100%; }
+.eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-ink); }
+.hero h1 { margin-top: 18px; font-size: clamp(44px, 6vw, 84px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p.lead { margin-top: 24px; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: var(--ink-2); max-width: 30em; }
+.cta { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+.stage-panel { background: var(--tint); border-radius: 28px; padding: clamp(20px, 3vw, 40px); position: relative; }
+.demo { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 28px 30px; box-shadow: 0 1px 2px rgba(14,17,22,.04), 0 24px 60px -24px rgba(14,17,22,.22); }
+.demo .lab { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); display: flex; justify-content: space-between; gap: 12px; }
+.demo .q { margin-top: 12px; font-size: 19px; line-height: 1.4; font-weight: 650; min-height: 80px; }
+.caret { display: inline-block; width: 2px; height: 1.05em; background: var(--accent); vertical-align: -0.15em; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.demo .a { margin-top: 14px; font-size: 18px; line-height: 1.6; opacity: 0; transform: translateY(6px); transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out); }
+.demo .a.on { opacity: 1; transform: none; }
+.demo .src { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 10px 16px; flex-wrap: wrap; opacity: 0; transition: opacity 420ms var(--ease-out); }
+.demo .src.on { opacity: 1; }
+.demo .where { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.cite { font-family: var(--mono); font-size: 0.82em; font-weight: 500; color: var(--accent-ink); background: var(--accent-tint); border-radius: 6px; padding: 1px 6px; white-space: nowrap; }
+.chip { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; font-family: var(--mono); font-size: 13px; font-weight: 500; border-radius: 999px; padding: 6px 12px; }
+.chip.ok { color: var(--accent-ink); background: var(--accent-tint); }
+.chip.flag { color: var(--gap); background: var(--gap-tint); }
+.chip.neutral { color: var(--ink-2); background: var(--tint); }
+.chip svg { width: 15px; height: 15px; }
+.chip.pop { transform: scale(0.96); opacity: 0; transition: transform 260ms var(--ease-out), opacity 260ms var(--ease-out); }
+.on .chip.pop { transform: none; opacity: 1; transition-delay: 240ms; }
+
+/* ---------- sections ---------- */
+section.block { padding: clamp(72px, 10vw, 128px) 0; }
+section.block.tinted { background: var(--tint); }
+.group-label { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-ink); margin-bottom: 16px; }
+h2 { font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; max-width: 22em; }
+h2 em { font-style: normal; color: var(--accent); }
+.intro { margin-top: 18px; font-size: 19px; color: var(--ink-2); max-width: 62ch; }
+.card { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 1px 2px rgba(14,17,22,.04), 0 12px 32px -14px rgba(14,17,22,.12); }
+.small { font-size: 15.5px; color: var(--ink-2); line-height: 1.55; }
+
+/* stats */
+.stats { margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.stat { padding: 34px 28px 0 0; }
+.stat + .stat { padding-left: 28px; border-left: 1px solid var(--line); }
+.stat .num { font-size: clamp(54px, 6.4vw, 92px); font-weight: 700; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .num.accent { color: var(--accent); }
+.stat .lbl { margin-top: 16px; font-size: 17px; color: var(--ink-2); max-width: 20ch; }
+.rec { margin-top: 56px; display: flex; gap: 18px; align-items: baseline; font-size: 21px; max-width: 900px; }
+.rec b { font-weight: 650; }
+.foot-note { margin-top: 28px; font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
+
+/* problem */
+.trap { margin-top: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.trap .card { padding: 36px 38px; }
+.trap .doc { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
+.trap .amt { margin-top: 18px; font-size: clamp(34px, 4.4vw, 60px); font-weight: 700; letter-spacing: -0.045em; position: relative; display: inline-block; line-height: 1.05; white-space: nowrap; }
+.trap .old .amt { color: var(--ink-3); }
+.trap .old .amt::after { content: ""; position: absolute; left: -4px; right: -4px; top: 52%; height: 4px; background: var(--gap); border-radius: 2px; transform: scaleX(0); transform-origin: left; }
+.in .trap .old .amt::after { transform: scaleX(1); transition: transform 760ms var(--ease-in-out) 900ms; }
+.trap .new { border-color: var(--accent); }
+.trap .new .amt { color: var(--accent); }
+.trap .what { margin-top: 14px; font-size: 17.5px; color: var(--ink-2); }
+.needs { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.needs h3 { font-size: 21px; font-weight: 650; }
+.needs p { margin-top: 8px; color: var(--ink-2); }
+
+/* tools */
+.tools { margin-top: 48px; display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start; }
+.tool-list { display: grid; gap: 8px; }
+.tool { text-align: left; border: 1px solid transparent; background: none; font: inherit; color: inherit; padding: 18px 20px; border-radius: 14px; cursor: pointer; transition: background-color 200ms ease, border-color 200ms ease, transform 160ms var(--ease-out); }
+.tool:active { transform: scale(0.98); }
+.tool h3 { font-size: 20px; font-weight: 650; }
+.tool p { margin-top: 4px; font-size: 15.5px; color: var(--ink-2); }
+.tool .k { margin-top: 8px; font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.tool[aria-selected="true"] { background: var(--bg); border-color: var(--line); box-shadow: 0 8px 24px -14px rgba(14,17,22,.18); }
+.tool[aria-selected="true"] h3 { color: var(--accent-ink); }
+@media (hover: hover) and (pointer: fine) { .tool:hover { background: rgba(255,255,255,.7); } }
+.shot { position: relative; aspect-ratio: 800 / 562; }
+.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 30px 70px -30px rgba(14,17,22,.35); opacity: 0; transform: translateY(8px) scale(0.99); transition: opacity 320ms var(--ease-out), transform 320ms var(--ease-out); }
+.shot img.on { opacity: 1; transform: none; }
+
+/* pipeline */
+.pipe { margin-top: 96px; position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+.wire { position: absolute; left: 0; right: 0; top: -36px; height: 2px; background: var(--line); }
+.packet { position: absolute; top: -42px; left: 0; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-tint); opacity: 0; }
+.in .packet { animation: travel 5.2s linear 700ms infinite; }
+@keyframes travel { 0% { left: 0; opacity: 0; } 4% { opacity: 1; } 96% { opacity: 1; } 100% { left: calc(100% - 14px); opacity: 0; } }
+.node { padding: 24px 22px 26px; position: relative; }
+.node .tag { display: inline-flex; font-family: var(--mono); font-size: 12px; padding: 4px 9px; border-radius: 999px; background: var(--tint); color: var(--ink-2); }
+.node.llm { border-color: var(--accent); }
+.node.llm .tag { background: var(--accent-tint); color: var(--accent-ink); }
+.node h3 { margin-top: 16px; font-size: 23px; font-weight: 700; letter-spacing: -0.02em; }
+.node p { margin-top: 8px; font-size: 15.5px; color: var(--ink-2); }
+.node .tech { margin-top: 14px; font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.in .node { animation: lit 5.2s linear calc(700ms + var(--at) * 5.2s) infinite; }
+@keyframes lit { 0% { box-shadow: 0 0 0 0 rgba(15,123,95,0), 0 12px 32px -14px rgba(14,17,22,.12); } 4% { box-shadow: 0 0 0 4px rgba(15,123,95,.16), 0 18px 40px -14px rgba(15,123,95,.35); } 22%, 100% { box-shadow: 0 0 0 0 rgba(15,123,95,0), 0 12px 32px -14px rgba(14,17,22,.12); } }
+.pipe-note { margin-top: 40px; font-size: 19px; color: var(--ink-2); max-width: 70ch; }
+
+/* ingest */
+.ingest { margin-top: 52px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+.tree { font-family: var(--mono); font-size: 15.5px; }
+.tree .row { display: flex; align-items: center; gap: 12px; min-height: 50px; flex-wrap: wrap; }
+.tree .l2 { padding-left: 36px; } .tree .l3 { padding-left: 72px; }
+.tree .nd { padding: 9px 13px; border-radius: 10px; background: var(--tint); }
+.tree .nd.leaf { background: var(--accent-tint); color: var(--accent-ink); }
+.tree .addr { color: var(--accent-ink); font-weight: 500; white-space: nowrap; }
+.tree .foot { margin-top: 24px; padding: 16px 18px; border: 1px dashed var(--gap); border-radius: 12px; color: var(--gap); font-family: var(--sans); font-size: 15.5px; }
+.tree .foot s { text-decoration-thickness: 2px; }
+.facts { border-top: 1px solid var(--line); }
+.fact { padding: 22px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 170px 1fr; gap: 18px; align-items: baseline; }
+.fact .v { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; white-space: nowrap; }
+.fact .d { color: var(--ink-2); font-size: 16px; }
+
+/* charts */
+.chart-wrap { margin-top: 48px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: start; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart text { font-family: var(--sans); }
+.chart .lbl { fill: var(--ink-2); font-size: 15px; }
+.chart .val { fill: var(--ink); font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart .grp { fill: var(--ink); font-size: 17px; font-weight: 650; }
+.bar { transform-box: fill-box; transform-origin: left center; transform: scaleX(0.001); }
+.in .bar { transform: none; transition: transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 50ms + 200ms); }
+.legend { display: flex; gap: 22px; flex-wrap: wrap; font-size: 14.5px; color: var(--ink-2); margin-bottom: 16px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+.notes h3 { font-size: 19px; font-weight: 650; }
+.notes p { margin-top: 8px; color: var(--ink-2); font-size: 16.5px; }
+.notes > div + div { margin-top: 28px; }
+
+/* context */
+.ctx { margin-top: 56px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+.ctx .row + .row { margin-top: 36px; }
+.ctx .name { font-size: 19px; font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+.ctx .track { margin-top: 12px; height: 64px; position: relative; }
+.ctx .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 10px; transform-origin: left; transform: scaleX(0.001); }
+.in .ctx .fill { transform: none; transition: transform 1000ms var(--ease-out) 300ms; }
+.fill.grey { background: var(--grey-bar); } .fill.acc { background: var(--accent); }
+.big-delta { font-size: clamp(88px, 11vw, 150px); font-weight: 800; letter-spacing: -0.06em; color: var(--accent); line-height: 1; }
+.mini { margin-top: 28px; width: 100%; border-collapse: collapse; font-size: 17px; }
+.mini th { text-align: left; font-weight: 500; color: var(--ink-3); font-size: 13px; font-family: var(--mono); padding-bottom: 10px; }
+.mini td { padding: 12px 0; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.mini td.win { color: var(--accent-ink); font-weight: 650; }
+
+/* ask */
+.ask { margin-top: 48px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: start; }
+.ask .card { padding: 28px 30px; }
+.ask .qline { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
+.ask .qtext { margin-top: 8px; font-size: 20px; font-weight: 650; line-height: 1.35; }
+.ask .ans { margin-top: 18px; font-size: 16.5px; line-height: 1.62; }
+.ask .ans p + p, .ask .ans ul { margin-top: 10px; }
+.ask .ans ul { padding-left: 20px; }
+.ask .ans li + li { margin-top: 8px; }
+.ask .ans .cite { cursor: pointer; transition: background-color 160ms ease, color 160ms ease; }
+.ask .ans .cite:hover, .ask .ans .cite.hl { background: var(--accent); color: #fff; }
+.verdict { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.sources { display: grid; gap: 8px; }
+.source { padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); transition: border-color 200ms ease, background-color 200ms ease, transform 200ms var(--ease-out); }
+.source .h { font-family: var(--mono); font-size: 13px; color: var(--ink-2); display: flex; gap: 8px; }
+.source .h b { color: var(--ink); }
+.source .t { margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--ink-3); display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.source.cited { border-color: var(--accent); }
+.source.hl { background: var(--accent-tint); transform: translateX(-4px); }
+.source.hl .t { -webkit-line-clamp: 6; color: var(--ink-2); }
+
+/* verifier */
+.verify { margin-top: 48px; display: grid; gap: 16px; }
+.vrow { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; }
+.vrow .who { font-family: var(--mono); font-size: 13px; color: var(--ink-3); }
+.vrow .card { padding: 18px 24px; font-size: 20px; line-height: 1.55; }
+.tok { border-radius: 5px; padding: 0 2px; transition: background-color 400ms ease, color 400ms ease; }
+.verify.run .tok.diff-a { background: #fde3a7; }
+.verify.run .tok.diff-b { background: var(--accent-tint); color: var(--accent-ink); }
+.verify.run .tok.miss { background: var(--gap-tint); color: var(--gap); text-decoration: line-through; text-decoration-thickness: 2px; }
+.verify .chip.flag { justify-self: start; margin-left: 224px; opacity: 0; transform: scale(0.96); transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); }
+.verify.run .chip.flag { opacity: 1; transform: none; transition-delay: 1300ms; }
+.three { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
+.three h3 { font-size: 18.5px; font-weight: 650; }
+.three p { margin-top: 6px; color: var(--ink-2); font-size: 16px; }
+
+/* refusals */
+.refuse { margin-top: 48px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: start; }
+.qgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.qtile { padding: 16px 18px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); font-size: 15px; line-height: 1.45; display: flex; flex-direction: column; gap: 10px; justify-content: space-between; }
+.qtile .chip { align-self: flex-start; font-size: 11.5px; padding: 3px 8px; }
+.featured { padding: 28px 30px; position: sticky; top: 100px; }
+.featured .why { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.featured .q { margin-top: 10px; font-size: 21px; font-weight: 650; line-height: 1.35; }
+.featured pre { margin-top: 16px; white-space: pre-wrap; font-family: var(--mono); font-size: 14.5px; line-height: 1.6; background: var(--tint); border-radius: 10px; padding: 16px 18px; }
+.featured p { margin-top: 16px; color: var(--ink-2); font-size: 16px; }
+
+/* mapping */
+.map { margin-top: 48px; display: grid; grid-template-columns: 380px 1fr; gap: 40px; align-items: start; }
+.ctrl { padding: 24px 26px; }
+.ctrl .lab { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.ctrl p { margin-top: 10px; font-size: 16.5px; line-height: 1.6; }
+.counts { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.counts button { font: 500 13.5px var(--mono); cursor: pointer; border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 8px 14px; color: var(--ink-2); transition: background-color 160ms ease, border-color 160ms ease, transform 160ms var(--ease-out); }
+.counts button:active { transform: scale(0.97); }
+.counts button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); }
+.variance { margin-top: 18px; font-size: 15px; color: var(--ink-2); }
+.findings { display: grid; gap: 10px; }
+.finding { padding: 14px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); display: grid; grid-template-columns: 88px 1fr; gap: 18px; cursor: pointer; transition: border-color 200ms ease, box-shadow 200ms ease, transform 160ms var(--ease-out); }
+.finding:active { transform: scale(0.995); }
+.finding.hide { display: none; }
+.finding .st { font: 600 12.5px var(--mono); padding: 5px 0; text-align: center; border-radius: 8px; align-self: start; }
+.finding.gap .st { background: var(--gap-tint); color: var(--gap); }
+.finding.partial .st { background: var(--partial-tint); color: var(--partial); }
+.finding .c { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+.finding blockquote { margin-top: 4px; font-size: 15.5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.finding .fix { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 320ms var(--ease-out), opacity 240ms var(--ease-out), margin-top 320ms var(--ease-out); }
+.finding .fix > div { overflow: hidden; font-size: 15px; color: var(--ink-2); }
+.finding .fix b { color: var(--ink); }
+.finding.open { border-color: var(--ink-3); box-shadow: 0 12px 30px -16px rgba(14,17,22,.25); }
+.finding.open blockquote { -webkit-line-clamp: 8; }
+.finding.open .fix { grid-template-rows: 1fr; opacity: 1; margin-top: 10px; }
+@media (hover: hover) and (pointer: fine) { .finding:hover { border-color: var(--ink-3); } }
+
+/* cycles */
+.cycles { margin-top: 48px; display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: start; }
+.line-path { stroke-dasharray: 1400; stroke-dashoffset: 1400; }
+.in .line-path { stroke-dashoffset: 0; transition: stroke-dashoffset 1500ms var(--ease-in-out) 300ms; }
+.dot { opacity: 0; }
+.in .dot { opacity: 1; transition: opacity 300ms ease; transition-delay: calc(var(--i, 0) * 380ms + 500ms); }
+.steps { display: grid; gap: 22px; border-left: 2px solid var(--line); padding-left: 24px; }
+.steps .n { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.steps h3 { font-size: 18px; font-weight: 650; margin-top: 2px; }
+.steps p { margin-top: 4px; font-size: 15.5px; color: var(--ink-2); }
+
+/* limits */
+.limits { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.limit { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 30px 32px; display: flex; flex-direction: column; }
+.limit h3 { font-size: 23px; font-weight: 700; letter-spacing: -0.02em; }
+.limit p { margin-top: 10px; color: var(--ink-2); }
+.limit .fix { margin-top: auto; padding-top: 18px; font-family: var(--mono); font-size: 13.5px; color: var(--accent-ink); }
+
+/* roadmap */
+.road { margin-top: 72px; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.road .rail { position: absolute; left: 0; right: 0; top: 11px; height: 2px; background: var(--line); }
+.road .rail i { position: absolute; left: 0; top: 0; bottom: 0; width: 12.5%; background: var(--accent); transform-origin: left; transform: scaleX(0.001); }
+.in .road .rail i { transform: none; transition: transform 900ms var(--ease-out) 300ms; }
+.phase { position: relative; padding-top: 42px; }
+.phase::before { content: ""; position: absolute; top: 4px; left: 0; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 2px solid var(--grey-bar); }
+.phase.done::before { background: var(--accent); border-color: var(--accent); }
+.phase .when { font-family: var(--mono); font-size: 12.5px; color: var(--ink-3); }
+.phase h3 { margin-top: 6px; font-size: 25px; font-weight: 700; letter-spacing: -0.02em; }
+.phase.done h3 { color: var(--accent-ink); }
+.phase p { margin-top: 10px; color: var(--ink-2); font-size: 16px; }
+.phase .exit { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15.5px; }
+.phase .exit span { display: block; font-family: var(--mono); font-size: 12px; color: var(--ink-3); margin-bottom: 4px; }
+
+/* closing */
+.close { padding: clamp(88px, 12vw, 150px) 0; text-align: left; }
+.close h2 { font-size: clamp(34px, 4.6vw, 60px); letter-spacing: -0.04em; max-width: 16em; }
+.close p { margin-top: 20px; font-size: 19px; color: var(--ink-2); max-width: 52ch; }
+footer { border-top: 1px solid var(--line); padding: 28px 0 40px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--ink-3); }
+footer a { color: var(--ink-2); text-decoration: none; }
+footer a:hover { color: var(--ink); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1040px) {
+  .links .opt { display: none; }
+  .hero .wrap, .tools, .ingest, .chart-wrap, .ctx, .ask, .refuse, .map, .cycles { grid-template-columns: 1fr; }
+  .hero { min-height: auto; padding-top: 40px; }
+  .pipe { grid-template-columns: 1fr 1fr; margin-top: 48px; }
+  .wire, .packet { display: none; }
+  .featured { position: static; }
+  .road { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .road .rail { display: none; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .links { gap: 16px; }
+  .links a:not(.btn) { display: none; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat { padding-bottom: 28px; }
+  .trap, .needs, .three, .limits, .qgrid, .pipe, .road { grid-template-columns: 1fr; }
+  .needs, .three { gap: 24px; }
+  .vrow { grid-template-columns: 1fr; gap: 8px; }
+  .vrow .card { font-size: 17px; }
+  .verify .chip.flag { margin-left: 0; white-space: normal; }
+  .fact { grid-template-columns: 1fr; gap: 4px; }
+  .tree .l2 { padding-left: 18px; } .tree .l3 { padding-left: 36px; }
+  .finding { grid-template-columns: 1fr; gap: 8px; }
+  .finding .st { justify-self: start; padding: 4px 10px; }
+  .rec { flex-direction: column; gap: 12px; font-size: 18px; }
+  .demo { padding: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .r, .in .r, .r.in { transform: none !important; filter: none !important; transition: opacity 200ms ease !important; transition-delay: 0ms !important; }
+  .bar, .ctx .fill, .road .rail i { transform: none !important; transition: none !important; }
+  .line-path { stroke-dashoffset: 0 !important; transition: none !important; }
+  .dot { opacity: 1 !important; }
+  .in .packet, .in .node { animation: none; }
+  .trap .old .amt::after { transform: none !important; }
+  .caret { animation: none; }
+}
+@media print {
+  .nav { position: static; }
+  .r { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .bar, .ctx .fill, .road .rail i { transform: none !important; }
+  .line-path { stroke-dashoffset: 0 !important; } .dot { opacity: 1 !important; }
+  .demo .a, .demo .src { opacity: 1 !important; transform: none !important; }
+  .packet { display: none; }
+  section.block { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">AML Regulation <span>Copilot</span></a>
+    <div class="links">
+      <a href="#how" data-sec="how">How it works</a>
+      <a href="#results" data-sec="results">Results</a>
+      <a href="#plan" data-sec="plan" class="opt">Roadmap</a>
+      <a class="btn primary small" href="https://github.com/mlodian/aml-regulation-copilot" target="_blank" rel="noopener">View code</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- Hero -->
+<header class="hero in">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow r" style="--i:0">Philippine AML/CTF regulations</div>
+      <h1 class="r" style="--i:1">Answers you can <em>audit</em></h1>
+      <p class="lead r" style="--i:2">A pilot compliance copilot for AMLC rules. Every claim cites its provision and is checked before you see it.</p>
+      <div class="cta r" style="--i:3">
+        <a class="btn primary" href="#results">See the results</a>
+        <a class="btn secondary" href="https://github.com/mlodian/aml-regulation-copilot" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>View code</a>
+      </div>
+    </div>
+    <div class="stage-panel r" style="--i:2">
+      <div class="demo" id="heroDemo" aria-label="Example answer from the evaluation run">
+        <div class="lab"><span>Question</span><span>evaluation set, q23</span></div>
+        <div class="q"><span id="heroQ"></span><span class="caret" aria-hidden="true"></span></div>
+        <div class="a" id="heroA"></div>
+        <div class="src" id="heroSrc">
+          <span class="where" id="heroWhere"></span>
+          <span class="chip ok pop"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Citations verified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Summary -->
+<section class="block" id="results" data-reveal data-group="results">
+  <div class="wrap">
+    <h2 class="r">The pilot answers <em><span data-count="98">0</span>%</em> of test questions correctly and refuses every question its sources cannot answer</h2>
+    <div class="stats">
+      <div class="stat r" style="--i:1"><div class="num accent"><span data-count="98">0</span>%</div><div class="lbl">of 50 answerable questions state every required fact</div></div>
+      <div class="stat r" style="--i:2"><div class="num"><span data-count="98">0</span>%</div><div class="lbl">of answers pass the deterministic citation check</div></div>
+      <div class="stat r" style="--i:3"><div class="num"><span data-count="10">0</span>/10</div><div class="lbl">out-of-scope questions refused, with zero false refusals</div></div>
+      <div class="stat r" style="--i:4"><div class="num"><span data-count="98">0</span>%</div><div class="lbl">of questions get the right provision in the top 3 results</div></div>
+    </div>
+    <div class="rec r" style="--i:5"><span class="chip ok">Recommendation</span><span>Proceed to <b>Phase 2</b>: extend the same pipeline to the BSP, IC and SEC AML issuances, and validate on a held-out question set.</span></div>
+    <div class="foot-note r" style="--i:6">Evaluation: 60 questions written against the regulation text (50 answerable, 10 out of scope), final test cycle.</div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="block tinted" data-reveal data-group="none">
+  <div class="wrap">
+    <h2 class="r">In compliance, a fluent answer that cites superseded law is an audit finding</h2>
+    <div class="trap">
+      <div class="card old r" style="--i:1"><div class="doc">RA 9160, Sec. 3(b), as enacted in 2001</div><div class="amt">PHP 4,000,000</div><p class="what">Covered-transaction threshold in the original Act. Still the first result for many searches, and no longer the rule.</p></div>
+      <div class="card new r" style="--i:2"><div class="doc">2018 IRR, Rule 2, Sec. 1(w), as amended</div><div class="amt">PHP 500,000</div><p class="what">The threshold a covered person must apply today. The copilot only answers from the current text.</p></div>
+    </div>
+    <div class="needs">
+      <div class="r" style="--i:3"><h3>Traceable</h3><p>Every statement points to a provision and page an auditor can open.</p></div>
+      <div class="r" style="--i:4"><h3>Current</h3><p>Superseded wording never reaches the model as if it were law.</p></div>
+      <div class="r" style="--i:5"><h3>Silent when unsure</h3><p>If the sources do not say it, the copilot declines instead of guessing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Tools -->
+<section class="block" id="how" data-reveal data-group="how">
+  <div class="wrap">
+    <div class="group-label r">How it works</div>
+    <h2 class="r" style="--i:1">One grounded pipeline powers three tools for compliance analysts</h2>
+    <div class="tools">
+      <div class="tool-list r" style="--i:2" role="tablist" aria-label="Copilot tools">
+        <button class="tool" role="tab" aria-selected="true" data-shot="0"><h3>Ask</h3><p>Plain-language question in, cited answer out. Refuses when the regulations are silent.</p><div class="k">copilot.py ask</div></button>
+        <button class="tool" role="tab" aria-selected="false" data-shot="1"><h3>Map a control</h3><p>Describe a control or test case; get the provisions it covers, partly covers or misses.</p><div class="k">copilot.py map</div></button>
+        <button class="tool" role="tab" aria-selected="false" data-shot="2"><h3>Search sources</h3><p>Retrieval only, no model. Compare BM25, vector, hybrid and reranked results.</p><div class="k">copilot.py search</div></button>
+      </div>
+      <div class="shot r" style="--i:3">
+        <img class="on" src="assets/app_ask.jpg" alt="Ask tab answering a question about TMS alerts with two verified citations">
+        <img src="assets/app_map.jpg" alt="Map a control tab showing gap and partial findings for a monthly TMS review control" loading="lazy">
+        <img src="assets/app_search.jpg" alt="Search tab listing ranked provisions for a covered transaction threshold query" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline -->
+<section class="block tinted" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Only one of five stages calls the language model; the other four are deterministic code</h2>
+    <div class="pipe">
+      <div class="wire"></div><div class="packet"></div>
+      <div class="card node r" style="--i:1;--at:0.09"><span class="tag">deterministic</span><h3>Ingest</h3><p>Downloads each source, records its SHA-256, drops superseded footnotes, chunks by Rule and Section.</p><div class="tech">PyMuPDF, font-aware parse</div></div>
+      <div class="card node r" style="--i:2;--at:0.30"><span class="tag">deterministic</span><h3>Index</h3><p>Keyword and semantic indexes over 364 citable chunks, all local.</p><div class="tech">BM25, bge-small, DuckDB</div></div>
+      <div class="card node r" style="--i:3;--at:0.50"><span class="tag">deterministic</span><h3>Retrieve</h3><p>Fuses both rankings, then a cross-encoder reranks the top 30 down to 6.</p><div class="tech">RRF, MiniLM reranker</div></div>
+      <div class="card node llm r" style="--i:4;--at:0.71"><span class="tag">language model</span><h3>Answer</h3><p>Writes from the six numbered excerpts only, cites every claim or replies NOT_IN_SOURCES.</p><div class="tech">Claude, excerpts only</div></div>
+      <div class="card node r" style="--i:5;--at:0.91"><span class="tag">deterministic</span><h3>Verify</h3><p>Checks every citation exists and every quote appears in the block it cites.</p><div class="tech">RapidFuzz, 22 unit tests</div></div>
+    </div>
+    <p class="pipe-note r" style="--i:6">Keeping the model to a single stage makes the system testable: retrieval and verification are measured without it, and the model can be swapped without touching anything else.</p>
+  </div>
+</section>
+
+<!-- Ingest -->
+<section class="block" data-reveal>
+  <div class="wrap">
+    <h2 class="r">The parser follows the regulation's own hierarchy, so every chunk has an address an auditor can check</h2>
+    <div class="ingest">
+      <div class="tree">
+        <div class="row r" style="--i:1"><span class="nd">RULE 22 Transaction Reporting</span></div>
+        <div class="row l2 r" style="--i:2"><span class="nd">Section 2. Timing of Reporting</span></div>
+        <div class="row l3 r" style="--i:3"><span class="nd leaf">2.1 CTRs within five (5) working days</span></div>
+        <div class="row l3 r" style="--i:4"><span class="nd leaf">2.2 STRs within the next working day</span></div>
+        <div class="row l3 r" style="--i:4"><span class="addr">&rarr; cited as 2018 IRR, Rule 22, Sec. 2</span></div>
+        <div class="foot r" style="--i:5"><s>Footnote 59: "Original provision reads as follows: Covered persons shall file all CTRs and STRs..."</s><br>10pt footnotes quote the wording before each amendment. The parser keeps only body text at 11.5pt and above.</div>
+      </div>
+      <div class="facts">
+        <div class="fact r" style="--i:2"><div class="v">364</div><div class="d">chunks, each with a citation such as "2021 RRG, Part IV, D, e"</div></div>
+        <div class="fact r" style="--i:3"><div class="v">2</div><div class="d">current sources: the 2018 IRR as amended in January 2021, and Part 1 of the 2021 AMLC reporting guidelines</div></div>
+        <div class="fact r" style="--i:4"><div class="v">SHA-256</div><div class="d">fingerprint and retrieval date logged for every source file</div></div>
+        <div class="fact r" style="--i:5"><div class="v">0</div><div class="d">superseded footnotes indexed. The 2001 Act and a scanned amendment are excluded for the same reason</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Retrieval -->
+<section class="block tinted" data-reveal data-group="results">
+  <div class="wrap">
+    <div class="group-label r">Results</div>
+    <h2 class="r" style="--i:1">Hybrid search with reranking puts the right provision in the top 3 for <em>49 of 50</em> questions</h2>
+    <div class="chart-wrap">
+      <div class="chart r" style="--i:2"><div class="legend"><span><i style="background:var(--accent)"></i>Hybrid + rerank (used)</span><span><i style="background:var(--grey-bar)"></i>Single-method baselines</span></div><svg id="retChart" role="img" aria-label="Retrieval accuracy by method"></svg></div>
+      <div class="notes">
+        <div class="r" style="--i:3"><h3>Why hybrid</h3><p>Keywords catch exact terms like "ZSTR" or "PHP 500,000"; vectors catch paraphrases like "TMS alerts" for "transaction monitoring". Fusion keeps both.</p></div>
+        <div class="r" style="--i:4"><h3>Why rerank</h3><p>A cross-encoder reads question and provision together. It lifts the first-ranked hit from 82% to 90% correct.</p></div>
+        <div class="r" style="--i:5"><h3>How it was scored</h3><p>Each question was labelled with the provision that answers it before any results were seen.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Context -->
+<section class="block" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Structure-aware chunks match fixed windows on recall while sending the model <em>53% less text</em></h2>
+    <div class="ctx">
+      <div>
+        <p class="small r" style="--i:1">Words handed to the model per question (top 5 chunks)</p>
+        <div class="row r" style="--i:2;margin-top:24px"><div class="name"><span>Fixed 300-word windows</span><span class="mono">1,500</span></div><div class="track"><div class="fill grey" style="width:100%"></div></div></div>
+        <div class="row r" style="--i:3"><div class="name"><span>Structure-aware chunks</span><span class="mono">710</span></div><div class="track"><div class="fill acc" style="width:47.3%"></div></div></div>
+      </div>
+      <div>
+        <div class="big-delta r" style="--i:2">&minus;53%</div>
+        <table class="mini r" style="--i:3">
+          <tr><th>Answer-bearing text found</th><th>Fixed</th><th>Structured</th></tr>
+          <tr><td>Ranked first</td><td>0.82</td><td class="win">0.88</td></tr>
+          <tr><td>In top 3</td><td>0.96</td><td class="win">0.98</td></tr>
+        </table>
+        <p class="small r" style="--i:4;margin-top:20px">Less text per question means lower cost per answer and fewer distractions for the model. Fixed windows also cannot be cited by provision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ask -->
+<section class="block tinted" id="askSec" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Every answer cites its provision and passes a quote check before it is shown</h2>
+    <div class="ask">
+      <div class="card r" style="--i:1">
+        <div class="qline">Question q23 from the evaluation set</div>
+        <div class="qtext" id="askQ"></div>
+        <div class="ans" id="askA"></div>
+        <div class="verdict"><span class="chip ok"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Every quote found in its cited block</span><span class="chip neutral">Gold provision cited</span></div>
+      </div>
+      <div class="r" style="--i:2">
+        <p class="small" style="margin-bottom:12px">Excerpts the model received. Hover or tap a citation to see its source.</p>
+        <div class="sources" id="askSources"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Verifier -->
+<section class="block" id="verifySec" data-reveal>
+  <div class="wrap">
+    <h2 class="r">The verifier caught a quote the model stitched together from two documents</h2>
+    <div class="verify" id="verifyBox">
+      <div class="vrow r" style="--i:1"><div class="who">Model's quote, cited to [3]</div><div class="card" id="vModel"></div></div>
+      <div class="vrow r" style="--i:2"><div class="who">[3] 2021 RRG, Part IV, D</div><div class="card" id="vRrg"></div></div>
+      <div class="vrow r" style="--i:3"><div class="who">2018 IRR, Rule 22, Sec. 2</div><div class="card" id="vIrr"></div></div>
+      <span class="chip flag"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4.5v4.5M8 11.6v.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Quote not found in the cited block: flagged to the user</span>
+    </div>
+    <div class="three">
+      <div class="r" style="--i:4"><h3>What happened</h3><p>The model used the IRR's subject ("STRs shall be promptly filed") with the guidelines' ending ("from <b>the</b> occurrence").</p></div>
+      <div class="r" style="--i:5"><h3>Why it matters</h3><p>The meaning is right, but a quotation that exists in no document is exactly what an auditor would challenge.</p></div>
+      <div class="r" style="--i:6"><h3>What the user sees</h3><p>The answer still shows, with a warning naming the unverified quote, instead of passing silently.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Refusals -->
+<section class="block tinted" data-reveal>
+  <div class="wrap">
+    <h2 class="r">It declined all 10 questions its sources cannot answer instead of guessing</h2>
+    <div class="refuse">
+      <div class="qgrid" id="refuseGrid"></div>
+      <div class="card featured r" style="--i:3">
+        <div class="why">The hardest one: the IRR mentions it but never states it</div>
+        <div class="q" id="refFeatQ"></div>
+        <pre id="refFeatA"></pre>
+        <p>A general-purpose chatbot would supply a number from memory. Here the answer stays inside the sources and says exactly what is missing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mapping -->
+<section class="block" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Control mapping turns a process description into gap and partial findings with verified quotes</h2>
+    <div class="map">
+      <div>
+        <div class="card ctrl r" style="--i:1"><div class="lab">Control under review</div><p id="ctrlText"></p></div>
+        <div class="counts r" style="--i:2" id="mapFilters"></div>
+        <p class="variance r" style="--i:3">Select a finding to see the recommended fix. Findings are model judgments: a second run on the same control returned 3 gaps and 3 partials, which is why every mapping goes to a reviewer before it counts.</p>
+      </div>
+      <div class="findings" id="findings"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cycles -->
+<section class="block tinted" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Three test cycles raised verified citations from 86% to 98% while facts stayed between 96% and 100%</h2>
+    <div class="cycles">
+      <div class="chart r" style="--i:1"><div class="legend"><span><i style="background:var(--accent)"></i>Answers with every citation verified</span><span><i style="background:var(--grey-bar)"></i>Answers stating every required fact</span></div><svg id="cycChart" role="img" aria-label="Verified citations and fact accuracy across three test cycles"></svg></div>
+      <div class="steps">
+        <div class="r" style="--i:2"><div class="n">Cycle 1</div><h3>First build</h3><p>Opening sentences went uncited; two checker bugs over-flagged real quotes.</p></div>
+        <div class="r" style="--i:3"><div class="n">Cycle 2</div><h3>Stricter prompt, fixed checker</h3><p>Exposed a chunk split that cut the 60-day TMS period from its subject.</p></div>
+        <div class="r" style="--i:4"><div class="n">Cycle 3</div><h3>Item-level chunking</h3><p>Each definition and STR period is now its own chunk. Two real misses remain and are documented.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Limits -->
+<section class="block" id="plan" data-reveal data-group="plan">
+  <div class="wrap">
+    <div class="group-label r">Roadmap</div>
+    <h2 class="r" style="--i:1">The pilot proves the method, not the scale: four gaps to close before production</h2>
+    <div class="limits">
+      <div class="limit r" style="--i:2"><h3>Two documents</h3><p>BSP, Insurance Commission and SEC AML issuances are not yet indexed.</p><div class="fix">Phase 2: regulatory library</div></div>
+      <div class="limit r" style="--i:3"><h3>One point in time</h3><p>Footnote stripping handles amendments today. A growing library needs provisions tracked by effective date.</p><div class="fix">Phase 2: effective-date versioning</div></div>
+      <div class="limit r" style="--i:4"><h3>Development test set</h3><p>The 60 questions were written by one person and used while building. They are a regression suite, not a benchmark.</p><div class="fix">Phase 2: 200+ questions, two annotators, held-out split</div></div>
+      <div class="limit r" style="--i:5"><h3>Judgment varies</h3><p>Control mapping uses model judgment, and runs differ. Quotes are verified; conclusions are not.</p><div class="fix">Phase 3: reviewer sign-off on every mapping</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section class="block tinted" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Phase 2 scales the same pipeline to the full regulatory library before any internal documents</h2>
+    <div class="road">
+      <div class="rail"><i></i></div>
+      <div class="phase done r" style="--i:1"><div class="when">Done</div><h3>Pilot</h3><p>Public AMLC rules, CLI and demo app, evaluation harness.</p><div class="exit"><span>Exit criteria met</span>98% facts and verified citations, 10/10 refusals</div></div>
+      <div class="phase r" style="--i:2"><div class="when">Next</div><h3>Regulatory library</h3><p>BSP, IC and SEC AML issuances; effective-date versioning; OCR for scanned issuances.</p><div class="exit"><span>Exit criteria</span>Metrics hold on a held-out set with a 10x larger corpus</div></div>
+      <div class="phase r" style="--i:3"><div class="when">Then</div><h3>Internal documents</h3><p>Policies, MTPP, control inventory and test scripts behind role-based access.</p><div class="exit"><span>Exit criteria</span>Mappings agree with compliance reviewers on 100+ pairs</div></div>
+      <div class="phase r" style="--i:4"><div class="when">Then</div><h3>Production</h3><p>API model backend, managed vector store, monitoring, evaluation gate in CI.</p><div class="exit"><span>Exit criteria</span>Agreed SLOs and sign-off from compliance and security</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Close -->
+<section class="close" data-reveal>
+  <div class="wrap">
+    <h2 class="r">Next step: start <em>Phase 2</em> with the BSP and IC issuances</h2>
+    <p class="r" style="--i:1">The pipeline, the evaluation harness and the verifier carry over unchanged. What grows is the corpus, the question set and the review loop.</p>
+    <div class="cta r" style="--i:2">
+      <a class="btn primary" href="https://github.com/mlodian/aml-regulation-copilot" target="_blank" rel="noopener">View code</a>
+      <a class="btn secondary" href="https://github.com/mlodian/aml-regulation-copilot/blob/main/docs/production-plan.md" target="_blank" rel="noopener">Read the production plan</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Lodian Mier, 2026</span>
+    <span>Research support for compliance analysts, not legal advice.</span>
+    <a href="https://github.com/mlodian/aml-regulation-copilot" target="_blank" rel="noopener">github.com/mlodian/aml-regulation-copilot</a>
+  </div>
+</footer>
+
+<script>
+const DATA = {"hero": {"question": "How long does a covered person have to determine suspicion for transactions flagged by the transaction monitoring system?", "answer": "Sixty (60) calendar days from the date of the transaction, arising from TMS-generated alerts [2].", "where": "2021 RRG, Part IV, D, e · For TMS-Generated Alerts  ·  p. 11"}, "ask": {"question": "How long does a covered person have to determine suspicion for transactions flagged by the transaction monitoring system?", "answer": "Sixty (60) calendar days from the date of the transaction, arising from TMS-generated alerts [2].\n\n- The 2021 RRG states: \"Covered persons shall establish the suspicion or determine the suspicious nature of the transaction, or any attempt thereof, within sixty (60) calendar days from the date of the transaction, arising from TMS-generated alerts and based on any periodic run inclusive of certain number of transaction dates\" [2].\n- The periodic run used to generate these alerts must not be longer than thirty-one (31) consecutive calendar days at any given time [2, 6].\n- This 60-day rule is distinct from the 10-day rule for Section 3(b-1)/Rule 3.a.15 suspicious circumstances [4], the 10/60-day rule for AMLC referrals [3], and the 60-day rule for unlawful-activity-related transactions [1].", "cited": [1, 2, 3, 4, 6], "sources": [{"label": "2021 RRG, Part IV, D, b", "text": "For transactions or persons related to an unlawful activity Covered persons shall establish or determine that the transaction is in any way related to an unlawful activity, or the person transacting is involved in or connected to an unlawful activity or money laundering offense, including any attempt thereof, within a reasonable period of time, which in no case shall exceed sixty (60) calendar days from the date of the transaction or from the date the covered person knew of or should have known such suspicion or suspicious nature of the transaction regardless whether such suspicious circumstances are embedded or conclusively incorporated in the transaction monitoring system (TMS). Such determination period shall allow covered persons to gather facts in order to enable the submission of a meaningful STR."}, {"label": "2021 RRG, Part IV, D, e · For TMS-Generated Alerts", "text": "Covered persons shall establish the suspicion or determine the suspicious nature of the transaction, or any attempt thereof, within sixty (60) calendar days from the date of the transaction, arising from TMS-generated alerts and based on any periodic run inclusive of certain number of transaction dates, which shall not be longer than thirty-one (31) consecutive calendar days at any given time."}, {"label": "2021 RRG, Part IV, D, c · For Referrals from AMLC", "text": "Covered persons shall establish the suspicion, determine the suspicious nature of the transaction, or establish that the person transacting is involved in or connected to an unlawful activity or money laundering offense, including any attempt thereof, within a reasonable period of time, which in no case shall exceed ten (10) calendar days from receipt of the referral, provided, that such referral identifies a specific underlying unlawful activity. In case the referral does not identify any specific unlawful activity, the determination period shall not exceed sixty (60) calendar days from receipt of such referral."}, {"label": "2021 RRG, Part IV, D, a", "text": "For transactions attended by any of the suspicious circumstances enumerated under Section 3(b-1) of the AMLA and Rule 3.a.15 of the IRR of TFPSA Covered persons shall establish or determine the existence of any of the suspicious circumstances enumerated under Section 3(b-1) of the AMLA and Rule 3.a.15 of the IRR of TFPSA in any transaction or activity, including any attempt thereof, within ten (10) calendar days from the date of the transaction or from the date the covered person knew of or should have known the suspicion or suspicious nature of the transaction regardless whether such suspicious circumstances are embedded or conclusively incorporated in the transaction monitoring system (TMS); provided, however, that for transactions that are related to an unlawful activity, the provisions in the next paragraph shall apply."}, {"label": "2021 RRG, Part IV, D, f", "text": "STRs based on “ZSTR” transaction code Covered persons shall establish the suspicious nature of transactions or circumstances involving any accountholder or account within sixty (60) calendar days from the date the covered person knew of or should have known any trigger for filing STR using the “ZSTR” transaction code such as but not limited to negative news report, public advisory, complaint or information from a third person, reports on crimes and losses, and other similar triggers, regardless whether such trigger has occurred or was discovered only after the last transaction with the covered person involving such accountholder or account and provided within the period of existence of such account. “Knowledge”, under these Guidelines is likely to include:\ni. Actual knowledge; ii. Knowledge of circumstances that would indicate facts to a reasonable person; and iii. Knowledge of circumstances that would put a reasonable person on inquiry."}, {"label": "2021 RRG, Part IV, C · Reporting Chain/Process", "text": "Covered persons shall formulate a reporting chain under which a suspicious transaction or circumstance will be reviewed, processed, validated, and escalated. The reporting chain shall refer to the procedures and processes to be undertaken by the covered person beginning from the occurrence of triggering event to the actual filing of STR or documentation of not filing one. It shall include relevant timeline for each process and the responsible officer thereof. For this purpose and subject to the Guidelines under item F below, the covered person’s Money Laundering/ Terrorism Financing Prevention Program (MTPP) shall, among others: 1. Provide details of procedures and processes to be undertaken during the determination period referred to under item F below beginning from the occurrence of the triggering event to the actual filing of STR to the AMLC, or documentation of not filing one, thus, constituting the full length of the reporting chain; 2. Identify responsible department/group/unit/personnel in performing specific procedure or process in the reporting chain; 3. Clearly indicate the number of days or period required to perform every procedure or process in the reporting chain to ensure timely reporting of transactions; 4. Except for suspicious circumstances under Section 3 (b-1) of the AMLA, define policy on the establishment of suspicion or determination of the suspicious nature of transactions arising from TMS-generated alerts, including the determination of frequency of the periodic run, which must not be longer than thirty-one (31) consecutive calendar days at any given time, inclusive dates or period of each run, parameters to trigger an alert, assignment of transactions to appropriate personnel for evaluation, and other relevant matters; 5. Specify controls and mechanisms to monitor the review, performance of due diligence, validation, and escalation procedures on suspicious transactions; 6. Formulate decision-making policy, including the designation of a Compliance Officer who may also be authorized to decide with finality to file an STR with the AMLC or otherwise to document the non-filing thereof. Covered persons shall ensure that proper controls are in place to guarantee confidentiality and that no “tipping – off” of customers will happen at all times during the entire process. For this reason, the Chief Compliance Officer shall have access to all customer information files and transaction documents through the electronic or manual customer monitoring system."}]}, "verify": {"model": [["STRs shall be promptly filed", "diff-a"], [" within the next working day from ", ""], ["the", "diff-b"], [" occurrence thereof.", ""]], "rrg": [["Covered persons shall promptly file STRs", "miss"], [", including attempts thereof, to the AMLC within the next working day from ", ""], ["the", "diff-b"], [" occurrence thereof.", ""]], "irr": [["STRs shall be promptly filed", "diff-a"], [" within the next working day from occurrence thereof", ""]]}, "refusals": [{"q": "What is the CTR threshold for transactions in Singapore under MAS rules?", "a": "NOT_IN_SOURCES\nThe excerpts cover Philippine AML/CTF rules (2018 IRR, 2021 RRG) and contain no information on Singapore or MAS CTR thresholds.", "featured": false}, {"q": "What fine did the AMLC impose on Rizal Commercial Banking Corporation in 2016?", "a": "NOT_IN_SOURCES\nThe provided excerpts contain no information about a specific fine imposed on Rizal Commercial Banking Corporation by the AMLC in 2016.", "featured": false}, {"q": "What is the US FinCEN deadline for filing a Suspicious Activity Report?", "a": "NOT_IN_SOURCES\nThe excerpts cover Philippine AML/CTF CTR/STR filing deadlines under the 2018 IRR and 2021 RRG, not US FinCEN SAR filing requirements.", "featured": false}, {"q": "Which countries are currently on the FATF grey list?", "a": "NOT_IN_SOURCES\nThe excerpts discuss the concept of high-risk jurisdictions and EDD obligations [1] but do not contain an actual list of countries currently designated by FATF as grey-listed.", "featured": false}, {"q": "How many STRs did the AMLC receive in 2024?", "a": "NOT_IN_SOURCES\nThe excerpts describe STR filing/reporting requirements and AMLC's functions but contain no statistics on the number of STRs received by the AMLC in 2024.", "featured": false}, {"q": "What is the BSP's de minimis threshold amount for cross-border wire transfers?", "a": "NOT_IN_SOURCES\nThe excerpts state that a de minimis threshold for cross-border wire transfers exists and is \"as determined by the BSP\" [1], but none of the excerpts provide the actual threshold amount.", "featured": true}, {"q": "What machine learning model does the AMLC use to analyse STRs?", "a": "NOT_IN_SOURCES\nThe excerpts describe AMLC's analytical functions (tactical/strategic analysis) and reporting/statistics requirements but contain no information about a specific machine learning model used to analyze STRs.", "featured": false}, {"q": "What is the EU's sixth anti-money laundering directive's penalty for legal persons?", "a": "NOT_IN_SOURCES\nThe supplied excerpts cover only Philippine AMLA/IRR/RRG provisions and contain no information about the EU's sixth anti-money laundering directive or its penalties for legal persons.", "featured": false}, {"q": "Who is the current Executive Director of the AMLC?", "a": "NOT_IN_SOURCES\nThe excerpts define the Executive Director's role, term, and succession rules but do not name the individual currently holding the position.", "featured": false}, {"q": "What is the threshold for reporting crypto transactions to the AMLC?", "a": "NOT_IN_SOURCES\nNone of the excerpts mention virtual asset/crypto-specific transaction thresholds or reporting rules.", "featured": false}], "mapping": {"control": "Monthly, the compliance team runs the transaction monitoring system over the previous month's transactions. Alerts are reviewed by an analyst and escalated to the Compliance Officer, who decides whether to file an STR. Decisions not to file are recorded in the case tool.", "assessments": [{"citation": "2021 RRG, Part IV, D, b", "heading": "b", "status": "gap", "quote": "within a reasonable period of time, which in no case shall exceed sixty (60) calendar days from the date of the transaction or from the date the covered person knew of or should have known such suspicion", "reason": "The control describes no determination-period deadline at all for concluding whether a transaction or person is linked to unlawful activity.", "rec": "Set and enforce a determination deadline not exceeding 60 calendar days from the transaction date or date of knowledge of suspicion.", "verified": true, "label": "2021 RRG, Part IV, D, b"}, {"citation": "2021 RRG, Part IV, B", "heading": "B", "status": "gap", "quote": "Covered persons are encouraged to develop their own list of alerts or red flag indicators taking into account the nature of their business, type of customers and risks involved", "reason": "The control does not describe any red flag indicators or alert parameters used to trigger or evaluate TMS alerts.", "rec": "Document the red flag indicators/alert parameters configured in the TMS and used by analysts during alert review.", "verified": true, "label": "2021 RRG, Part IV, B"}, {"citation": "2021 RRG, Part IV, C", "heading": "C Reporting Chain/Process", "status": "partial", "quote": "Clearly indicate the number of days or period required to perform every procedure or process in the reporting chain to ensure timely reporting of transactions", "reason": "The control names the escalation path and the Compliance Officer's final filing/non-filing authority but specifies no per-step timelines, due-diligence/validation controls, or tipping-off/confidentiality safeguards.", "rec": "Document the number of days allotted to each step (analyst review, escalation, CO decision) and add explicit confidentiality/tipping-off and CCO file-access controls to the procedure.", "verified": true, "label": "2021 RRG, Part IV, C · Reporting Chain/Process"}, {"citation": "2018 IRR, Rule 22, Sec. 5", "heading": "Sec. 5 AML/CTF Monitoring System", "status": "partial", "quote": "The system must have, at least, the following automated functionalities", "reason": "The control confirms a TMS is run and used to generate alerts but does not describe or evidence the required automated functionalities (watchlist checks, investigation history, CTR generation, audit trail, aggregation, recordkeeping).", "rec": "Document that the TMS used meets each of the listed automated functionalities, or reference the system's technical specification.", "verified": true, "label": "2018 IRR, Rule 22, Sec. 5 · AML/CTF Monitoring System"}, {"citation": "2021 RRG, Part IV, D, e", "heading": "e For TMS-Generated Alerts", "status": "partial", "quote": "based on any periodic run inclusive of certain number of transaction dates, which shall not be longer than thirty-one (31) consecutive calendar days at any given time", "reason": "The monthly run cadence satisfies the periodic-run limit of no more than 31 consecutive calendar days, but the control states no 60-calendar-day deadline for establishing suspicion from the alert.", "rec": "Add an explicit 60-calendar-day determination deadline, measured from the transaction date, for TMS-generated alerts.", "verified": true, "label": "2021 RRG, Part IV, D, e · For TMS-Generated Alerts"}, {"citation": "2021 RRG, Part IV, A", "heading": "A", "status": "partial", "quote": "where the inquiries do not provide a satisfactory explanation of the activity or transaction, an internal report should be made and be properly escalated to the designated compliance officer and/or review committee to determine if there are grounds for suspicion", "reason": "The control's analyst-to-Compliance-Officer escalation mirrors this requirement for TMS alerts, but it does not describe the customer-profile-based inquiry step or how satisfactory/unsatisfactory explanations are assessed before escalation.", "rec": "Specify that the analyst must assess the alert against the customer's known profile and document whether the explanation obtained is satisfactory before deciding to escalate.", "verified": true, "label": "2021 RRG, Part IV, A"}, {"citation": "2018 IRR, Rule 22, Sec. 5, 5.3", "heading": "5.3 Manual Monitoring", "status": "not_applicable", "quote": "Covered persons which are not required to have an electronic system of flagging and monitoring transactions", "reason": "The control operates an electronic transaction monitoring system, so the manual-monitoring register requirement does not apply to this control's scope.", "rec": "", "verified": true, "label": "2018 IRR, Rule 22, Sec. 5, 5.3 · Manual Monitoring"}, {"citation": "2021 RRG, Part III, B", "heading": "B", "status": "not_applicable", "quote": "Submission of CTRs beyond 12:01 am of the day following the 5th working day from occurrence of the transaction shall be considered as non-compliance", "reason": "The control governs STR escalation and filing decisions, not CTR submission timing.", "rec": "", "verified": true, "label": "2021 RRG, Part III, B"}]}, "retrieval": [{"chunking": "fixed", "retrieval": "bm25", "evidence_recall@1": 0.8, "evidence_recall@3": 0.88, "evidence_recall@5": 0.98, "context_words@5": 1497.02, "ms_per_query": 0.842, "section_recall@1": null, "section_recall@3": null, "section_recall@5": null, "mrr": null}, {"chunking": "fixed", "retrieval": "vector", "evidence_recall@1": 0.64, "evidence_recall@3": 0.84, "evidence_recall@5": 0.94, "context_words@5": 1494.32, "ms_per_query": 122.63, "section_recall@1": null, "section_recall@3": null, "section_recall@5": null, "mrr": null}, {"chunking": "fixed", "retrieval": "hybrid", "evidence_recall@1": 0.76, "evidence_recall@3": 0.96, "evidence_recall@5": 1.0, "context_words@5": 1500.0, "ms_per_query": 12.212, "section_recall@1": null, "section_recall@3": null, "section_recall@5": null, "mrr": null}, {"chunking": "fixed", "retrieval": "hybrid_rerank", "evidence_recall@1": 0.82, "evidence_recall@3": 0.96, "evidence_recall@5": 1.0, "context_words@5": 1500.0, "ms_per_query": 311.995, "section_recall@1": null, "section_recall@3": null, "section_recall@5": null, "mrr": null}, {"chunking": "structured", "retrieval": "bm25", "evidence_recall@1": 0.74, "evidence_recall@3": 0.9, "evidence_recall@5": 0.94, "context_words@5": 727.36, "ms_per_query": 1.995, "section_recall@1": 0.8, "section_recall@3": 0.9, "section_recall@5": 0.92, "mrr": 0.845}, {"chunking": "structured", "retrieval": "vector", "evidence_recall@1": 0.74, "evidence_recall@3": 0.86, "evidence_recall@5": 0.88, "context_words@5": 641.64, "ms_per_query": 13.567, "section_recall@1": 0.82, "section_recall@3": 0.9, "section_recall@5": 0.9, "mrr": 0.853}, {"chunking": "structured", "retrieval": "hybrid", "evidence_recall@1": 0.8, "evidence_recall@3": 0.92, "evidence_recall@5": 0.94, "context_words@5": 714.24, "ms_per_query": 13.749, "section_recall@1": 0.82, "section_recall@3": 0.9, "section_recall@5": 0.92, "mrr": 0.865}, {"chunking": "structured", "retrieval": "hybrid_rerank", "evidence_recall@1": 0.88, "evidence_recall@3": 0.98, "evidence_recall@5": 0.98, "context_words@5": 709.92, "ms_per_query": 291.658, "section_recall@1": 0.9, "section_recall@3": 0.98, "section_recall@5": 0.98, "mrr": 0.933}], "runs": [{"run": "1 · first build", "fact": 1.0, "cite_valid": 0.86, "false_ref": 0.0, "refusal": 1.0}, {"run": "2 · stricter prompt, checker fixes", "fact": 0.96, "cite_valid": 0.9591836734693877, "false_ref": 0.02, "refusal": 1.0}, {"run": "3 · item-level chunking (final)", "fact": 0.98, "cite_valid": 0.98, "false_ref": 0.0, "refusal": 1.0}]};
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct = v => Math.round(v * 100);
+
+/* ---------- citations ---------- */
+function citeify(text) {
+  return esc(text).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+    .replace(/\[(\d+(?:,\s*\d+)*)\]/g, (m, g) => g.split(/,\s*/).map(n => `<span class="cite" data-n="${n}" tabindex="0">[${n}]</span>`).join(' '));
+}
+function mdBlocks(text) {
+  const lines = text.trim().split('\n').filter(l => l.trim());
+  let html = '', inList = false;
+  for (const l of lines) {
+    if (/^\s*-\s+/.test(l)) { if (!inList) { html += '<ul>'; inList = true; } html += `<li>${citeify(l.replace(/^\s*-\s+/, ''))}</li>`; }
+    else { if (inList) { html += '</ul>'; inList = false; } html += `<p>${citeify(l)}</p>`; }
+  }
+  return html + (inList ? '</ul>' : '');
+}
+
+/* ---------- hero demo ---------- */
+(function hero() {
+  const H = DATA.hero, q = document.getElementById('heroQ'), a = document.getElementById('heroA'), src = document.getElementById('heroSrc');
+  document.getElementById('heroWhere').textContent = H.where;
+  a.innerHTML = citeify(H.answer);
+  if (reduce) { q.textContent = H.question; a.classList.add('on'); src.classList.add('on'); return; }
+  let i = 0;
+  const type = () => { q.textContent = H.question.slice(0, ++i); if (i < H.question.length) setTimeout(type, 24); else { setTimeout(() => a.classList.add('on'), 420); setTimeout(() => src.classList.add('on'), 1000); } };
+  setTimeout(type, 700);
+})();
+
+/* ---------- nav: border once past the hero, and highlight the current group ---------- */
+const nav = document.getElementById('nav');
+new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { rootMargin: '-69px 0px 0px 0px' }).observe(document.querySelector('.hero'));
+(function sectionSpy() {
+  // each section belongs to a nav group; the group of whichever section crosses mid-screen is active
+  const links = [...document.querySelectorAll('.links a[data-sec]')];
+  let group = null;
+  document.querySelectorAll('main > section, main > header').forEach(s => {
+    if (s.dataset.group) group = s.dataset.group;
+    s.dataset.navGroup = s.matches('header') ? '' : (s.dataset.group || group || '');
+  });
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.dataset.sec === e.target.dataset.navGroup)); });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  document.querySelectorAll('main > section, main > header').forEach(s => spy.observe(s));
+})();
+/* ---------- reveal on scroll + per-section hooks ---------- */
+const hooks = new Map();
+const revealer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    (hooks.get(e.target) || []).forEach(f => f(e.target));
+    revealer.unobserve(e.target);
+  });
+}, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+document.querySelectorAll('[data-reveal]').forEach(s => revealer.observe(s));
+const onEnter = (el, f) => { if (!el) return; hooks.set(el, (hooks.get(el) || []).concat(f)); };
+
+/* land on #section links once fonts have settled the layout */
+if (location.hash) document.fonts.ready.then(() => { const t = document.querySelector(location.hash); if (t) t.scrollIntoView({ behavior: 'instant' }); });
+
+/* count-up */
+function countUp(root) {
+  root.querySelectorAll('[data-count]').forEach(el => {
+    const end = +el.dataset.count;
+    if (reduce) { el.textContent = end; return; }
+    const t0 = performance.now(), dur = 1200;
+    const tick = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 4))); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  });
+}
+onEnter(document.getElementById('results'), countUp);
+
+/* tool switcher */
+document.querySelectorAll('.tool').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.tool').forEach(b => b.setAttribute('aria-selected', b === btn));
+  document.querySelectorAll('.shot img').forEach((img, i) => img.classList.toggle('on', i === +btn.dataset.shot));
+}));
+
+/* charts */
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent, text) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text !== undefined) e.textContent = text; parent && parent.appendChild(e); return e; }
+(function retrievalChart() {
+  const svg = document.getElementById('retChart');
+  const rows = DATA.retrieval.filter(r => r.chunking === 'structured');
+  const order = ['bm25', 'vector', 'hybrid', 'hybrid_rerank'];
+  const names = { bm25: 'BM25 only', vector: 'Vectors only', hybrid: 'Hybrid (RRF)', hybrid_rerank: 'Hybrid + rerank' };
+  const metrics = [['section_recall@1', 'Right provision ranked first'], ['section_recall@3', 'Right provision in top 3'], ['mrr', 'Mean reciprocal rank']];
+  const x0 = 150, w = 540, rowH = 24, gap = 7, groupGap = 30;
+  let y = 4, i = 0;
+  metrics.forEach(([key, label]) => {
+    el('text', { x: 0, y: y + 17, class: 'grp' }, svg, label); y += 30;
+    order.forEach(m => {
+      const v = rows.find(r => r.retrieval === m)[key];
+      el('text', { x: x0 - 12, y: y + rowH / 2 + 5, 'text-anchor': 'end', class: 'lbl' }, svg, names[m]);
+      const b = el('rect', { x: x0, y, width: Math.max(2, v * w), height: rowH, rx: 5, fill: m === 'hybrid_rerank' ? 'var(--accent)' : 'var(--grey-bar)', class: 'bar', style: `--i:${i++}` }, svg);
+      el('title', {}, b, `${names[m]}: ${v.toFixed(2)}`);
+      el('text', { x: x0 + v * w + 10, y: y + rowH / 2 + 5, class: 'val' }, svg, v.toFixed(2));
+      y += rowH + gap;
+    });
+    y += groupGap - gap;
+  });
+  svg.setAttribute('viewBox', `0 0 760 ${y - groupGap + 10}`);
+})();
+(function cyclesChart() {
+  const svg = document.getElementById('cycChart'), runs = DATA.runs;
+  const L = 56, R = 740, T = 30, B = 400, lo = 0.8, hi = 1.0;
+  const sx = i => L + 70 + i * ((R - L - 140) / (runs.length - 1));
+  const sy = v => B - (v - lo) / (hi - lo) * (B - T);
+  [0.8, 0.85, 0.9, 0.95, 1.0].forEach(t => { el('line', { x1: L, x2: R, y1: sy(t), y2: sy(t), stroke: 'var(--line)' }, svg); el('text', { x: L - 10, y: sy(t) + 5, 'text-anchor': 'end', class: 'lbl' }, svg, `${Math.round(t * 100)}%`); });
+  runs.forEach((r, i) => el('text', { x: sx(i), y: B + 28, 'text-anchor': 'middle', class: 'lbl' }, svg, `Cycle ${i + 1}`));
+  el('text', { x: L - 46, y: B + 58, class: 'lbl', style: 'font-size:13px;fill:var(--ink-3)' }, svg, 'Axis starts at 80% to separate the cycles; every value is labelled.');
+  [['fact', 'var(--grey-bar)'], ['cite_valid', 'var(--accent)']].forEach(([k, col]) => {
+    el('path', { d: runs.map((r, i) => `${i ? 'L' : 'M'}${sx(i)},${sy(r[k])}`).join(' '), fill: 'none', stroke: col, 'stroke-width': 3, 'stroke-linecap': 'round', 'stroke-linejoin': 'round', class: 'line-path' }, svg);
+    runs.forEach((r, i) => {
+      el('circle', { cx: sx(i), cy: sy(r[k]), r: 7, fill: col, stroke: '#fff', 'stroke-width': 2, class: 'dot', style: `--i:${i}` }, svg);
+      const above = k === 'fact' ? r.fact >= r.cite_valid : r.cite_valid > r.fact;
+      el('text', { x: sx(i), y: sy(r[k]) + (above ? -16 : 28), 'text-anchor': 'middle', class: 'val dot', style: `--i:${i}` }, svg, `${pct(r[k])}%`);
+    });
+  });
+  svg.setAttribute('viewBox', `0 0 760 ${B + 70}`);
+})();
+
+/* ask */
+(function ask() {
+  const q = DATA.ask, box = document.getElementById('askSources'), ans = document.getElementById('askA');
+  document.getElementById('askQ').textContent = q.question;
+  ans.innerHTML = mdBlocks(q.answer);
+  q.sources.forEach((s, i) => {
+    const d = document.createElement('div');
+    d.className = 'source' + (q.cited.includes(i + 1) ? ' cited' : ''); d.dataset.n = i + 1;
+    d.innerHTML = `<div class="h"><b>[${i + 1}]</b>${esc(s.label)}</div><div class="t">${esc(s.text)}</div>`;
+    box.appendChild(d);
+  });
+  const link = n => {
+    box.querySelectorAll('.source').forEach(s => s.classList.toggle('hl', s.dataset.n === n));
+    ans.querySelectorAll('.cite').forEach(c => c.classList.toggle('hl', c.dataset.n === n));
+  };
+  ans.addEventListener('mouseover', e => { const c = e.target.closest('.cite'); if (c) link(c.dataset.n); });
+  ans.addEventListener('mouseout', e => { if (e.target.closest('.cite')) link(null); });
+  ans.addEventListener('click', e => { const c = e.target.closest('.cite'); if (c) link(c.classList.contains('hl') ? null : c.dataset.n); });
+  ans.addEventListener('focusin', e => { const c = e.target.closest('.cite'); if (c) link(c.dataset.n); });
+  onEnter(document.getElementById('askSec'), () => { if (!reduce) { setTimeout(() => link('2'), 1400); setTimeout(() => link(null), 3600); } });
+})();
+
+/* verifier */
+(function verifier() {
+  const V = DATA.verify, toks = parts => parts.map(([t, c]) => c ? `<span class="tok ${c}">${esc(t)}</span>` : esc(t)).join('');
+  document.getElementById('vModel').innerHTML = '&ldquo;' + toks(V.model) + '&rdquo;';
+  document.getElementById('vRrg').innerHTML = '&hellip;' + toks(V.rrg) + '&hellip;';
+  document.getElementById('vIrr').innerHTML = toks(V.irr) + '&hellip;';
+  const box = document.getElementById('verifyBox');
+  onEnter(document.getElementById('verifySec'), () => setTimeout(() => box.classList.add('run'), reduce ? 0 : 800));
+})();
+
+/* refusals */
+(function refusals() {
+  const grid = document.getElementById('refuseGrid');
+  DATA.refusals.forEach((r, i) => {
+    if (r.featured) { document.getElementById('refFeatQ').textContent = r.q; document.getElementById('refFeatA').textContent = r.a; }
+    const t = document.createElement('div');
+    t.className = 'qtile r'; t.style.setProperty('--i', 1 + i * 0.5);
+    t.innerHTML = `<span>${esc(r.q)}</span><span class="chip neutral">NOT_IN_SOURCES</span>`;
+    grid.appendChild(t);
+  });
+})();
+
+/* mapping */
+(function mapping() {
+  const M = DATA.mapping, list = document.getElementById('findings');
+  document.getElementById('ctrlText').textContent = M.control;
+  const shown = M.assessments.filter(a => a.status === 'gap' || a.status === 'partial');
+  shown.forEach((a, i) => {
+    const d = document.createElement('div');
+    d.className = `finding ${a.status} r`; d.style.setProperty('--i', 2 + i);
+    d.setAttribute('role', 'button'); d.tabIndex = 0; d.setAttribute('aria-expanded', i === 0);
+    d.innerHTML = `<div class="st">${a.status === 'gap' ? 'GAP' : 'PARTIAL'}</div><div><div class="c">${esc(a.label)}</div><blockquote>&ldquo;${esc(a.quote)}&rdquo;</blockquote><div class="fix"><div><b>Fix:</b> ${esc(a.rec)}</div></div></div>`;
+    if (i === 0) d.classList.add('open');
+    const toggle = () => { const open = !d.classList.contains('open'); list.querySelectorAll('.finding').forEach(x => { x.classList.remove('open'); x.setAttribute('aria-expanded', false); }); if (open) { d.classList.add('open'); d.setAttribute('aria-expanded', true); } };
+    d.addEventListener('click', toggle);
+    d.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    list.appendChild(d);
+  });
+  const counts = { all: shown.length, gap: shown.filter(a => a.status === 'gap').length, partial: shown.filter(a => a.status === 'partial').length };
+  const f = document.getElementById('mapFilters');
+  [['all', `All findings ${counts.all}`], ['gap', `Gaps ${counts.gap}`], ['partial', `Partial ${counts.partial}`]].forEach(([k, label], i) => {
+    const b = document.createElement('button'); b.textContent = label; b.setAttribute('aria-pressed', i === 0);
+    b.onclick = () => { f.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); list.querySelectorAll('.finding').forEach(el => el.classList.toggle('hide', k !== 'all' && !el.classList.contains(k))); };
+    f.appendChild(b);
+  });
+})();
+</script>
+</body>
+</html>
