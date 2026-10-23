@@ -19,7 +19,7 @@ def cmd_ask(args) -> None:
     print("Sources")
     for i, c in enumerate(res.sources, start=1):
         mark = "*" if i in res.report.cited else " "
-        print(f" {mark}[{i}] {c.citation} — {c.heading.split(' > ')[-1]} (p. {c.page_start})")
+        print(f" {mark}[{i}] {c.label} (p. {c.page_start})")
     status = "verified" if res.report.ok else "CHECK"
     print(f"\nCitations {status}", end="")
     if not res.report.ok:
@@ -36,8 +36,7 @@ def cmd_map(args) -> None:
         if a.status == "not_applicable" and not args.all:
             continue
         flag = "" if a.quote_verified else "  (quote not verified)"
-        print(f"\n{STATUS_LABEL[a.status]:8s} {a.provision.citation} — "
-              f"{a.provision.heading.split(' > ')[-1]}{flag}")
+        print(f"\n{STATUS_LABEL[a.status]:8s} {a.provision.label}{flag}")
         print(textwrap.fill(f"Requirement: \"{a.requirement_quote}\"", 100, initial_indent="  ",
                             subsequent_indent="  "))
         print(textwrap.fill(f"Why: {a.reason}", 100, initial_indent="  ", subsequent_indent="  "))
@@ -49,7 +48,7 @@ def cmd_map(args) -> None:
 def cmd_search(args) -> None:
     from rag.retrieve import retrieve
     for i, c in enumerate(retrieve(args.query, k=args.k, mode=args.mode), start=1):
-        print(f"[{i}] {c.citation} — {c.heading.split(' > ')[-1]}")
+        print(f"[{i}] {c.label}")
         print(textwrap.indent(textwrap.shorten(c.text, 240), "    "))
 
 

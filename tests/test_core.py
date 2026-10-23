@@ -34,6 +34,16 @@ def test_irr_heading_patterns():
     assert sub.pattern.match("5.3. Manual Monitoring.").group(1) == "5.3"
 
 
+def test_label_drops_repeated_provision_number():
+    from ingest.chunk import Chunk
+    c = Chunk("x#0", "irr2018", "2018 IRR", "x", "2018 IRR, Rule 22, Sec. 2",
+              "Rule 22 Transaction Reporting > Sec. 2 Timing of Reporting", 84, 84, "text")
+    assert c.label == "2018 IRR, Rule 22, Sec. 2 · Timing of Reporting"
+    d = Chunk("y#0", "rrg2021", "2021 RRG", "y", "2021 RRG, Part IV, D, e",
+              "Part IV STRs > D Quality > e", 11, 11, "text")
+    assert d.label == "2021 RRG, Part IV, D, e"
+
+
 def test_split_respects_limit_and_keeps_all_words():
     text = "\n".join(" ".join(f"w{p}_{i}" for i in range(50)) for p in range(20))
     pieces = _split_words(text, max_words=120, overlap=10)

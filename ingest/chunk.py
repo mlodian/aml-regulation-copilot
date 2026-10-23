@@ -98,6 +98,17 @@ class Chunk:
     text: str          # body text only
 
     @property
+    def title(self) -> str:
+        """Name of the innermost provision without its number, e.g. 'Timing of Reporting'."""
+        last = self.heading.split(" > ")[-1]
+        return re.sub(r"^(?:(?:Rule|Sec\.|Part|Rec\.)\s+)?[0-9A-Za-z.]+\s*", "", last, count=1)
+
+    @property
+    def label(self) -> str:
+        """Display label: citation plus the provision's name when it has one."""
+        return f"{self.citation} · {self.title}" if self.title else self.citation
+
+    @property
     def embed_text(self) -> str:
         return f"{self.citation} | {self.heading}\n{self.text}"
 

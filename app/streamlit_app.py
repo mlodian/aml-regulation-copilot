@@ -38,7 +38,7 @@ STATUS_STYLE = {"gap": ("Gap", "🔴"), "partial": ("Partial", "🟠"), "covered
 
 def show_sources(chunks, cited: set[int]) -> None:
     for i, c in enumerate(chunks, start=1):
-        label = f"[{i}] {c.citation} — {c.heading.split(' > ')[-1]}  ·  p. {c.page_start}"
+        label = f"[{i}] {c.label}  ·  p. {c.page_start}"
         with st.expander(("● " if i in cited else "○ ") + label):
             st.write(c.text)
 
@@ -89,7 +89,7 @@ with map_tab:
                 continue
             label, icon = STATUS_STYLE[a.status]
             with st.container(border=True):
-                st.markdown(f"**{icon} {label} · {a.provision.citation}** — {a.provision.heading.split(' > ')[-1]}")
+                st.markdown(f"**{icon} {label}** · {a.provision.label}")
                 st.markdown(f"> {a.requirement_quote}")
                 if not a.quote_verified:
                     st.caption("⚠ This quote could not be matched to the provision text.")
