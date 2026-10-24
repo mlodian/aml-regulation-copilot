@@ -1,0 +1,309 @@
+# Golden evaluation set.
+#
+# gold:          section_ids that answer the question (a hit on ANY of them counts)
+# must_contain:  facts the answer must state (case-insensitive regex, all required)
+# kind:          numeric | factual | list | multi_doc | unanswerable
+#
+# Questions are paraphrased the way a compliance analyst would ask them, not
+# lifted from the text, so retrieval cannot win on exact wording alone.
+# Unanswerable questions are in-domain but outside this corpus; the correct
+# behaviour is to refuse.
+
+questions:
+  # --- Thresholds and deadlines -------------------------------------------
+  - id: q01
+    question: What is the peso threshold for a cash transaction to count as a covered transaction?
+    gold: [irr2018:rule2:sec1, rrg2021:partii]
+    must_contain: ['500,000|500 ?thousand|five hundred thousand']
+    kind: numeric
+  - id: q02
+    question: What's the covered transaction threshold when the counterparty is a jewelry or precious metals dealer?
+    gold: [irr2018:rule2:sec1, rrg2021:partii]
+    must_contain: ['1,000,000|one million|1 million']
+    kind: numeric
+  - id: q03
+    question: Above what amount does a casino cash transaction become a covered transaction?
+    gold: [irr2018:rule2:sec1]
+    must_contain: ['5,000,000|five million|5 million']
+    kind: numeric
+  - id: q04
+    question: What is the covered transaction threshold for cash deals with real estate developers or brokers?
+    gold: [irr2018:rule2:sec1, rrg2021:partii]
+    must_contain: ['7,500,000|seven million five hundred thousand|7\.5 million']
+    kind: numeric
+  - id: q05
+    question: How many working days does a covered person have to file a CTR?
+    gold: [irr2018:rule22:sec2, rrg2021:partiii]
+    must_contain: ['five|\b5\b']
+    kind: numeric
+  - id: q06
+    question: What is the deadline for submitting a suspicious transaction report once suspicion is established?
+    gold: [irr2018:rule22:sec2, rrg2021:partiv]
+    must_contain: ['next working day']
+    kind: numeric
+  - id: q07
+    question: For STR timing purposes, what date counts as the "occurrence" of a suspicious transaction?
+    gold: [irr2018:rule22:sec2, rrg2021:partiv]
+    must_contain: ['establishment of suspicion|determination of the suspicious nature']
+    kind: factual
+  - id: q08
+    question: What is the longest period the AMLC can prescribe for filing CTRs?
+    gold: [irr2018:rule22:sec2]
+    must_contain: ['fifteen|\b15\b']
+    kind: numeric
+  - id: q09
+    question: How long must customer records and transaction documents be retained?
+    gold: [irr2018:rule20:sec1, irr2018:rule20:sec2]
+    must_contain: ['five|\b5\b']
+    kind: numeric
+  - id: q10
+    question: If an account has been closed, when does the record retention clock start?
+    gold: [irr2018:rule20:sec2]
+    must_contain: ['closure|termination']
+    kind: factual
+  - id: q11
+    question: What happens to the retention requirement if there is a court case involving the account?
+    gold: [irr2018:rule20:sec3]
+    must_contain: ['beyond|until']
+    kind: factual
+  - id: q12
+    question: How often must a covered person conduct its institutional risk assessment?
+    gold: [irr2018:rule15:sec1]
+    must_contain: ['two|\b2\b']
+    kind: numeric
+  - id: q13
+    question: How frequently is the National Risk Assessment updated?
+    gold: [irr2018:rule13:sec2]
+    must_contain: ['three|\b3\b']
+    kind: numeric
+  - id: q14
+    question: How often should AML refresher training be provided to directors, officers and employees?
+    gold: [irr2018:rule16:sec4]
+    must_contain: ['three|\b3\b']
+    kind: numeric
+  - id: q15
+    question: How long can a court-issued freeze order stay in effect?
+    gold: [irr2018:rule10:sec2:s2.8]
+    must_contain: ['six|\b6\b']
+    kind: numeric
+  - id: q16
+    question: What shareholding percentage makes someone a beneficial owner of a juridical person?
+    gold: [irr2018:rule2:sec1]
+    must_contain: ['20|twenty']
+    kind: numeric
+  - id: q17
+    question: When a bearer share entity changes ownership, how quickly must the list of stockholders be updated?
+    gold: [irr2018:rule19:sec7]
+    must_contain: ['thirty|\b30\b']
+    kind: numeric
+  - id: q18
+    question: What is the maximum administrative fine the Council can impose per violation?
+    gold: [irr2018:rule26:sec5]
+    must_contain: ['500,000|five hundred thousand']
+    kind: numeric
+  - id: q19
+    question: What is the prison term for a person convicted of money laundering under Section 4(a) to (d) of the AMLA?
+    gold: [irr2018:rule25:sec1]
+    must_contain: ['seven|\b7\b', 'fourteen|\b14\b']
+    kind: numeric
+  - id: q20
+    question: What penalty applies for failing to keep records as required by the AMLA?
+    gold: [irr2018:rule25:sec3]
+    must_contain: ['six|\b6\b', 'one|\b1\b']
+    kind: numeric
+  - id: q21
+    question: What is the penalty for maliciously filing a false money laundering report?
+    gold: [irr2018:rule25:sec4]
+    must_contain: ['six|\b6\b', 'four|\b4\b']
+    kind: numeric
+  - id: q22
+    question: What penalty applies to breaching the confidentiality of covered or suspicious transaction reports?
+    gold: [irr2018:rule25:sec5]
+    must_contain: ['three|\b3\b', 'eight|\b8\b']
+    kind: numeric
+
+  # --- STR determination periods (2021 RRG) -------------------------------
+  - id: q23
+    question: How long does a covered person have to determine suspicion for transactions flagged by the transaction monitoring system?
+    gold: [rrg2021:partiv]
+    must_contain: ['sixty|\b60\b']
+    kind: numeric
+  - id: q24
+    question: What is the maximum length of a single periodic run of the transaction monitoring system?
+    gold: [rrg2021:partiv]
+    must_contain: ['thirty-one|\b31\b']
+    kind: numeric
+  - id: q25
+    question: Within how many days must suspicious circumstances under Section 3(b-1) of the AMLA be established?
+    gold: [rrg2021:partiv]
+    must_contain: ['ten|\b10\b']
+    kind: numeric
+  - id: q26
+    question: How long do we have to determine suspicion after receiving an AMLC referral that names a specific unlawful activity?
+    gold: [rrg2021:partiv]
+    must_contain: ['ten|\b10\b']
+    kind: numeric
+  - id: q27
+    question: What is the determination period for STRs filed under the ZSTR transaction code, such as those triggered by negative news?
+    gold: [rrg2021:partiv]
+    must_contain: ['sixty|\b60\b']
+    kind: numeric
+  - id: q28
+    question: For which unlawful activities must KYC documents be uploaded together with the STR?
+    gold: [rrg2021:partiv]
+    must_contain: ['kidnapping', 'drug', 'terroris']
+    kind: list
+
+  # --- Definitions and obligations ----------------------------------------
+  - id: q29
+    question: Is there a minimum amount for a transaction to be reportable as suspicious?
+    gold: [irr2018:rule2:sec1, rrg2021:partii]
+    must_contain: ['regardless of (the )?amount|no minimum|no (amount |peso )?threshold']
+    kind: factual
+  - id: q30
+    question: What circumstances make a transaction suspicious under the rules?
+    gold: [rrg2021:partii, irr2018:rule2:sec1]
+    must_contain: ['economic justification|legal or trade obligation', 'not properly identified', 'structured']
+    kind: list
+  - id: q31
+    question: How should a transaction be reported if it is both a covered and a suspicious transaction?
+    gold: [irr2018:rule22:sec1:s1.1, rrg2021:partiv]
+    must_contain: ['suspicious transaction']
+    kind: factual
+  - id: q32
+    question: Do attempted transactions need to be included in STRs?
+    gold: [irr2018:rule22:sec1:s1.1, rrg2021:partiv]
+    must_contain: ['attempt']
+    kind: factual
+  - id: q33
+    question: Are lawyers and accountants required to file covered transaction reports about their clients?
+    gold: [irr2018:rule22:sec1:s1.3]
+    must_contain: ['not required|exempt']
+    kind: factual
+  - id: q34
+    question: Can a covered person tell a customer that an STR has been filed about them?
+    gold: [irr2018:rule22:sec7, rrg2021:parti]
+    must_contain: ['prohibit|must not|cannot|may not']
+    kind: factual
+  - id: q35
+    question: Is a reporting officer protected from liability for filing an STR in good faith?
+    gold: [irr2018:rule22:sec6, rrg2021:parti]
+    must_contain: ['good faith']
+    kind: factual
+  - id: q36
+    question: What automated functions must an electronic AML monitoring system have?
+    gold: [irr2018:rule22:sec5]
+    must_contain: ['watchlist', 'audit trail']
+    kind: list
+  - id: q37
+    question: What must a covered person do if it cannot complete customer due diligence?
+    gold: [irr2018:rule18:sec12]
+    must_contain: ['refuse|terminate', 'STR']
+    kind: factual
+  - id: q38
+    question: What should we do if we suspect money laundering but doing CDD would tip off the customer?
+    gold: [irr2018:rule18:sec13]
+    must_contain: ['STR', 'monitor']
+    kind: factual
+  - id: q39
+    question: What does enhanced due diligence require in practice?
+    gold: [irr2018:rule18:sec10]
+    must_contain: ['\[?s\]?ources? of (wealth|fund)', 'senior management']
+    kind: list
+  - id: q40
+    question: When can a covered person apply reduced due diligence, and when is it not allowed?
+    gold: [irr2018:rule18:sec11]
+    must_contain: ['lower risk', 'suspicion']
+    kind: factual
+  - id: q41
+    question: Can identity verification be completed after the business relationship has started?
+    gold: [irr2018:rule18:sec4:s4.3]
+    must_contain: ['reasonably practicable']
+    kind: factual
+  - id: q42
+    question: What ID must a first-time customer present?
+    gold: [irr2018:rule18:sec3:s3.2]
+    must_contain: ['original', 'one|\b1\b']
+    kind: factual
+  - id: q43
+    question: For life insurance policies, when must the identity of the beneficiary be verified?
+    gold: [irr2018:rule19:sec2]
+    must_contain: ['payout']
+    kind: factual
+  - id: q44
+    question: What should an insurer do before paying out a life policy when a beneficiary is a higher-risk PEP?
+    gold: [irr2018:rule19:sec2]
+    must_contain: ['senior management', 'STR']
+    kind: multi_doc
+  - id: q45
+    question: Who has ultimate responsibility for a covered person's AML compliance?
+    gold: [irr2018:rule4:sec2]
+    must_contain: ['board']
+    kind: factual
+  - id: q46
+    question: What level of seniority must the compliance officer hold?
+    gold: [irr2018:rule16:sec2]
+    must_contain: ['senior management']
+    kind: factual
+  - id: q47
+    question: Who should the internal auditor report AML audit results to?
+    gold: [irr2018:rule16:sec5]
+    must_contain: ['board']
+    kind: factual
+  - id: q48
+    question: If a covered person relies on a third party for CDD, who remains responsible?
+    gold: [irr2018:rule21:sec1]
+    must_contain: ['relying|covered person']
+    kind: factual
+  - id: q49
+    question: Are anonymous accounts or accounts under fictitious names allowed?
+    gold: [irr2018:rule17:sec1]
+    must_contain: ['prohibit']
+    kind: factual
+  - id: q50
+    question: Which non-working days are excluded when counting the reporting period?
+    gold: [rrg2021:partv]
+    must_contain: ['weekend|saturday', 'holiday']
+    kind: list
+
+  # --- Unanswerable: in-domain, but not in this corpus --------------------
+  - id: u01
+    question: What is the CTR threshold for transactions in Singapore under MAS rules?
+    gold: []
+    kind: unanswerable
+  - id: u02
+    question: What fine did the AMLC impose on Rizal Commercial Banking Corporation in 2016?
+    gold: []
+    kind: unanswerable
+  - id: u03
+    question: What is the US FinCEN deadline for filing a Suspicious Activity Report?
+    gold: []
+    kind: unanswerable
+  - id: u04
+    question: Which countries are currently on the FATF grey list?
+    gold: []
+    kind: unanswerable
+  - id: u05
+    question: How many STRs did the AMLC receive in 2024?
+    gold: []
+    kind: unanswerable
+  - id: u06
+    question: What is the BSP's de minimis threshold amount for cross-border wire transfers?
+    gold: []
+    kind: unanswerable
+  - id: u07
+    question: What machine learning model does the AMLC use to analyse STRs?
+    gold: []
+    kind: unanswerable
+  - id: u08
+    question: What is the EU's sixth anti-money laundering directive's penalty for legal persons?
+    gold: []
+    kind: unanswerable
+  - id: u09
+    question: Who is the current Executive Director of the AMLC?
+    gold: []
+    kind: unanswerable
+  - id: u10
+    question: What is the threshold for reporting crypto transactions to the AMLC?
+    gold: []
+    kind: unanswerable

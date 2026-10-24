@@ -38,6 +38,9 @@ class Level:
     title_next: bool = False  # the title is the next line ("RULE 1" / "Title"), in any case
     child_of_prev: bool = False  # "5.4" is only a heading inside Section 5
     roman: bool = False      # numbers run i, ii, iii ... (checked like `sequential`)
+    attach: bool = False     # cited in brackets after its parent: 5.4(c)(3)(viii), the issuance's own style
+    needs_parent: bool = False  # only a heading inside the level just above it ("i." under "3.", not a letter list)
+    only_under: str | None = None  # only a heading inside this top-level unit, e.g. GoTRACS Chapter "I"
 
 
 # Per-document heading grammar. Order = hierarchy depth.
@@ -83,8 +86,16 @@ PROFILES: dict[str, dict] = {
             Level("Part", re.compile(r"^PART (\d+)\s*[–-]\s*(.+)$")),
             Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
             Level("", re.compile(r"^(\d+\.\d+)\.?(?:\s+(.+))?$"), sentence_body=True, child_of_prev=True),
-            # each STR determination period in 5.4(c)(3) is its own chunk, as in the 2021 RRG
-            Level("", re.compile(r"^(i|ii|iii|iv|v|vi|vii|viii|ix|x)\.(?:\s+(.+))?$"), sentence_body=True, roman=True),
+            # In the policy chapter, lettered paragraphs "(c) Determination", numbered items
+            # "3. Determination period ...", and roman items under them: each STR determination
+            # period, 5.4(c)(3)(viii), is its own chunk. Chapters II-III are reporting-format
+            # manuals whose short lists would split into fragments, so they stop at N.N.
+            Level("", re.compile(r"^\(([a-z]{1,2})\)(?:\s+(.+))?$"), sentence_body=True, sequential=True, attach=True,
+                  only_under="I"),
+            Level("", re.compile(r"^(\d{1,2})\.(?:\s+(.+))?$"), sentence_body=True, sequential=True, attach=True,
+                  needs_parent=True, only_under="I"),
+            Level("", re.compile(r"^(i|ii|iii|iv|v|vi|vii|viii|ix|x)\.(?:\s+(.+))?$"), sentence_body=True, roman=True,
+                  attach=True, needs_parent=True, only_under="I"),
         ],
     },
     "dnfbp2021": {
@@ -288,6 +299,26 @@ class Chunk:
         return f"{self.citation} | {self.heading}\n{self.text}"
 
 
+def _follows(prev: str | None, label: str) -> bool:
+    """Does `label` continue a list after `prev`? A list may always restart at a / 1.
+
+    Letters run a ... z, aa, bb ...; numbers run 1, 2, 3 ...
+    """
+    label = label.lower()
+    if label in ("a", "1"):
+        return True
+    if prev is None:
+        return False
+    prev = prev.lower()
+    if prev.isdigit():
+        return label == str(int(prev) + 1)
+    if prev == "z":
+        return label == "aa"
+    if len(prev) == 2 and prev[0] == prev[1]:
+        return label == chr(ord(prev[0]) + 1) * 2
+    return label == chr(ord(prev) + 1)
+
+
 def _slug(level: Level, number: str) -> str:
     name = re.sub(r"[^a-z]", "", level.name.lower()) or "s"
     return f"{name}{re.sub(r'[^a-z0-9.]', '', number.lower())[:40]}"
@@ -338,7 +369,12 @@ def parse_sections(doc: dict, trace: dict | None = None) -> list[tuple[list, lis
     body: list[Line] = []
     skip: set[int] = set()  # title lines already consumed by the heading above them
 
+    title_item: list[Line] = []  # a list item whose only text read as a title: "(a) Weekend (Saturday and Sunday);"
+
     def flush() -> None:
+        if not body and title_item:
+            body.extend(title_item)
+        title_item.clear()
         if body:
             sections.append(([p for p in path if p], list(body)))
             body.clear()
@@ -350,11 +386,12 @@ def parse_sections(doc: dict, trace: dict | None = None) -> list[tuple[list, lis
             m = level.pattern.match(line.text)
             if not m or (level.title_only and not looks_like_title(m.group(2))):
                 continue
-            if level.sequential:
-                prev = path[depth][1] if path[depth] else None
-                expected = "a" if prev is None else chr(ord(prev.lower()) + 1)
-                if m.group(1).lower() not in (expected, "a"):
-                    continue
+            if level.needs_parent and (depth == 0 or path[depth - 1] is None):
+                continue
+            if level.only_under and (path[0] is None or path[0][1] != level.only_under):
+                continue
+            if level.sequential and not _follows(path[depth][1] if path[depth] else None, m.group(1)):
+                continue
             if level.roman:
                 prev = path[depth][1] if path[depth] else None
                 expected = "i" if prev is None else ROMAN[ROMAN.index(prev) + 1]
@@ -379,6 +416,8 @@ def parse_sections(doc: dict, trace: dict | None = None) -> list[tuple[list, lis
             elif level.sentence_body and not looks_like_title(title.rstrip(".")):
                 body_lead, title = title, ""  # "A. CPs shall report ..." is text, not a title
             path[depth] = (level, number, clean_title(title))
+            if level.sentence_body and title and not body_lead:
+                title_item.append(Line(line.page, title))
             for deeper in range(depth + 1, len(levels)):
                 path[deeper] = None
             rest = body_lead or line.text[m.end():].strip()
@@ -391,11 +430,67 @@ def parse_sections(doc: dict, trace: dict | None = None) -> list[tuple[list, lis
     return sections
 
 
+MIN_SECTION_WORDS = 8  # shorter sections are list items or bare intros ("The following DNFBPs:")
+MIN_CHUNK_WORDS = 2    # a lone word is a heading fragment; "Jewelry dealers." is a provision
+
+
+def _label(level: Level, number: str) -> str:
+    return f"({number})" if level.attach else (f"{level.name} {number}".strip() if level.name else f"{number}.")
+
+
+def fold_short_sections(sections: list[tuple[list, list[Line]]]) -> list[tuple[list, list[Line]]]:
+    """Keep the text of very short sections instead of dropping it.
+
+    A short intro that ends in a colon ("(g) “Covered Transaction” refers to:") becomes
+    the title of the items under it, so each item's heading says what it lists. Any
+    other short section ("(2) Pre-need companies;") is appended, with its label, to its
+    nearest earlier ancestor section ("3.1 The following financial institutions: ...");
+    with no ancestor yet, it stays as a section so the items after it can join it.
+    A section still under MIN_CHUNK_WORDS at the end is a heading fragment and joins
+    the section before it.
+    """
+    words = lambda lines: sum(len(l.text.split()) for l in lines)
+    sections = [(list(h), list(l)) for h, l in sections]
+    out: list[tuple[list, list[Line]]] = []
+    for i, (headings, lines) in enumerate(sections):
+        intro = " ".join(l.text for l in lines).strip()
+        nxt = sections[i + 1][0] if i + 1 < len(sections) else []
+        if (headings and words(lines) < MIN_SECTION_WORDS and intro.endswith(":")
+                and len(nxt) > len(headings) and nxt[:len(headings)] == headings):
+            # "(g) “Covered Transaction” refers to:" titles the items under it
+            old = headings[-1]
+            new = (old[0], old[1], intro)
+            for later, _ in sections[i + 1:]:
+                for k, h in enumerate(later):
+                    if h is old:
+                        later[k] = new
+            continue
+        if headings and words(lines) < MIN_SECTION_WORDS:
+            key = [(lv.name, n) for lv, n, _ in headings]
+            parent = next((o for o in reversed(out) if o[0] and len(o[0]) < len(headings)
+                           and [(lv.name, n) for lv, n, _ in o[0]] == key[:len(o[0])]), None)
+            if parent is not None:
+                label = " ".join(_label(lv, n) for lv, n, _ in headings[len(parent[0]):])
+                parent[1].append(Line(lines[0].page, f"{label} {lines[0].text}"))
+                parent[1].extend(lines[1:])
+                continue
+        out.append((headings, list(lines)))
+    folded: list[tuple[list, list[Line]]] = []
+    for headings, lines in out:
+        if folded and headings and words(lines) < MIN_CHUNK_WORDS:
+            label = " ".join(_label(lv, n) for lv, n, _ in headings[-1:])
+            folded[-1][1].append(Line(lines[0].page, f"{label} {lines[0].text}"))
+            folded[-1][1].extend(lines[1:])
+        else:
+            folded.append((headings, lines))
+    return folded
+
+
 def structured_chunks(doc: dict) -> list[Chunk]:
     profile = PROFILES[doc["id"]]
     chunks: list[Chunk] = []
     seen: dict[str, int] = {}
-    for headings, sec_lines in parse_sections(doc):
+    for headings, sec_lines in fold_short_sections(parse_sections(doc)):
         if not headings and not profile.get("preamble"):
             continue  # preamble before the first heading
         section_id = doc["id"] + ":" + (":".join(_slug(lv, n) for lv, n, _ in headings) or "main")
@@ -405,12 +500,18 @@ def structured_chunks(doc: dict) -> list[Chunk]:
             # the source numbers two provisions the same (IRR Rule 22 has two Sec. 7)
             section_id, suffix = base + suffix, chr(ord(suffix) + 1)
         seen.setdefault(section_id, key)
-        citation = ", ".join([doc["short"]] + [f"{lv.name} {n}".strip() for lv, n, _ in headings])
-        heading = " > ".join(f"{lv.name} {n} {t}".strip() for lv, n, t in headings)
+        parts = [doc["short"]]
+        for lv, n, _ in headings:
+            if lv.attach and len(parts) > 1:
+                parts[-1] += f"({n})"
+            else:
+                parts.append(f"{lv.name} {n}".strip())
+        citation = ", ".join(parts)
+        heading = " > ".join(f"{lv.name} {f'({n})' if lv.attach else n} {t}".strip() for lv, n, t in headings)
         text = join_lines([l.text for l in sec_lines])
         pages = [l.page for l in sec_lines]
         for k, piece in enumerate(_split_words(text, MAX_WORDS, OVERLAP_WORDS)):
-            if len(piece.split()) < 8:
+            if len(piece.split()) < MIN_CHUNK_WORDS:
                 continue
             chunks.append(Chunk(f"{section_id}#{k}", doc["id"], doc["short"], section_id, citation,
                                 heading, min(pages), max(pages), piece))

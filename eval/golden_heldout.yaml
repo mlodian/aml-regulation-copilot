@@ -1,0 +1,394 @@
+# Golden evaluation set (held-out).
+#
+# gold:          section ids that answer the question; a label also matches every section under it
+# also:          sector restatements stating the same fact (BSP, SEC, IC, DNFBP rules): correct
+#                evidence, but not the general rule (scored separately)
+# must_contain:  facts the answer must state (case-insensitive regex, all required)
+# kind:          numeric | factual | list | multi_doc | cross_issuer | versioned | unanswerable
+# as_of:         the date the question is asked about (default below); retrieval only sees the
+#                provisions in force on that date
+# pair:          the two questions of a same-question, two-date pair
+# source:        pilot (written for the 2-document pilot, relabelled for Phase 2) | phase2
+#
+# Questions are paraphrased the way a compliance analyst would ask them. Unanswerable
+# questions are in-domain but outside this library; the correct behaviour is to refuse.
+# Built by eval/build/assemble.py; checked by `python -m eval.validate_golden`.
+# Held-out split: Phase 2 questions never used while building. Run once per release:
+#   python -m eval.run_eval answers --split heldout
+as_of: 2026-10-24
+
+
+questions:
+  - id: n001
+    question: What report type and filing deadline apply to an STR about a high-priority predicate crime such as terrorism financing?
+    gold: [gotracs2024:chi:sec5:s5.4:sc:s3:sv]
+    must_contain: ['STRHP', 'next working day']
+    kind: factual
+    source: phase2
+  - id: n003
+    question: After freezing an account on a target match under targeted financial sanctions, when must the STR be filed?
+    gold: [gotracs2024:chi:sec5:s5.4:sc:s3:svii]
+    must_contain: ['same day']
+    kind: numeric
+    source: phase2
+  - id: n008
+    question: Which transactions must casinos report as covered transactions?
+    gold: [gotracs2024:chi:sec4:s4.5, gotracs2024:chi:sec2:sg]
+    must_contain: ['casino cash']
+    kind: factual
+    source: phase2
+  - id: n009
+    question: For real estate brokers and developers, what counts as a cash transaction for covered transaction reporting?
+    gold: [gotracs2024:chi:sec4:s4.6]
+    must_contain: ['coins|fiat']
+    kind: factual
+    source: phase2
+  - id: n012
+    question: What can a covered person do if a local holiday or work suspension in its area affects a reporting deadline?
+    gold: [gotracs2024:chi:sec6:s6.2]
+    must_contain: ['deviation request']
+    kind: factual
+    source: phase2
+  - id: n013
+    question: On what grounds may the AMLC Executive Director declare non-reporting days?
+    gold: [gotracs2024:chi:sec6:s6.4]
+    must_contain: ['emergency|calamity|quarantine', 'maintenance']
+    kind: list
+    source: phase2
+  - id: n014
+    question: Do loan renewals or restructurings have to be reported as covered transactions?
+    gold: [gotracs2024:chi:sec7:s7.1:sg, gotracs2024:chi:sec7:s7.4:se]
+    must_contain: ['borrower|additional funds']
+    kind: factual
+    source: phase2
+  - id: n015
+    question: Does an insurer need to file a CTR when it renews a non-life policy on the same terms?
+    gold: [gotracs2024:chi:sec7:s7.5:sb]
+    must_contain: ['previously filed']
+    kind: factual
+    source: phase2
+  - id: n020
+    question: Who may decide with finality whether to file an STR?
+    gold: [gotracs2024:chi:sec5:s5.3:sc:s5]
+    must_contain: ['Compliance Officer|review committee']
+    kind: factual
+    source: phase2
+  - id: n021
+    question: What is the "determination date" for STR purposes?
+    gold: [gotracs2024:chi:sec5:s5.4:sc:s1]
+    must_contain: ['knew|should have|alerted|advised']
+    kind: factual
+    source: phase2
+  - id: n022
+    question: How long do we have to determine that a transaction is related to an unlawful activity, and which report type is filed?
+    gold: [gotracs2024:chi:sec5:s5.4:sc:s3:sii]
+    must_contain: ['sixty|\b60', 'STRR']
+    kind: numeric
+    source: phase2
+  - id: n023
+    question: Must KYC documents be uploaded before or after the STR they support?
+    gold: [gotracs2024:chii:part1:sec5:s5.1]
+    must_contain: ['prior to|before']
+    kind: factual
+    source: phase2
+  - id: n024
+    question: Which covered persons supervised by the Insurance Commission are listed in the current reporting guidelines?
+    gold: [gotracs2024:chi:sec3:s3.1:sb]
+    must_contain: ['pre-need', 'reinsur', 'mutual benefit']
+    kind: list
+    source: phase2
+  - id: v01a
+    question: For a transaction flagged by the transaction monitoring system, from what date does the 60-day determination period run?
+    as_of: '2022-06-01'
+    pair: v01
+    gold: [rrg2021:partiv:sd:se]
+    must_contain: ['date of (the )?transaction']
+    kind: versioned
+    source: phase2
+  - id: v01b
+    question: For a transaction flagged by the transaction monitoring system, from what date does the 60-day determination period run?
+    pair: v01
+    gold: [gotracs2024:chi:sec5:s5.4:sc:s3:sviii]
+    must_contain: ['case creation']
+    kind: versioned
+    source: phase2
+  - id: v03a
+    question: When asked, how quickly must an originating financial institution make wire transfer information available?
+    as_of: '2019-06-01'
+    pair: v03
+    gold: [irr2018_orig:rule19:sec6:s6.1]
+    must_contain: ['five|\b5\b']
+    kind: versioned
+    source: phase2
+  - id: v03b
+    question: When asked, how quickly must an originating financial institution make wire transfer information available?
+    pair: v03
+    gold: [irr2018:rule19:sec6:s6.1]
+    must_contain: ['three|\b3\b']
+    kind: versioned
+    source: phase2
+  - id: v06a
+    question: Within how many working days must a covered institution report a suspicious transaction related to terrorism financing?
+    as_of: '2015-06-01'
+    pair: v06
+    gold: [tf_irr:rule17:s17.b]
+    must_contain: ['five|\b5\b']
+    kind: versioned
+    source: phase2
+  - id: v06b
+    question: Within how many working days must a covered institution report a suspicious transaction related to terrorism financing?
+    pair: v06
+    gold: [irr2018:rule22:sec2, gotracs2024:chi:sec5:s5.4:sc:s3:sv, gotracs2024:chi:sec5:s5.4:sb]
+    must_contain: ['next working day']
+    kind: versioned
+    source: phase2
+  - id: v07a
+    question: How soon after receiving its Certificate of Authority must a newly licensed insurer register with the AMLC?
+    as_of: '2019-06-01'
+    pair: v07
+    gold: [ic_cl2018_48:titlevii:sec57]
+    must_contain: ['thirty|\b30\b']
+    kind: versioned
+    source: phase2
+  - id: v07b
+    question: How soon after receiving its Certificate of Authority must a newly licensed insurer register with the AMLC?
+    pair: v07
+    gold: [ic_cl2019_65:sec23]
+    must_contain: ['ninety|\b90\b']
+    kind: versioned
+    source: phase2
+  - id: n027
+    question: What extra penalty does a public official face for breaching the confidentiality of CTRs and STRs?
+    gold: [irr2018:rule25:sec5]
+    must_contain: ['disqualification']
+    kind: factual
+    source: phase2
+  - id: t03
+    question: What fine range applies to the crime of financing of terrorism?
+    gold: [tf_irr:rule4]
+    must_contain: ['500,000|five hundred thousand', '1,000,000|one million']
+    kind: numeric
+    source: phase2
+  - id: t04
+    question: What administrative fines can the AMLC impose under the TFPSA rules?
+    gold: [tf_irr:rule26]
+    must_contain: ['100,000|one hundred thousand', '500,000|five hundred thousand']
+    kind: numeric
+    source: phase2
+  - id: t08
+    question: What must covered institutions do about attempted dealings with frozen property?
+    gold: [tf_irr:rule16:s16.d]
+    must_contain: ['report']
+    kind: factual
+    source: phase2
+  - id: s01
+    question: Within how many hours of freezing assets on a target match must a covered person file a return?
+    gold: [sanctions2021:s5.1, sanctions2021:s6.1]
+    also: [bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf]
+    must_contain: ['24|twenty-four']
+    kind: numeric
+    source: phase2
+  - id: s03
+    question: How quickly must the AMLC confirm whether a freeze on a potential match was proper?
+    gold: [sanctions2021:s2.3]
+    must_contain: ['36|thirty-six']
+    kind: numeric
+    source: phase2
+  - id: s10
+    question: Within how many days can an aggrieved party challenge a proliferation-financing TFS before the Court of Appeals?
+    gold: [sanctions2021:s10.5, irr2018:rule10:sec5:s5.6]
+    must_contain: ['twenty|\b20\b']
+    kind: numeric
+    source: phase2
+  - id: b01
+    question: What minimum information must we obtain on a corporate customer to identify its beneficial owners?
+    gold: [bo2018:sec4]
+    must_contain: ['incorporation', 'directors', '20|twenty']
+    kind: list
+    source: phase2
+  - id: b02
+    question: Which sources may covered persons use to obtain beneficial ownership information?
+    gold: [bo2018:sec4]
+    must_contain: ['credit bureau', 'company regist']
+    kind: list
+    source: phase2
+  - id: c02
+    question: Should sanctions screening rely on exact name matching or fuzzy logic?
+    gold: [screening2023:sec3:s3.5:s3.5.3]
+    must_contain: ['fuzzy']
+    kind: factual
+    source: phase2
+  - id: c04
+    question: What are the two core systems most covered persons use for sanctions screening?
+    gold: [screening2023:sec1:s1.3]
+    must_contain: ['customer screening', 'transaction screening']
+    kind: list
+    source: phase2
+  - id: a01
+    question: Is there a cap on the aggregate administrative fine relative to the respondent's size?
+    gold: [admin_sanctions2017:rulev:sec1]
+    must_contain: ['five percent|5%']
+    kind: numeric
+    source: phase2
+  - id: a02
+    question: What surcharge applies if a respondent pays an AMLC administrative fine late?
+    gold: [admin_sanctions2017:ruleiii:sec14]
+    must_contain: ['ten percent|10%']
+    kind: numeric
+    source: phase2
+  - id: d01
+    question: For AML purposes, when is an item considered jewelry?
+    gold: [dnfbp2021:titleii:sec3:sm]
+    must_contain: ['fifty percent|50%']
+    kind: numeric
+    source: phase2
+  - id: d02
+    question: What change of ownership in a DNFBP must be notified to the AMLC, and when?
+    gold: [dnfbp2021:titlevii:sec53:sf]
+    must_contain: ['20|twenty', 'before']
+    kind: factual
+    source: phase2
+  - id: d03
+    question: How often must a DNFBP conduct its institutional risk assessment?
+    gold: [dnfbp2021:titleiii:sec5:sf]
+    must_contain: ['two|\b2\b']
+    kind: numeric
+    source: phase2
+  - id: d04
+    question: When must a DNFBP file an STR?
+    gold: [dnfbp2021:titlevi:sec43]
+    must_contain: ['next working day']
+    kind: numeric
+    source: phase2
+  - id: e04
+    question: What range of fines can the SEC impose for AML violations?
+    gold: [sec_mc16_2018:ch12:sec12.1]
+    must_contain: ['10,000', '1,000,000']
+    kind: numeric
+    source: phase2
+  - id: e07
+    question: How often must SEC-supervised institutions run refresher AML training?
+    gold: [sec_mc16_2018:ch11:sec11.4]
+    must_contain: ['once a year|annual']
+    kind: numeric
+    source: phase2
+  - id: e08
+    question: What makes an entity an "affiliate" under the SEC AML guidelines?
+    gold: [sec_mc16_2018:ch2:sec2.1]
+    must_contain: ['20|twenty', '50|fifty']
+    kind: numeric
+    source: phase2
+  - id: i01
+    question: How long must insurers keep customer identification and transaction records?
+    gold: [ic_cl2018_48:titlevi:sec48]
+    must_contain: ['five|\b5\b']
+    kind: numeric
+    source: phase2
+  - id: i05
+    question: What events should prompt an insurer to update its institutional risk assessment?
+    gold: [ic_cl2024_16:titleiv]
+    must_contain: ['merger|consolidation', 'STR']
+    kind: list
+    source: phase2
+  - id: i06
+    question: When must an insurer report premiums paid in instalments as a covered transaction?
+    gold: [ic_cl2019_65:sec21]
+    must_contain: ['entire year']
+    kind: factual
+    source: phase2
+  - id: m01
+    question: When is an ML/TF/PF risk event significant enough that a BSP-supervised institution must report it?
+    gold: [bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir]
+    must_contain: ['one \(1\) percent|1%|one percent', 'qualifying capital']
+    kind: numeric
+    source: phase2
+  - id: m06
+    question: How often must banks formulate their AML training program?
+    gold: [bsp_morb_p9:sec931]
+    must_contain: ['annual']
+    kind: numeric
+    source: phase2
+  - id: m09
+    question: What must a bank do when assets of a person designated for proliferation financing are found?
+    gold: [bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf]
+    must_contain: ['freeze', '24|twenty-four']
+    kind: factual
+    source: phase2
+  - id: m10
+    question: What must a bank require from customers that are remittance companies, money changers or FX dealers?
+    gold: [bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit]
+    must_contain: ['registration']
+    kind: factual
+    source: phase2
+  - id: m11
+    question: Must banks assess ML/TF risks of new products before launching them?
+    gold: [bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses]
+    must_contain: ['prior to|before']
+    kind: factual
+    source: phase2
+  - id: x01
+    question: As an insurer, how long must we keep AML records, under both the general rules and the Insurance Commission's?
+    gold: [irr2018:rule20:sec1, ic_cl2018_48:titlevi:sec48]
+    must_contain: ['five|\b5\b']
+    kind: cross_issuer
+    source: phase2
+  - id: x05
+    question: What must a bank do within 24 hours of freezing assets on a sanctions target match, under the BSP rules and the AMLC sanctions guidelines?
+    gold: [bsp_morb_p9:sec921, sanctions2021:s5.1]
+    must_contain: ['return']
+    kind: cross_issuer
+    source: phase2
+  - id: x08
+    question: For an insurer, must a policy renewal on the same terms be reported, and who reports premiums collected through agents?
+    gold: [gotracs2024:chi:sec7:s7.5]
+    must_contain: ['previously filed', 'insurance company|principal']
+    kind: cross_issuer
+    source: phase2
+  - id: u11
+    question: What penalties does the Data Privacy Act impose for unauthorized processing of personal data?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u13
+    question: What is the minimum capital requirement for a new digital bank licence?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u14
+    question: How many STRs did the AMLC receive in 2022?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u16
+    question: What cash transaction reporting threshold applies to banks in Singapore?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u18
+    question: What reserve requirement ratio does the BSP set for universal and commercial banks?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u22
+    question: What interest rate cap applies to credit card balances in the Philippines?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u24
+    question: What is the AMLC's annual budget for 2024?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2
+  - id: u28
+    question: What documents does the SEC require to register a new lending company?
+    gold: []
+    must_contain: []
+    kind: unanswerable
+    source: phase2

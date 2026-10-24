@@ -116,6 +116,12 @@ def test_uncited_claim_flagged():
     assert len(report.uncited_sentences) == 1
 
 
+def test_citation_abbreviations_do_not_split_sentences():
+    ctx = ["Covered persons shall establish the suspicion within sixty (60) calendar days."]
+    ans = ("- The current rule is GoTRACS, Ch. I, Sec. 5, 5.4(viii): \"within sixty (60) calendar days\" [1].")
+    assert check(ans, ctx).ok
+
+
 def test_refusal_detected():
     report = check(f"{REFUSAL}\nThe excerpts do not cover Singapore rules.", CONTEXTS)
     assert report.refused and report.ok
@@ -255,6 +261,32 @@ def test_one_changed_word_is_a_new_version():
     new = old.replace("within five (5) working days", "within three working days")
     assert words(old) != words(new)  # rapidfuzz ratio of these two is above 99
     assert words("“Rule 22.”  STRs") == words("rule 22 STRs")  # quote marks, case and spacing do not count
+
+
+def test_list_labels_follow_in_order():
+    from ingest.chunk import _follows
+    assert _follows(None, "a") and _follows("h", "i") and _follows("z", "aa") and _follows("aa", "bb")
+    assert _follows("2", "3") and _follows("7", "1")  # a list may restart
+    assert not _follows("h", "ii") and not _follows(None, "c") and not _follows("2", "4")
+
+
+def test_short_list_items_join_their_parent_instead_of_vanishing():
+    from ingest.chunk import Level, fold_short_sections
+    from ingest.parse import Line
+    sec, par, item = Level("Sec.", None), Level("", None, attach=True), Level("", None, attach=True)
+    parent = [(sec, "3", ""), (par, "b", "")]
+    sections = [(parent, [Line(1, "Persons supervised or regulated by the IC, such as:")]),
+                (parent + [(item, "1", "")], [Line(1, "Insurance companies;")]),
+                (parent + [(item, "2", "")], [Line(1, "Pre-need companies;")])]
+    folded = fold_short_sections(sections)
+    assert len(folded) == 1
+    assert [l.text for l in folded[0][1]][1:] == ["(1) Insurance companies;", "(2) Pre-need companies;"]
+
+
+def test_cohen_kappa():
+    from eval.review.agreement import cohen_kappa
+    assert cohen_kappa(["accept", "accept", "reject", "accept"], ["accept", "reject", "reject", "accept"]) == 0.5
+    assert cohen_kappa(["accept", "reject"], ["accept", "reject"]) == 1.0
 
 
 def _chunk(**kw):

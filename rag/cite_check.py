@@ -19,6 +19,18 @@ CITE_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 QUOTE_RE = re.compile(r"\"([^\"]*)\"|“([^”]*)”")  # pair quotes first, filter by length after
 MIN_QUOTE_CHARS = 12
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z(\-•*])")
+# citation abbreviations ("GoTRACS, Ch. I, Sec. 5", "ARI No. 1, s. 2020") do not end a sentence
+ABBREVIATION_END = re.compile(r"(?:\b(?:Ch|Sec|Secs|No|Nos|Art|Par|Rec|Pt|s|e\.g|i\.e|vs|cf)\.)$")
+
+
+def sentences(text: str) -> list[str]:
+    out: list[str] = []
+    for piece in SENTENCE_RE.split(text.strip()):
+        if out and ABBREVIATION_END.search(out[-1]):
+            out[-1] += " " + piece
+        else:
+            out.append(piece)
+    return out
 QUOTE_MATCH_THRESHOLD = 90
 REFUSAL = "NOT_IN_SOURCES"
 
@@ -76,7 +88,7 @@ def check(answer: str, contexts: list[str]) -> CitationReport:
     report.cited = sorted(set(cited_numbers(answer)))
     report.invalid_citations = [n for n in report.cited if not 1 <= n <= len(contexts)]
 
-    for sentence in SENTENCE_RE.split(answer.strip()):
+    for sentence in sentences(answer):
         s = sentence.strip()
         if not s or s.endswith(":") or len(s.split()) < 6:
             continue  # headings, list intros and fragments carry no claim
