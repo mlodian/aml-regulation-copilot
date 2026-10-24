@@ -16,7 +16,7 @@ from pathlib import Path
 
 import yaml
 
-from ingest.parse import Line, join_lines, read_lines
+from ingest.parse import RUNIN, Line, join_lines, read_lines
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
@@ -34,6 +34,10 @@ class Level:
     title_only: bool = False  # only a heading when group 2 reads like a title
     sentence_body: bool = False  # a non-title group 2 opens the body instead of being dropped
     sequential: bool = False  # letters must run a, b, c ... so roman "i." sub-items are not headings
+    split: bool = False      # "Scope. – These Guidelines apply ..." -> title "Scope", body "These Guidelines ..."
+    title_next: bool = False  # the title is the next line ("RULE 1" / "Title"), in any case
+    child_of_prev: bool = False  # "5.4" is only a heading inside Section 5
+    roman: bool = False      # numbers run i, ii, iii ... (checked like `sequential`)
 
 
 # Per-document heading grammar. Order = hierarchy depth.
@@ -58,14 +62,168 @@ PROFILES: dict[str, dict] = {
             Level("", re.compile(r"^([a-u])\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
         ],
     },
+    # --- Phase 2 -------------------------------------------------------------
+    "tf_irr": {
+        "pages": (1, None),
+        "min_font": 0.0,
+        "levels": [
+            Level("Rule", re.compile(r"^RULE (\d+)$"), title_next=True),
+            Level("", re.compile(r"^Rule\.?\s?(\d+\.[a-z])(?!\.\d)\.?\s+(.+)$"), split=True, child_of_prev=True),
+            Level("", re.compile(r"^Rule\.?\s?(\d+\.[a-z]\.\d+)\.?\s+(.+)$"), split=True, child_of_prev=True),
+        ],
+    },
+    "gotracs2024": {
+        "pages": (3, 50),    # pages 1-2 are the table of contents; 51-200 are file-format annexes
+        "min_font": 9.5,
+        "levels": [
+            Level("Ch.", re.compile(r"^CHAPTER ([IVX]+)$")),
+            Level("Part", re.compile(r"^PART (\d+)\s*[–-]\s*(.+)$")),
+            Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
+            Level("", re.compile(r"^(\d+\.\d+)\.?(?:\s+(.+))?$"), sentence_body=True, child_of_prev=True),
+            # each STR determination period in 5.4(c)(3) is its own chunk, as in the 2021 RRG
+            Level("", re.compile(r"^(i|ii|iii|iv|v|vi|vii|viii|ix|x)\.(?:\s+(.+))?$"), sentence_body=True, roman=True),
+        ],
+    },
+    "dnfbp2021": {
+        "pages": (1, None),
+        "min_font": 11.0,    # body 12pt, footnotes 10pt
+        "levels": [
+            Level("Title", re.compile(r"^TITLE ([IVX]+)$")),
+            Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
+            Level("", re.compile(r"^([a-z]{1,2})\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
+        ],
+    },
+    "sanctions2021": {
+        "pages": (4, None),  # pages 1-3 are the cover and contents
+        "min_font": 10.5,    # body 11-12pt, footnotes 10pt
+        "levels": [  # question-and-answer numbering: "1.5 What is the AMLC's mandate ...?"
+            Level("", re.compile(r"^(\d{1,2}\.\d{1,2})\.?\s+(.+)$")),
+            Level("", re.compile(r"^(\d{1,2}\.\d{1,2}\.\d{1,2})\.?\s+(.+)$"), child_of_prev=True),
+        ],
+    },
+    "bo2018": {
+        "pages": (1, None),
+        "min_font": 12.0,    # body 13pt, footnotes 11pt
+        "levels": [
+            Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
+            Level("", re.compile(r"^([a-z])\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
+        ],
+    },
+    "screening2023": {
+        "pages": (1, None),
+        "min_font": 10.5,
+        "levels": [
+            Level("Sec.", re.compile(r"^(\d)\.\s+([A-Z][A-Za-z &,'-]{2,60})$"), title_only=True),
+            Level("", re.compile(r"^(\d\.\d)\s+(.+)$"), child_of_prev=True),
+            Level("", re.compile(r"^(\d\.\d\.\d)\s*(.*)$"), sentence_body=True, child_of_prev=True),
+        ],
+    },
+    "admin_sanctions2017": {
+        "pages": (1, None),
+        "min_font": 11.0,
+        "levels": [
+            Level("Rule", re.compile(r"^RULE ([IVX]+)$")),
+            Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
+        ],
+    },
+    "sec_mc16_2018": {   # OCR; pages 1-2 are the circular that transmits the guidelines
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [
+            Level("Ch.", re.compile(r"^CHAPTER (\d+)$")),
+            Level("Sec.", re.compile(r"^Section (\d+\.[A-Z0-9]+(?:\.\d+)?)\.\s+(.+)$"), split=True),
+        ],
+    },
+    "sec_mc4_2021": {
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [Level("Sec.", re.compile(r"^SECTION (\d+)\.\s+(.+)$"), sentence_body=True)],
+    },
+    "ic_cl2018_48": {    # OCR
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [
+            Level("Title", re.compile(r"^TITLE ([IVX]+)$")),
+            Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
+            Level("", re.compile(r"^([A-Z])\.\s+(.+)$"), sentence_body=True, sequential=True),
+            Level("", re.compile(r"^([a-z])\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
+        ],
+    },
+    "ic_cl2019_65": {    # OCR; each SEC. replaces a section of CL 2018-48
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [
+            Level("Sec.", re.compile(r"^(?:SECTION|SEC\.)\s+(\d+)\.\s+(.+)$"), sentence_body=True),
+            Level("", re.compile(r"^([A-Z])\.\s+(.+)$"), sentence_body=True, sequential=True),
+        ],
+    },
+    "ic_cl2024_16": {    # OCR
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [
+            Level("Title", re.compile(r"^TITLE ([IVX]+)$")),
+            Level("Stage", re.compile(r"^STAGE (\d+):\s*(.+)$")),
+            Level("", re.compile(r"^([a-z])\.\s+(.+)$"), sentence_body=True, sequential=True),
+        ],
+    },
+    "ic_cl2022_27": {    # OCR
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [Level("", re.compile(r"^([A-Z])\.\s+([A-Z][A-Z ,&/()-]{3,80})$"), sequential=True)],
+    },
+    "ic_cl2020_113": {   # OCR; a three-page letter with no internal headings
+        "pages": (1, None),
+        "min_font": 0.0,
+        "preamble": True,
+        "levels": [],
+    },
+    "bsp_morb_p9": {
+        "pages": (2, None),  # page 1 is the table of contents
+        "min_font": 8.0,     # body 9pt, footnotes and running footer 7pt
+        "bold_runin": True,
+        "levels": [
+            Level("Sec.", re.compile(r"^(9\d\d) (.+)$")),
+            # unnamed subsections: "Risk assessment. Consistent with risk-based approach, ..."
+            Level("", re.compile(r"^§ ([^.]{3,120})\.(?:\s+(.*))?$"), sentence_body=True),
+        ],
+    },
     "fatf": {
         "pages": (1, None),
         "min_font": 0.0,
         "levels": [Level("Rec.", re.compile(r"^(\d{1,2})\.\s+([A-Z][A-Za-z ,'()\-–]{3,80})\*?$"))],
     },
 }
+PROFILES["irr2018_orig"] = PROFILES["irr2018"]  # same layout as the consolidated edition
+
+ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii"]
 
 SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to", "with", "from"}
+
+ACRONYMS = {"AML", "AMLA", "AMLC", "BSP", "CDD", "CFT", "CTF", "CTR", "CTRS", "IC", "ICRE", "ICRES", "IRA", "IRR",
+             "KYC", "ML", "MTPP", "PEP", "PEPS", "PF", "SEC", "STR", "STRS", "TF", "TFS", "UN", "UNSC"}
+
+TITLE_DASH = re.compile(r"\.?\s+[–—-]+\.?\s+|\.\s*[–—]\s*")  # "Scope. – ", "Scope – ", "Scope.–"
+
+
+def split_title(text: str) -> tuple[str, str]:
+    """Split 'Scope. – These Guidelines apply ...' into ('Scope', 'These Guidelines apply ...').
+
+    Falls back to the first full stop when what precedes it reads like a title
+    ('Risk Management. All ICREs shall ...'); otherwise the whole text is the title.
+    """
+    m = TITLE_DASH.search(text)
+    if m and m.start() > 0:
+        return text[:m.start()], text[m.end():]
+    m = re.search(r"\.\s+(?=[A-Z])", text)
+    if m and looks_like_title(text[:m.start()]):
+        return text[:m.start()], text[m.end():]
+    return text, ""
 
 
 def looks_like_title(text: str) -> bool:
@@ -80,8 +238,11 @@ def clean_title(title: str) -> str:
     title = re.sub(r"(?<=[.)A-Za-z])\d{1,3}$", "", title.strip())  # footnote marker
     title = title.rstrip(" .")
     if title.isupper():
-        title = " ".join(w.lower() if i and w.lower() in SMALL_WORDS else w.capitalize()
-                         for i, w in enumerate(title.split()))
+        def word(i: int, w: str) -> str:
+            if w.strip("(),") in ACRONYMS or "/" in w:
+                return w
+            return w.lower() if i and w.lower() in SMALL_WORDS else w.capitalize()
+        title = " ".join(word(i, w) for i, w in enumerate(title.split()))
     return title
 
 
@@ -96,12 +257,18 @@ class Chunk:
     page_start: int
     page_end: int
     text: str          # body text only
+    # versioning (ingest/versions.py): in force from effective_from until effective_to
+    issuer: str = ""
+    effective_from: str | None = None
+    effective_to: str | None = None
+    transitional_from: str | None = None  # repealed but kept in force during a transition
+    superseded_by: str | None = None
 
     @property
     def title(self) -> str:
         """Name of the innermost provision without its number, e.g. 'Timing of Reporting'."""
         last = self.heading.split(" > ")[-1]
-        return re.sub(r"^(?:(?:Rule|Sec\.|Part|Rec\.)\s+)?[0-9A-Za-z.]+\s*", "", last, count=1)
+        return re.sub(r"^(?:(?:Rule|Sec\.|Part|Rec\.|Title|Ch\.|Stage)\s+)?[0-9A-Za-z.]+\s*", "", last, count=1)
 
     @property
     def label(self) -> str:
@@ -115,7 +282,7 @@ class Chunk:
 
 def _slug(level: Level, number: str) -> str:
     name = re.sub(r"[^a-z]", "", level.name.lower()) or "s"
-    return f"{name}{number.lower()}"
+    return f"{name}{re.sub(r'[^a-z0-9.]', '', number.lower())[:40]}"
 
 
 def _split_words(text: str, max_words: int, overlap: int) -> list[str]:
@@ -142,15 +309,22 @@ def _split_words(text: str, max_words: int, overlap: int) -> list[str]:
     return [re.sub(r" ?\n ?", "\n", p).strip() for p in pieces if p.strip()]
 
 
-def structured_chunks(doc: dict) -> list[Chunk]:
+def parse_sections(doc: dict) -> list[tuple[list, list[Line]]]:
+    """Walk the document's lines with its heading grammar.
+
+    Returns (heading path, body lines) per section; the path is empty for text
+    before the first heading.
+    """
     profile = PROFILES[doc["id"]]
     first, last = profile["pages"]
-    lines = read_lines(RAW / f"{doc['id']}.pdf", first, last, profile["min_font"])
+    lines = read_lines(RAW / f"{doc['id']}.pdf", first, last, profile["min_font"], ocr=doc.get("ocr", False),
+                       bold_runin=profile.get("bold_runin", False))
     levels: list[Level] = profile["levels"]
 
     path: list[tuple[Level, str, str] | None] = [None] * len(levels)
     sections: list[tuple[list, list[Line]]] = []
     body: list[Line] = []
+    skip: set[int] = set()  # title lines already consumed by the heading above them
 
     def flush() -> None:
         if body:
@@ -158,24 +332,39 @@ def structured_chunks(doc: dict) -> list[Chunk]:
             body.clear()
 
     for i, line in enumerate(lines):
+        if i in skip:
+            continue
         for depth, level in enumerate(levels):
             m = level.pattern.match(line.text)
             if not m or (level.title_only and not looks_like_title(m.group(2))):
                 continue
             if level.sequential:
                 prev = path[depth][1] if path[depth] else None
-                expected = "a" if prev is None else chr(ord(prev) + 1)
-                if m.group(1) not in (expected, "a"):
+                expected = "a" if prev is None else chr(ord(prev.lower()) + 1)
+                if m.group(1).lower() not in (expected, "a"):
+                    continue
+            if level.roman:
+                prev = path[depth][1] if path[depth] else None
+                expected = "i" if prev is None else ROMAN[ROMAN.index(prev) + 1]
+                if m.group(1) not in (expected, "i"):
+                    continue
+            if level.child_of_prev:
+                parent = next((p for p in reversed(path[:depth]) if p), None)
+                if not parent or not m.group(1).startswith(parent[1] + "."):
                     continue
             flush()
             number = m.group(1)
             title = (m.group(2) or "").strip() if (m.lastindex or 0) >= 2 else ""
             if not title and i + 1 < len(lines):  # "RULE 6" with the title on the next line
-                title = lines[i + 1].text if lines[i + 1].text.isupper() else ""
-            if level.sentence_body and not looks_like_title(title.rstrip(".")):
+                nxt = lines[i + 1].text
+                if level.title_next or nxt.isupper():
+                    title = nxt
+                    skip.add(i + 1)
+            body_lead = ""
+            if level.split and title:
+                title, body_lead = split_title(title)
+            elif level.sentence_body and not looks_like_title(title.rstrip(".")):
                 body_lead, title = title, ""  # "A. CPs shall report ..." is text, not a title
-            else:
-                body_lead = ""
             path[depth] = (level, number, clean_title(title))
             for deeper in range(depth + 1, len(levels)):
                 path[deeper] = None
@@ -184,18 +373,25 @@ def structured_chunks(doc: dict) -> list[Chunk]:
                 body.append(Line(line.page, rest))
             break
         else:
-            body.append(line)
+            body.append(Line(line.page, line.text.removeprefix(RUNIN)))
     flush()
+    return sections
 
+
+def structured_chunks(doc: dict) -> list[Chunk]:
+    profile = PROFILES[doc["id"]]
     chunks: list[Chunk] = []
     seen: dict[str, int] = {}
-    for headings, sec_lines in sections:
-        if not headings:
+    for headings, sec_lines in parse_sections(doc):
+        if not headings and not profile.get("preamble"):
             continue  # preamble before the first heading
-        section_id = doc["id"] + ":" + ":".join(_slug(lv, n) for lv, n, _ in headings)
-        if section_id in seen and seen[section_id] != id(headings[-1]):
-            section_id += "b"  # the source numbers two provisions the same (IRR Rule 22 has two Sec. 7)
-        seen.setdefault(section_id, id(headings[-1]))
+        section_id = doc["id"] + ":" + (":".join(_slug(lv, n) for lv, n, _ in headings) or "main")
+        key = id(headings[-1]) if headings else 0
+        base, suffix = section_id, "b"
+        while section_id in seen and seen[section_id] != key:
+            # the source numbers two provisions the same (IRR Rule 22 has two Sec. 7)
+            section_id, suffix = base + suffix, chr(ord(suffix) + 1)
+        seen.setdefault(section_id, key)
         citation = ", ".join([doc["short"]] + [f"{lv.name} {n}".strip() for lv, n, _ in headings])
         heading = " > ".join(f"{lv.name} {n} {t}".strip() for lv, n, t in headings)
         text = join_lines([l.text for l in sec_lines])
@@ -212,7 +408,9 @@ def fixed_chunks(doc: dict) -> list[Chunk]:
     """Baseline: fixed word windows that ignore structure (for the ablation)."""
     profile = PROFILES[doc["id"]]
     first, last = profile["pages"]
-    lines = read_lines(RAW / f"{doc['id']}.pdf", first, last, profile["min_font"])
+    lines = read_lines(RAW / f"{doc['id']}.pdf", first, last, profile["min_font"], ocr=doc.get("ocr", False),
+                       bold_runin=profile.get("bold_runin", False))
+    lines = [Line(l.page, l.text.removeprefix(RUNIN)) for l in lines]
     words: list[tuple[str, int]] = [(w, l.page) for l in lines for w in l.text.split()]
     step = FIXED_WORDS - OVERLAP_WORDS
     out = []
@@ -224,13 +422,22 @@ def fixed_chunks(doc: dict) -> list[Chunk]:
     return out
 
 
-def build(strategy: str = "structured") -> list[Chunk]:
+def indexable_docs() -> list[dict]:
+    """Manifest documents that are downloaded, have a heading grammar and are not index: false."""
     docs = yaml.safe_load((ROOT / "data" / "manifest.yaml").read_text())["documents"]
+    return [d for d in docs
+            if d.get("index", True) and (RAW / f"{d['id']}.pdf").exists() and d["id"] in PROFILES]
+
+
+def build(strategy: str = "structured") -> list[Chunk]:
+    from ingest import versions
+
     fn = structured_chunks if strategy == "structured" else fixed_chunks
+    docs = yaml.safe_load((ROOT / "data" / "manifest.yaml").read_text())["documents"]
     chunks: list[Chunk] = []
-    for doc in docs:
-        if (RAW / f"{doc['id']}.pdf").exists() and doc["id"] in PROFILES:
-            chunks += fn(doc)
+    for doc in indexable_docs():
+        chunks += fn(doc)
+    chunks = versions.apply(chunks, docs, structured=strategy == "structured")
     PROCESSED.mkdir(parents=True, exist_ok=True)
     out = PROCESSED / f"chunks_{strategy}.jsonl"
     with out.open("w") as f:
@@ -245,6 +452,13 @@ def load(strategy: str = "structured") -> list[Chunk]:
 
 
 if __name__ == "__main__":
+    from ingest import coverage
+
     for strategy in ("structured", "fixed"):
         cs = build(strategy)
         print(f"{strategy}: {len(cs)} chunks, {len({c.section_id for c in cs})} sections")
+    print()
+    rows = coverage.report(indexable_docs())
+    (PROCESSED / "coverage.json").write_text(json.dumps(coverage.as_json(rows), indent=2))
+    review = sorted(p.stem for p in (ROOT / "data" / "review").glob("*.json"))
+    print(f"OCR review queue: {', '.join(review) if review else 'empty'}")

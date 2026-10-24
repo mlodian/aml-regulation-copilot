@@ -3,23 +3,36 @@
     python copilot.py ask "When must an STR be filed?"
     python copilot.py map "Daily batch screens new customers against UN sanctions lists"
     python copilot.py search "covered transaction threshold" --mode bm25
+    python copilot.py ask "When must an STR be filed?" --as-of 2019-06-01
+
+--as-of answers from the provisions in force on that date (default: today).
 """
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import textwrap
+
+def today() -> str:
+    return dt.date.today().isoformat()
+
+
+def as_of_date(value: str) -> str:
+    return dt.date.fromisoformat(value).isoformat()  # rejects anything but YYYY-MM-DD
+
 
 STATUS_LABEL = {"gap": "GAP", "partial": "PARTIAL", "covered": "COVERED", "not_applicable": "n/a"}
 
 
 def cmd_ask(args) -> None:
     from rag.answer import answer
-    res = answer(args.question, k=args.k)
+    from rag.answer import status_note
+    res = answer(args.question, k=args.k, as_of=args.as_of)
     print("\n" + res.text + "\n")
     print("Sources")
     for i, c in enumerate(res.sources, start=1):
         mark = "*" if i in res.report.cited else " "
-        print(f" {mark}[{i}] {c.label} (p. {c.page_start})")
+        print(f" {mark}[{i}] {c.label} (p. {c.page_start}) · {status_note(c, args.as_of or today())}")
     status = "verified" if res.report.ok else "CHECK"
     print(f"\nCitations {status}", end="")
     if not res.report.ok:
@@ -31,7 +44,7 @@ def cmd_ask(args) -> None:
 
 def cmd_map(args) -> None:
     from rag.mapper import map_control
-    res = map_control(args.control, k=args.k)
+    res = map_control(args.control, k=args.k, as_of=args.as_of)
     for a in res.assessments:
         if a.status == "not_applicable" and not args.all:
             continue
@@ -47,7 +60,7 @@ def cmd_map(args) -> None:
 
 def cmd_search(args) -> None:
     from rag.retrieve import retrieve
-    for i, c in enumerate(retrieve(args.query, k=args.k, mode=args.mode), start=1):
+    for i, c in enumerate(retrieve(args.query, k=args.k, mode=args.mode, as_of=args.as_of), start=1):
         print(f"[{i}] {c.label}")
         print(textwrap.indent(textwrap.shorten(c.text, 240), "    "))
 
@@ -74,6 +87,9 @@ def main() -> None:
                    choices=["bm25", "vector", "hybrid", "hybrid_rerank"])
     p.set_defaults(fn=cmd_search)
 
+    for p in sub.choices.values():
+        p.add_argument("--as-of", type=as_of_date, default=None, metavar="YYYY-MM-DD",
+                       help="use the provisions in force on this date (default: today)")
     args = ap.parse_args()
     args.fn(args)
 

@@ -137,3 +137,120 @@ def test_quote_style_and_dash_spacing_ignored():
 
 def test_quote_supported_tolerates_whitespace():
     assert quote_supported("within  five (5)\nworking days", CONTEXTS)
+
+
+# --- Phase 2: manifest, OCR, coverage, versioning ------------------------------
+
+def _doc(**kw):
+    import datetime as dt
+    base = {"id": "d1", "title": "t", "short": "D1", "issuer": "AMLC", "status": "current",
+            "url": "https://example.org/d1.pdf", "issued": dt.date(2021, 1, 1)}
+    return {**base, **kw}
+
+
+def test_manifest_schema_catches_problems():
+    from ingest.download import validate
+    assert validate([_doc()]) == []
+    assert any("unknown issuer" in e for e in validate([_doc(issuer="CBP")]))
+    assert any("needs superseded_by" in e for e in validate([_doc(status="transitional")]))
+    assert any("transitional_from" in e for e in validate([_doc(status="transitional", superseded_by="d1")]))
+    assert any("unknown document" in e for e in validate([_doc(amends=["nope"])]))
+    assert any("YYYY-MM-DD" in e for e in validate([_doc(issued="Jan 2021")]))
+    assert any("exactly one of url / manual" in e for e in validate([_doc(manual="x.pdf")]))
+
+
+def test_project_manifest_is_valid():
+    from ingest.download import load_manifest
+    assert len(load_manifest()) >= 20  # raises on any schema problem
+
+
+def test_ocr_gate_routes_low_confidence_pages_to_review():
+    from ingest.ocr import gate
+    pages = [{"page": 1, "confidence": 0.97, "lines": [{"text": "a"}]},
+             {"page": 2, "confidence": 0.41, "lines": [{"text": "b"}]},
+             {"page": 3, "confidence": 0.0, "lines": []}]
+    keep, review = gate(pages, min_confidence=0.8)
+    assert [p["page"] for p in keep] == [1]
+    assert [p["page"] for p in review] == [2]  # blank page 3 is neither
+
+
+def test_ocr_normalisation_of_list_markers_and_headings():
+    from ingest.parse import normalize_ocr
+    assert normalize_ocr("(її)") == "(ii)"
+    assert normalize_ocr("(i¡i)") == "(iii)"
+    assert normalize_ocr("(Z)") == "(2)"
+    assert normalize_ocr("Section I. Declaration of Policy") == "Section 1. Declaration of Policy"
+    assert normalize_ocr("Section S.A.2. Continuing Due Diligence") == "Section 5.A.2. Continuing Due Diligence"
+    assert normalize_ocr("TITLE I|I") == "TITLE III"
+
+
+def test_running_headers_are_dropped():
+    from ingest.parse import Line, drop_running_headers
+    header = "Guidelines on Transaction Reporting and Compliance Submissions (GoTRACS)"
+    lines = [Line(p, t) for p in range(1, 6) for t in (header, f"body text on page {p}")]
+    assert [l.text for l in drop_running_headers(lines)] == [f"body text on page {p}" for p in range(1, 6)]
+
+
+def test_split_title_on_dash_or_title_like_sentence():
+    from ingest.chunk import split_title
+    assert split_title("Scope. – These Guidelines shall apply") == ("Scope", "These Guidelines shall apply")
+    assert split_title("General Policy on Customer Due Diligence – These") == \
+        ("General Policy on Customer Due Diligence", "These")
+    assert split_title("Risk Management. All ICREs shall develop") == ("Risk Management", "All ICREs shall develop")
+    assert split_title("Anti-Money Laundering Council") == ("Anti-Money Laundering Council", "")
+
+
+def test_coverage_flags_a_grammar_that_misses_headings(monkeypatch):
+    from ingest import coverage
+    from ingest.parse import Line
+    lines = [Line(1, "word " * 50)]
+    monkeypatch.setitem(coverage.PROFILES, "d1", {"levels": ["x"], "preamble": False})
+    monkeypatch.setattr(coverage, "parse_sections", lambda doc: [([], lines), ([("lv", "1", "")], lines[:0] + [Line(1, "w")])])
+    row = coverage.measure({"id": "d1"})
+    assert row.preamble_words == 50 and row.flagged  # almost all text sits before any heading
+
+
+def _chunk(**kw):
+    from ingest.chunk import Chunk
+    base = dict(chunk_id="x#0", doc_id="d", doc_short="D", section_id="d:s1", citation="D, s1",
+                heading="", page_start=1, page_end=1, text="t", issuer="AMLC")
+    return Chunk(**{**base, **kw})
+
+
+def test_in_force_window_and_status():
+    from ingest.versions import in_force, status
+    old = _chunk(effective_from="2018-11-20", effective_to="2020-01-29")
+    rrg = _chunk(effective_from="2021-06-22", transitional_from="2024-12-11", superseded_by="gotracs2024")
+    assert in_force(old, "2019-06-01") and not in_force(old, "2020-01-29")  # effective_to is exclusive
+    assert not in_force(rrg, "2021-01-01")
+    assert status(rrg, "2022-01-01") == "current"
+    assert status(rrg, "2026-01-01") == "transitional"
+    assert status(old, "2026-01-01") == "superseded"
+
+
+def test_ari_targets_parse_amended_rule_and_section(tmp_path, monkeypatch):
+    from ingest import versions
+    monkeypatch.setattr(versions, "RAW", tmp_path)
+    text = ("Section 9. Section 2.2 of Rule 22 of the 2018 Implementing Rules is hereby amended to read. "
+            "Section 1. Paragraph (z) Section 1 of Rule II of the 2018 IRR is hereby amended. "
+            "Section 7. Rule 10 of the 2018 IRR is hereby amended to read as follows. "
+            "Section 18. Section 5.2 on Manual Monitoring of Rule 22 is hereby renumbered to be Section 5.3.")
+    import pymupdf
+    pdf = pymupdf.open()
+    pdf.new_page().insert_textbox(pymupdf.Rect(36, 36, 560, 800), text, fontsize=8)
+    pdf.save(tmp_path / "ari.pdf")
+    targets = versions.ari_targets("ari")
+    assert ("22", "2") in targets and ("2", "1") in targets and ("10", None) in targets
+    assert ("22", "5") not in targets  # renumbering is not an amendment
+
+
+def test_transitional_provision_brings_its_replacement(monkeypatch):
+    from rag import retrieve as r
+    rrg = _chunk(chunk_id="rrg#0", doc_id="rrg2021", effective_from="2021-06-22",
+                 transitional_from="2024-12-11", superseded_by="gotracs2024")
+    other = [_chunk(chunk_id=f"o{i}#0", doc_id="irr2018") for i in range(3)]
+    new = _chunk(chunk_id="g#0", doc_id="gotracs2024", effective_from="2024-12-11")
+    top = [rrg, *other]
+    out = r.with_replacements(top, top + [new], "q", "2026-01-01", "structured")
+    assert out == [rrg, new, *other[:2]]  # replacement sits next to it; list length unchanged
+    assert r.with_replacements(top, top + [new], "q", "2022-01-01", "structured") == top  # not yet repealed

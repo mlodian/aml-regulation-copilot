@@ -60,10 +60,12 @@ class MappingResult:
         return [a for a in self.assessments if a.status == status]
 
 
-def map_control(control: str, k: int = 8) -> MappingResult:
-    chunks = retrieve(control, k=k)
-    provisions = "\n\n".join(f"[{i}] {c.citation} — {c.heading.split(' > ')[-1]}\n{c.text}"
-                             for i, c in enumerate(chunks, start=1))
+def map_control(control: str, k: int = 8, as_of: str | None = None) -> MappingResult:
+    """Map a control to the requirements in force on `as_of` (YYYY-MM-DD, default today)."""
+    from rag.answer import format_context
+
+    chunks = retrieve(control, k=k, as_of=as_of)
+    provisions = format_context(chunks, as_of)
     data = llm.complete_json(PROMPT.format(control=control, provisions=provisions), system=SYSTEM)
 
     result = MappingResult(control)

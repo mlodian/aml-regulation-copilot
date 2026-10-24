@@ -4,6 +4,7 @@
 """
 from __future__ import annotations
 
+import datetime as dt
 import sys
 from pathlib import Path
 
@@ -11,16 +12,27 @@ import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from rag.answer import answer  # noqa: E402
+from ingest.versions import status  # noqa: E402
+from rag.answer import answer, status_note  # noqa: E402
 from rag.llm import LLMError, UsageLimitError  # noqa: E402
 from rag.mapper import map_control  # noqa: E402
 from rag.retrieve import MODES, retrieve  # noqa: E402
 
 st.set_page_config(page_title="AML Regulation Copilot", layout="wide")
 st.title("AML Regulation Copilot")
-st.caption("Answers grounded in the 2018 AMLA IRR (as amended) and the 2021 AMLC Registration and "
-           "Reporting Guidelines. Every claim is cited and every citation is checked against the source. "
-           "Research support, not legal advice.")
+st.caption("Answers grounded in Philippine AML/CTF regulations from the AMLC, BSP, SEC and Insurance "
+           "Commission, using only the provisions in force on the chosen date. Every claim is cited and every "
+           "citation is checked against the source. Research support, not legal advice.")
+
+with st.sidebar:
+    picked = st.date_input("Rules in force on", value=dt.date.today(), min_value=dt.date(2018, 1, 1),
+                           max_value=dt.date.today(),
+                           help="Superseded provisions are left out; earlier dates use the wording in force then.")
+    AS_OF = picked.isoformat()
+    st.caption("Transitional provisions (repealed but still in force during a phase-in) are labelled, "
+               "and shown with the issuance replacing them.")
+
+BADGE = {"current": "🟢", "transitional": "🟠", "superseded": "⚪"}
 
 EXAMPLES = [
     "When must an STR be filed, and what counts as the occurrence date?",
@@ -38,8 +50,9 @@ STATUS_STYLE = {"gap": ("Gap", "🔴"), "partial": ("Partial", "🟠"), "covered
 
 def show_sources(chunks, cited: set[int]) -> None:
     for i, c in enumerate(chunks, start=1):
-        label = f"[{i}] {c.label}  ·  p. {c.page_start}"
+        label = f"[{i}] {BADGE[status(c, AS_OF)]} {c.label}  ·  p. {c.page_start}"
         with st.expander(("● " if i in cited else "○ ") + label):
+            st.caption(status_note(c, AS_OF))
             st.write(c.text)
 
 
@@ -51,7 +64,7 @@ with ask_tab:
     if st.button("Answer", type="primary", disabled=not question):
         with st.spinner("Retrieving provisions and drafting a cited answer…"):
             try:
-                res = answer(question)
+                res = answer(question, as_of=None if AS_OF == dt.date.today().isoformat() else AS_OF)
             except UsageLimitError:
                 st.error("The LLM usage limit is reached. Try again when it resets.")
                 st.stop()
@@ -76,7 +89,7 @@ with map_tab:
     if st.button("Map to regulation", type="primary", disabled=not control.strip()):
         with st.spinner("Finding the provisions this control should satisfy…"):
             try:
-                res = map_control(control)
+                res = map_control(control, as_of=AS_OF)
             except LLMError as e:
                 st.error(f"LLM call failed: {e}")
                 st.stop()
@@ -101,4 +114,4 @@ with search_tab:
     q = st.text_input("Search the corpus (no LLM)")
     mode = st.radio("Retrieval", MODES, index=len(MODES) - 1, horizontal=True)
     if q:
-        show_sources(retrieve(q, k=8, mode=mode), set())
+        show_sources(retrieve(q, k=8, mode=mode, as_of=AS_OF), set())

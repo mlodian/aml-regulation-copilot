@@ -48,8 +48,9 @@ def build(strategy: str = "structured") -> int:
     con = duckdb.connect(str(path))
     con.execute(f"""CREATE TABLE chunks (chunk_id VARCHAR PRIMARY KEY, doc_id VARCHAR, doc_short VARCHAR,
         section_id VARCHAR, citation VARCHAR, heading VARCHAR, page_start INT, page_end INT,
-        text VARCHAR, embedding FLOAT[{EMBED_DIM}])""")
-    con.executemany("INSERT INTO chunks VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        text VARCHAR, issuer VARCHAR, effective_from VARCHAR, effective_to VARCHAR,
+        transitional_from VARCHAR, superseded_by VARCHAR, embedding FLOAT[{EMBED_DIM}])""")
+    con.executemany(f"INSERT INTO chunks VALUES ({', '.join(['?'] * 15)})",
                     [[*asdict(c).values(), v.tolist()] for c, v in zip(chunks, vectors)])
     con.close()
     return len(chunks)
@@ -62,22 +63,40 @@ class Index:
         self.strategy = strategy
         self.con = duckdb.connect(str(db_path(strategy)), read_only=True)
         rows = self.con.execute("SELECT chunk_id, doc_id, doc_short, section_id, citation, heading, "
-                                "page_start, page_end, text FROM chunks ORDER BY chunk_id").fetchall()
+                                "page_start, page_end, text, issuer, effective_from, effective_to, "
+                                "transitional_from, superseded_by FROM chunks ORDER BY chunk_id").fetchall()
         self.chunks = {r[0]: Chunk(*r) for r in rows}
         self._ids = list(self.chunks)
         self._bm25 = BM25Okapi([tokenize(self.chunks[i].embed_text) for i in self._ids])
 
-    def vector_search(self, query: str, k: int = 20) -> list[str]:
+    # Filtering happens before ranking: text not in force on `as_of` is never a candidate,
+    # so it cannot crowd out the current provision or reach the prompt.
+    IN_FORCE = "COALESCE(effective_from, '') <= ? AND (effective_to IS NULL OR effective_to > ?)"
+
+    def vector_search(self, query: str, k: int = 20, as_of: str | None = None) -> list[str]:
         q = embedder().encode(QUERY_PREFIX + query, normalize_embeddings=True).tolist()
+        as_of = as_of or today()
         rows = self.con.execute(
-            f"SELECT chunk_id FROM chunks ORDER BY array_cosine_similarity(embedding, ?::FLOAT[{EMBED_DIM}]) DESC LIMIT ?",
-            [q, k]).fetchall()
+            f"SELECT chunk_id FROM chunks WHERE {self.IN_FORCE} "
+            f"ORDER BY array_cosine_similarity(embedding, ?::FLOAT[{EMBED_DIM}]) DESC LIMIT ?",
+            [as_of, as_of, q, k]).fetchall()
         return [r[0] for r in rows]
 
-    def bm25_search(self, query: str, k: int = 20) -> list[str]:
+    def bm25_search(self, query: str, k: int = 20, as_of: str | None = None) -> list[str]:
         scores = self._bm25.get_scores(tokenize(query))
-        order = sorted(range(len(scores)), key=lambda i: -scores[i])[:k]
+        allowed = self.in_force_mask(as_of or today())
+        order = sorted((i for i in range(len(scores)) if allowed[i]), key=lambda i: -scores[i])[:k]
         return [self._ids[i] for i in order if scores[i] > 0]
+
+    @lru_cache(maxsize=16)
+    def in_force_mask(self, as_of: str) -> tuple[bool, ...]:
+        from ingest.versions import in_force
+        return tuple(in_force(self.chunks[i], as_of) for i in self._ids)
+
+
+def today() -> str:
+    import datetime as dt
+    return dt.date.today().isoformat()
 
 
 if __name__ == "__main__":

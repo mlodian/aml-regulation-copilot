@@ -1,25 +1,275 @@
 # Source documents for the corpus. Raw PDFs are downloaded locally and are
 # NOT committed (see .gitignore); this manifest is the reproducible record.
-# RA 11521 (2021 amendments) is not listed: the AMLC copy is a scanned image with no
-# text layer, and its changes are already consolidated in the January 2021 IRR below.
-# RA 9160 itself is not listed: the AMLC copy is the 2001 text as originally enacted
-# (e.g. a PHP 4M covered-transaction threshold, since lowered to PHP 500k), and the
-# 2018 IRR below restates the law as currently amended.
+#
+# Versioning fields (Phase 2)
+#   issued          date the issuance was approved or signed
+#   effective_from  first day it applies; effective_basis says where the date comes from:
+#                   "stated" (the text gives the date) or "issued" (the text says it takes
+#                   effect on publication without printing the date, so the approval date
+#                   stands in for it)
+#   status          current | transitional | superseded | amendment
+#                   transitional: repealed by a newer issuance that keeps it in force
+#                   until the replacement is fully implemented
+#   superseded_by   id of the issuance that replaces it; amends: ids it amends
+#   index: false    amendment issuances whose text is already merged into a
+#                   consolidated document; they date the changes but are not indexed
+#   ocr: true       scanned PDF; text comes from ingest/ocr.py
+#
+# Not listed:
+#   RA 11521 (2021 amendments to the AMLA): scanned, and its changes are consolidated
+#     in the January 2021 IRR below.
+#   RA 9160 as enacted in 2001: superseded wording (e.g. a PHP 4M covered-transaction
+#     threshold, since lowered to PHP 500k); the IRR restates the law as amended.
+#   IC circulars that only forward AMLC issuances already listed here.
 documents:
+  # --- AMLC: implementing rules ---------------------------------------------
   - id: irr2018
     title: 2018 Implementing Rules and Regulations of RA 9160, as amended (January 2021 amendment)
     short: 2018 IRR
-    publisher: AMLC
+    issuer: AMLC
+    doc_type: rules
+    issued: 2021-01-30
+    # provisions unchanged since the 2018 issue apply from then; amended ones are dated
+    # by ingest/versions.py from ARI No. 1, s. 2020 and ARI No. 1, s. 2021
+    effective_from: 2018-11-20
+    effective_basis: issued
+    status: current
     url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/c18a7493-143b-4fda-af6d-39bc7b99d488_2018_IRR_2021_JAN%20AMENDMENT.pdf
+  - id: irr2018_orig
+    title: 2018 Implementing Rules and Regulations of RA 9160, as amended (as first issued)
+    short: 2018 IRR (as issued)
+    issuer: AMLC
+    doc_type: rules
+    issued: 2018-11-20
+    effective_from: 2018-11-20
+    effective_basis: issued
+    status: superseded
+    superseded_by: irr2018
+    # only the provisions that the 2020 and 2021 amendments changed are indexed,
+    # each closed on the date of the amendment that changed it (ingest/versions.py)
+    url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/aeed4f26-796f-48bf-b6fa-d57faca4f08d_2018_IRR.pdf
+  - id: ari2020_irr
+    title: AMLC Regulatory Issuance A, B and C No. 1, Series of 2020 (amendments to the 2018 IRR)
+    short: ARI No. 1, s. 2020
+    issuer: AMLC
+    doc_type: amendment
+    issued: 2020-01-29
+    effective_from: 2020-01-29
+    effective_basis: issued
+    status: amendment
+    amends: [irr2018_orig]
+    index: false
+    url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/7d8b584f-bd04-490c-9a44-1677b631d3df_AMENDMENTS_2018_IRR_9160_AMENDED_2020.pdf
+  - id: ari2021_irr
+    title: AMLC Regulatory Issuance A, B and C No. 1, Series of 2021 (amendments to the 2018 IRR)
+    short: ARI No. 1, s. 2021
+    issuer: AMLC
+    doc_type: amendment
+    issued: 2021-01-30
+    effective_from: 2021-01-30
+    effective_basis: issued
+    status: amendment
+    amends: [irr2018_orig]
+    index: false
+    url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/bb87b6d2-6e74-4516-aa13-13216e162286_AMENDMENTS_2018_IRR_9160_AMENDED_2021.pdf
+  - id: tf_irr
+    title: Implementing Rules and Regulations of RA 10168 (Terrorism Financing Prevention and Suppression Act of 2012)
+    short: TFPSA IRR
+    issuer: AMLC
+    doc_type: rules
+    issued: 2012-01-01   # signature line is illegible; year only
+    effective_from: 2012-01-01
+    effective_basis: year
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/133decf6-ed57-412c-97c0-31853a4432b5_IRR_TF_Suppression_Act.pdf
+
+  # --- AMLC: reporting guidelines -------------------------------------------
   - id: rrg2021
     title: 2021 AMLC Registration and Reporting Guidelines
     short: 2021 RRG
-    publisher: AMLC (copy hosted by the Insurance Commission)
+    issuer: AMLC
+    doc_type: guidelines
+    issued: 2021-06-22
+    effective_from: 2021-06-22
+    effective_basis: issued
+    status: transitional
+    superseded_by: gotracs2024
+    # GoTRACS Ch. IV Sec. 2: the 2021 ARRG stays in effect pending full implementation of
+    # GoTRACS, "one (1) up to three (3) years from date of effectivity"
+    transitional_from: 2024-12-11
     url: https://www.insurance.gov.ph/wp-content/uploads/2023/03/2021-AMLC-REGISTRATION-AND-REPORTING-GUIDELINES.pdf
+  - id: gotracs2024
+    title: Guidelines on Transaction Reporting and Compliance Submissions (GoTRACS), AMLC Regulatory Issuance No. 2, Series of 2024
+    short: GoTRACS
+    issuer: AMLC
+    doc_type: guidelines
+    issued: 2024-12-11
+    effective_from: 2024-12-11
+    effective_basis: issued
+    status: current
+    supersedes: [rrg2021]
+    # pages 51-200 are electronic file-format annexes and are not indexed (ingest/chunk.py)
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/95721d1a-b123-4602-afd3-67cfee0987c2_Guidelines_on_Transaction_Reporting_and_Compliance_Submissions.pdf
+
+  # --- AMLC: other guidelines and guidance -----------------------------------
+  - id: dnfbp2021
+    title: 2021 AML/CTF Guidelines for Designated Non-Financial Businesses and Professions (ARI No. 3, Series of 2021)
+    short: 2021 DNFBP Guidelines
+    issuer: AMLC
+    doc_type: guidelines
+    issued: 2021-05-26
+    effective_from: 2021-05-26
+    effective_basis: issued
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/5ec6d3d6-4df8-49ea-8a23-7c9d2d19f79e_18_AMLC%20Regulatory%20Issuance%20%20AMLCTF%20Guidelines%20for%20DNFBPs.pdf
+  - id: sanctions2021
+    title: 2021 Sanctions Guidelines (targeted financial sanctions related to terrorism, terrorism financing and proliferation financing)
+    short: 2021 Sanctions Guidelines
+    issuer: AMLC
+    doc_type: guidance
+    issued: 2021-03-03
+    effective_from: 2021-03-03
+    effective_basis: issued
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/1da90d2e-519e-4c7d-9ac0-6ed0078465df_8_2021%20SANCTIONS%20GUIDELINES.pdf
+  - id: bo2018
+    title: Guidelines on Identifying Beneficial Ownership (ARI A, B and C No. 3, Series of 2018)
+    short: 2018 BO Guidelines
+    issuer: AMLC
+    doc_type: guidelines
+    issued: 2018-11-23
+    effective_from: 2018-11-23
+    effective_basis: issued
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/c5354077-49d7-49b5-a81c-b829b1545deb_4_Guidelines%20on%20Identifying%20Beneficial%20Ownership.pdf
+  - id: screening2023
+    title: AMLC Guidance on Sanctions Screening (2022-2023 thematic review of customer and transaction screening systems)
+    short: 2023 Screening Guidance
+    issuer: AMLC
+    doc_type: guidance
+    issued: 2023-05-09
+    effective_from: 2023-05-09
+    effective_basis: issued
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/843d35fa-dbfa-4219-8c37-5709234be5f3_15_AMLC%20Guidance%20on%20Sanctions%20Screening.pdf
+  - id: admin_sanctions2017
+    title: Rules on the Imposition of Administrative Sanctions under RA 9160, as amended
+    short: Administrative Sanctions Rules
+    issuer: AMLC
+    doc_type: rules
+    issued: 2017-05-22
+    effective_from: 2017-05-22
+    effective_basis: issued
+    status: current
+    url: https://www.amlc.gov.ph/storage/v1/object/public/random-uploads/documents/8f1e7a3b-9db6-4568-8bc8-2417eac2d8ce_23_Rules%20on%20the%20Imposition%20of%20Administrative%20Sanctions%20under%20Republic%20Act%20No%209160%20as%20Amended.pdf
+
+  # --- SEC ------------------------------------------------------------------
+  - id: sec_mc16_2018
+    title: SEC Memorandum Circular No. 16, Series of 2018 (2018 AML/CFT Guidelines for SEC Covered Institutions)
+    short: SEC MC 16, s. 2018
+    issuer: SEC
+    doc_type: guidelines
+    issued: 2018-11-07
+    effective_from: 2018-11-07
+    effective_basis: issued
+    status: current
+    ocr: true
+    # copy held by the ADB Law and Policy Reform library; sec.gov.ph serves no direct PDF
+    url: https://lpr.adb.org/sites/default/files/2024-04/philippines-2018-mc-no-16.pdf
+  - id: sec_mc4_2021
+    title: SEC Memorandum Circular No. 4, Series of 2021 (amendments to the 2018 AML/CFT Guidelines and the 2020 MTPP Guidelines)
+    short: SEC MC 4, s. 2021
+    issuer: SEC
+    doc_type: amendment
+    issued: 2021-04-05
+    effective_from: 2021-04-05
+    effective_basis: issued
+    status: current
+    amends: [sec_mc16_2018]
+    url: https://lpr.adb.org/sites/default/files/2024-04/philippines-2021-mc-no-04.pdf
+
+  # --- Insurance Commission ----------------------------------------------------
+  - id: ic_cl2018_48
+    title: IC Circular Letter No. 2018-48 (AML/CFT Guidelines for Insurance Commission Regulated Entities)
+    short: IC CL 2018-48
+    issuer: IC
+    doc_type: guidelines
+    issued: 2018-09-14
+    effective_from: 2018-09-14
+    effective_basis: issued
+    status: current
+    ocr: true
+    # amended by CL 2019-65; the amended sections are versioned in ingest/versions.py
+    url: https://www.insurance.gov.ph/wp-content/uploads/2022/09/CL2018_48.pdf
+  - id: ic_cl2019_65
+    title: IC Circular Letter No. 2019-65 (amendments to the AML/CFT Guidelines for Insurance Commission Regulated Entities)
+    short: IC CL 2019-65
+    issuer: IC
+    doc_type: amendment
+    issued: 2019-11-22
+    effective_from: 2019-11-22
+    effective_basis: issued
+    status: current
+    amends: [ic_cl2018_48]
+    ocr: true
+    url: https://www.insurance.gov.ph/wp-content/uploads/2022/09/CL2019_65.pdf
+  - id: ic_cl2024_16
+    title: IC Circular Letter No. 2024-16 (guidelines for the conduct of institutional risk assessment)
+    short: IC CL 2024-16
+    issuer: IC
+    doc_type: circular
+    issued: 2024-08-21
+    effective_from: 2024-08-21
+    effective_basis: issued
+    status: current
+    ocr: true
+    # copy held by Grant Thornton Philippines; the IC index sits behind a bot challenge
+    url: https://www.grantthornton.com.ph/globalassets/_markets_/phl/media/revamp/technical-alerts/pdf-files/ic-circular-letter-no.-2024-16.pdf
+  - id: ic_cl2022_27
+    title: IC Circular Letter No. 2022-27 (thematic review of IC regulated entities' compliance with targeted financial sanctions obligations)
+    short: IC CL 2022-27
+    issuer: IC
+    doc_type: circular
+    issued: 2022-06-14
+    effective_from: 2022-06-14
+    effective_basis: issued
+    status: current
+    ocr: true
+    url: https://www.insurance.gov.ph/wp-content/uploads/2022/06/CL2022_27.pdf
+  - id: ic_cl2020_113
+    title: IC Circular Letter No. 2020-113 (requiring the AMLC certificate of registration from DNFBP customers during customer due diligence)
+    short: IC CL 2020-113
+    issuer: IC
+    doc_type: circular
+    issued: 2020-12-18
+    effective_from: 2020-12-18
+    effective_basis: issued
+    status: current
+    ocr: true
+    # copy held by the UP College of Law library
+    url: https://law.upd.edu.ph/wp-content/uploads/2021/04/IC-Circular-Letter-No-2020-113.pdf
+
+  # --- BSP ------------------------------------------------------------------
+  - id: bsp_morb_p9
+    title: Manual of Regulations for Banks, Part IX, Anti-Money Laundering and Combatting the Financing of Terrorism Regulations (updated as of 31 December 2025)
+    short: MORB Part IX
+    issuer: BSP
+    doc_type: rules
+    issued: 2025-12-31     # "Updated as of 31 December 2025" (consolidated edition)
+    effective_from: 2025-12-31
+    effective_basis: stated
+    status: current
+    # bsp.gov.ph blocks scripted downloads. Save the 2025 MORB from the Bangko Sentral
+    # website; the AML part is "Part 09/Part IX_01_AML CFT Regulations.pdf"
+    manual: "data/manual/2025_MORB/Part 09/Part IX_01_AML CFT Regulations.pdf"
+
+  # --- International (optional) ----------------------------------------------
   - id: fatf
     title: FATF Recommendations (International Standards on Combating Money Laundering)
     short: FATF
-    publisher: Financial Action Task Force
+    issuer: FATF
+    doc_type: standards
+    status: current
     # fatf-gafi.org sits behind a browser challenge, so this one is manual:
     # download the current edition and save it as data/manual/fatf.pdf
     manual: data/manual/fatf.pdf
