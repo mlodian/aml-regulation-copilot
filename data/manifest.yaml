@@ -81,6 +81,8 @@ documents:
     effective_from: 2012-01-01
     effective_basis: year
     status: current
+    # a scan whose embedded OCR layer misreads digits ("PhpSOO,OOO.OO", "Rule 1S."); read with Vision instead
+    ocr: true
     url: https://www.amlc.gov.ph/storage/v1/object/public/public-pdf/documents/133decf6-ed57-412c-97c0-31853a4432b5_IRR_TF_Suppression_Act.pdf
 
   # --- AMLC: reporting guidelines -------------------------------------------

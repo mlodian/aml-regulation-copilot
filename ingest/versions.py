@@ -16,6 +16,11 @@ Sources of the dates, in order:
    with the January 2021 consolidation: identical text (including renumbered
    provisions) is indexed once; changed text is kept as a superseded version,
    closed on the date of the amendment issuance (ARI 2020 or ARI 2021) that cites it.
+   "Identical" means the same words in the same order once case, punctuation and
+   quote marks are ignored. A similarity ratio is not enough: one changed word in a
+   long section ("five (5) working days" -> "three working days") still scores
+   above 99, and calling that identical would serve the new deadline for dates
+   before the amendment. A false "changed" only keeps one redundant old version.
 3. Amending circulars that replace whole sections (IC CL 2019-65 for CL 2018-48,
    SEC MC 4 for MC 16) close the sections they name.
 4. OVERRIDES: conflicts no issuance resolves explicitly, each with its reason.
@@ -28,11 +33,14 @@ from collections import OrderedDict, defaultdict
 from pathlib import Path
 
 import pymupdf
-from rapidfuzz import fuzz
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
-SAME_TEXT = 98  # rapidfuzz ratio at or above which two editions of a provision are the same text
+
+def words(text: str) -> str:
+    """Comparison key: lower-case words and numbers only."""
+    return " ".join(re.findall(r"[a-z0-9]+", text.lower()))
+
 
 # Provision-level conflicts that no issuance resolves explicitly.
 OVERRIDES = [
@@ -137,7 +145,7 @@ def _irr_editions(chunks: list, by_id: dict) -> list:
         return out
 
     def text(cs: list) -> str:
-        return re.sub(r"\s+", " ", " ".join(c.text for c in cs)).lower()
+        return words(" ".join(c.text for c in cs))
 
     old, new = sections("irr2018_orig"), sections("irr2018")
     new_text = {k: text(v) for k, v in new.items()}
@@ -145,12 +153,12 @@ def _irr_editions(chunks: list, by_id: dict) -> list:
     matched_new: set[str] = set()
     for sid, cs in old.items():
         t = text(cs)
-        if sid in new and fuzz.ratio(t, new_text[sid]) >= SAME_TEXT:
+        if sid in new and t == new_text[sid]:
             drop.update(id(c) for c in cs)
             matched_new.add(sid)
             continue
         rule = sid.split(":")[0]
-        same = next((k for k in new if k.split(":")[0] == rule and fuzz.ratio(t, new_text[k]) >= SAME_TEXT), None)
+        same = next((k for k in new if k.split(":")[0] == rule and t == new_text[k]), None)
         if same:  # renumbered, text unchanged
             drop.update(id(c) for c in cs)
             matched_new.add(same)

@@ -48,7 +48,7 @@ def read_lines(pdf: Path, first_page: int = 1, last_page: int | None = None,
         for block in doc[idx].get_text("dict")["blocks"]:
             for line in block.get("lines", []):
                 spans = [s for s in line["spans"] if s["size"] >= min_font]
-                text = re.sub(r"\s+", " ", "".join(s["text"] for s in spans)).strip()
+                text = fix_amounts(re.sub(r"\s+", " ", "".join(s["text"] for s in spans)).strip())
                 if text and bold_runin and spans and spans[0]["flags"] & 16 and spans[0]["bbox"][0] > 100 \
                         and re.search(r"\w\.(\s|$)", spans[0]["text"]):
                     text = RUNIN + text
@@ -66,20 +66,44 @@ def read_lines(pdf: Path, first_page: int = 1, last_page: int | None = None,
     return drop_running_headers(lines)
 
 
+# Peso amounts in old embedded OCR layers: "Php500,OOO.OO" -> "Php500,000.00"
+AMOUNT = re.compile(r"(?<=PHP)[\dOSl,.]*\d[\dOSl,.]*|(?<=Php)[\dOSl,.]*\d[\dOSl,.]*")
+
+
+def fix_amounts(text: str) -> str:
+    return AMOUNT.sub(lambda m: m.group(0).translate(str.maketrans("OSl", "051")), text)
+
+
+EDGE_LINES = 2  # a running header or footer is among the first or last two lines of its page
+
+
 def drop_running_headers(lines: list[Line], min_share: float = 0.3) -> list[Line]:
-    """Remove running headers/footers: a line of 15+ characters repeated on many pages.
+    """Remove running headers/footers: a line of 15+ characters repeated on many pages,
+    always at the top or bottom of the page.
 
     "Guidelines on Transaction Reporting and Compliance Submissions (GoTRACS)" sits at
     the top of every GoTRACS page and would otherwise land mid-sentence in the text.
+    The page-edge test keeps repeated body text, such as the table note "Fine is on a
+    per account basis." that appears mid-page in the administrative sanctions rules.
     """
-    pages = {l.page for l in lines}
-    if len(pages) < 4:
+    by_page: dict[int, list[str]] = {}
+    for l in lines:
+        by_page.setdefault(l.page, []).append(l.text)
+    if len(by_page) < 4:
         return lines
     seen: dict[str, set[int]] = {}
+    off_edge: set[str] = set()
+    for texts in by_page.values():
+        for i, t in enumerate(texts):
+            if len(t) < 15:
+                continue
+            seen.setdefault(t, set())
+            if EDGE_LINES <= i < len(texts) - EDGE_LINES:
+                off_edge.add(t)
     for l in lines:
-        if len(l.text) >= 15:
-            seen.setdefault(l.text, set()).add(l.page)
-    repeated = {t for t, ps in seen.items() if len(ps) >= max(3, min_share * len(pages))}
+        if l.text in seen:
+            seen[l.text].add(l.page)
+    repeated = {t for t, ps in seen.items() if len(ps) >= max(3, min_share * len(by_page)) and t not in off_edge}
     return [l for l in lines if l.text not in repeated]
 
 

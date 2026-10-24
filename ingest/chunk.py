@@ -50,6 +50,9 @@ PROFILES: dict[str, dict] = {
             Level("Sec.", re.compile(r"^Section (\d+[A-Z]?)\.\s+(.{3,})$")),
             Level("", re.compile(r"^(\d+\.\d+(?:\.\d+)?)\.?\s+([A-Z].{2,90})$"), title_only=True),
         ],
+        # numbered paragraphs ("2.2. STRs shall be filed ...") stay inside their Section;
+        # Rules are numbered across the whole IRR, so citations do not need the Chapter
+        "not_headings": [re.compile(r"^\d+\.\d+(?:\.\d+)*\.?(?:\s|$)"), re.compile(r"^CHAPTER [IVX]+$")],
     },
     "rrg2021": {
         "pages": (2, 17),    # Part 1 (policy); Parts 2-4 are portal and file-format manuals
@@ -92,6 +95,7 @@ PROFILES: dict[str, dict] = {
             Level("Sec.", re.compile(r"^Section (\d+)\.\s+(.+)$"), split=True),
             Level("", re.compile(r"^([a-z]{1,2})\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
         ],
+        "not_headings": [re.compile(r"^\d+\.\d+(?:\.\d+)*\.?(?:\s|$)")],  # numbered paragraphs of Section 59
     },
     "sanctions2021": {
         "pages": (4, None),  # pages 1-3 are the cover and contents
@@ -100,6 +104,7 @@ PROFILES: dict[str, dict] = {
             Level("", re.compile(r"^(\d{1,2}\.\d{1,2})\.?\s+(.+)$")),
             Level("", re.compile(r"^(\d{1,2}\.\d{1,2}\.\d{1,2})\.?\s+(.+)$"), child_of_prev=True),
         ],
+        "not_headings": [re.compile(r"^SEC\. 11\. Authority to Freeze")],  # quoted from the TFPSA
     },
     "bo2018": {
         "pages": (1, None),
@@ -134,12 +139,14 @@ PROFILES: dict[str, dict] = {
             Level("Ch.", re.compile(r"^CHAPTER (\d+)$")),
             Level("Sec.", re.compile(r"^Section (\d+\.[A-Z0-9]+(?:\.\d+)?)\.\s+(.+)$"), split=True),
         ],
+        "not_headings": [re.compile(r"^\d+\.\d+(?:\.\d+)*\.?(?:\s|$)")],  # numbered lists inside a section ("1.2.1 Securities Brokers ...")
     },
     "sec_mc4_2021": {
         "pages": (1, None),
         "min_font": 0.0,
         "preamble": True,
         "levels": [Level("Sec.", re.compile(r"^SECTION (\d+)\.\s+(.+)$"), sentence_body=True)],
+        "not_headings": [re.compile(r"^\d+\.\d+(?:\.\d+)*\.?(?:\s|$)")],  # quoted items of the MC 16 sections it amends
     },
     "ic_cl2018_48": {    # OCR
         "pages": (1, None),
@@ -160,6 +167,7 @@ PROFILES: dict[str, dict] = {
             Level("Sec.", re.compile(r"^(?:SECTION|SEC\.)\s+(\d+)\.\s+(.+)$"), sentence_body=True),
             Level("", re.compile(r"^([A-Z])\.\s+(.+)$"), sentence_body=True, sequential=True),
         ],
+        "not_headings": [re.compile(r"^Section \d+\. ")],  # the new text of the CL 2018-48 sections it replaces
     },
     "ic_cl2024_16": {    # OCR
         "pages": (1, None),
@@ -309,17 +317,21 @@ def _split_words(text: str, max_words: int, overlap: int) -> list[str]:
     return [re.sub(r" ?\n ?", "\n", p).strip() for p in pieces if p.strip()]
 
 
-def parse_sections(doc: dict) -> list[tuple[list, list[Line]]]:
+def parse_sections(doc: dict, trace: dict | None = None) -> list[tuple[list, list[Line]]]:
     """Walk the document's lines with its heading grammar.
 
     Returns (heading path, body lines) per section; the path is empty for text
-    before the first heading.
+    before the first heading. A `trace` dict, if given, receives the lines read
+    and the indices of those consumed as headings (for ingest/coverage.py).
     """
     profile = PROFILES[doc["id"]]
     first, last = profile["pages"]
     lines = read_lines(RAW / f"{doc['id']}.pdf", first, last, profile["min_font"], ocr=doc.get("ocr", False),
                        bold_runin=profile.get("bold_runin", False))
     levels: list[Level] = profile["levels"]
+    heads: set[int] = set()
+    if trace is not None:
+        trace.update(lines=lines, heads=heads)
 
     path: list[tuple[Level, str, str] | None] = [None] * len(levels)
     sections: list[tuple[list, list[Line]]] = []
@@ -353,6 +365,7 @@ def parse_sections(doc: dict) -> list[tuple[list, list[Line]]]:
                 if not parent or not m.group(1).startswith(parent[1] + "."):
                     continue
             flush()
+            heads.add(i)
             number = m.group(1)
             title = (m.group(2) or "").strip() if (m.lastindex or 0) >= 2 else ""
             if not title and i + 1 < len(lines):  # "RULE 6" with the title on the next line

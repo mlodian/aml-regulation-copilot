@@ -174,6 +174,16 @@ def test_ocr_gate_routes_low_confidence_pages_to_review():
     assert [p["page"] for p in review] == [2]  # blank page 3 is neither
 
 
+def test_ocr_gate_holds_pages_whose_numbers_disagree():
+    from ingest.ocr import gate, number_disagreements
+    assert number_disagreements("within sixty (60) days, thirty-one (31) days, "
+                                "five hundred thousand pesos (PHP500,000.00)") == []
+    assert number_disagreements("within sixty (80) calendar days") == ["sixty (80)"]
+    misread = {"page": 1, "confidence": 0.99, "lines": [{"text": "file within five (S) working days"}]}
+    keep, review = gate([misread])
+    assert not keep and review[0]["reason"].startswith("numbers disagree")
+
+
 def test_ocr_normalisation_of_list_markers_and_headings():
     from ingest.parse import normalize_ocr
     assert normalize_ocr("(її)") == "(ii)"
@@ -191,6 +201,20 @@ def test_running_headers_are_dropped():
     assert [l.text for l in drop_running_headers(lines)] == [f"body text on page {p}" for p in range(1, 6)]
 
 
+def test_repeated_text_mid_page_is_not_a_running_header():
+    from ingest.parse import Line, drop_running_headers
+    note = "Fine is on a per account basis."
+    lines = [Line(p, t) for p in range(1, 6)
+             for t in ("first line", "second line", note, "fourth line", "fifth line")]
+    assert note in [l.text for l in drop_running_headers(lines)]
+
+
+def test_peso_amounts_from_old_ocr_layers_are_repaired():
+    from ingest.parse import fix_amounts
+    assert fix_amounts("a fine of Php500,OOO.OO") == "a fine of Php500,000.00"
+    assert fix_amounts("Php may be Sold") == "Php may be Sold"
+
+
 def test_split_title_on_dash_or_title_like_sentence():
     from ingest.chunk import split_title
     assert split_title("Scope. – These Guidelines shall apply") == ("Scope", "These Guidelines shall apply")
@@ -205,9 +229,32 @@ def test_coverage_flags_a_grammar_that_misses_headings(monkeypatch):
     from ingest.parse import Line
     lines = [Line(1, "word " * 50)]
     monkeypatch.setitem(coverage.PROFILES, "d1", {"levels": ["x"], "preamble": False})
-    monkeypatch.setattr(coverage, "parse_sections", lambda doc: [([], lines), ([("lv", "1", "")], lines[:0] + [Line(1, "w")])])
+    monkeypatch.setattr(coverage, "parse_sections", lambda doc, trace: [([], lines), ([("lv", "1", "")], lines[:0] + [Line(1, "w")])])
     row = coverage.measure({"id": "d1"})
     assert row.preamble_words == 50 and row.flagged  # almost all text sits before any heading
+
+
+def test_missed_heading_flags_a_grammar_that_lost_a_level(monkeypatch):
+    from ingest import coverage
+    from ingest.parse import Line
+    lines = [Line(1, t) for t in ("RULE 1", "Section 1. Title", "body", "Section 2. Scope", "body", "2.1. numbered")]
+    profile = {"levels": ["x"], "not_headings": [coverage.re.compile(r"^\d+\.\d+\.")]}
+    monkeypatch.setitem(coverage.PROFILES, "d1", profile)
+
+    def parse(doc, trace):  # a grammar that only knows RULE: both Sections are missed
+        trace.update(lines=lines, heads={0})
+        return [([("lv", "1", "")], lines[1:])]
+    monkeypatch.setattr(coverage, "parse_sections", parse)
+    row = coverage.measure({"id": "d1"})
+    assert row.missed_headings == ["Section 1. Title", "Section 2. Scope"] and row.flagged  # "2.1." is declared
+
+
+def test_one_changed_word_is_a_new_version():
+    from ingest.versions import words
+    old = "6.1. MVTS providers shall make the information available within five (5) working days " * 20
+    new = old.replace("within five (5) working days", "within three working days")
+    assert words(old) != words(new)  # rapidfuzz ratio of these two is above 99
+    assert words("“Rule 22.”  STRs") == words("rule 22 STRs")  # quote marks, case and spacing do not count
 
 
 def _chunk(**kw):
