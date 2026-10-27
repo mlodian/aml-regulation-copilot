@@ -7,7 +7,9 @@ For every question:
 - every gold / also label matches at least one section;
 - at least one gold section is in force on the question's `as_of`;
 - every `must_contain` pattern is found in the text of the gold sections in force then,
-  so a question can only pass when the evidence for that date says what it requires.
+  so a question can only pass when the evidence for that date says what it requires;
+- no pattern is so loose that a wrong answer passes it: none may already match the
+  question itself, and numbers must be matched as whole words.
 `also` labels (sector restatements) get the same checks but only warn.
 Exits non-zero on any error.
 """
@@ -38,6 +40,43 @@ def load(paths: list[Path]) -> tuple[str, list[dict]]:
     return as_of, questions
 
 
+NUMBER_WORDS = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve",
+                "fifteen", "twenty", "thirty", "forty", "fifty", "sixty", "ninety", "hundred", "thousand", "million"}
+
+
+def alternatives(pattern: str) -> list[str]:
+    """Top-level alternatives of a regex: 'a|(b|c)d' -> ['a', '(b|c)d']."""
+    out, depth, cur = [], 0, ""
+    for ch in pattern:
+        depth += ch == "("
+        depth -= ch == ")"
+        if ch == "|" and depth == 0:
+            out.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    return out + [cur]
+
+
+def loose_alternatives(pattern: str) -> list[str]:
+    """Bare numbers or number words that are not matched as whole words:
+    '20' matches '2024', 'two' matches 'network', 'ten' matches 'extension'."""
+    return [a for a in alternatives(pattern)
+            if (re.fullmatch(r"[\d,.]+", a) or a.lower() in NUMBER_WORDS)]  # anchored forms no longer fullmatch
+
+
+def lint(q: dict) -> list[str]:
+    """Required facts a wrong answer would pass."""
+    problems = []
+    for p in q.get("must_contain", []):
+        if re.search(p, q["question"], re.I):
+            problems.append(f"{q['id']}: '{p}' already matches the question, so any answer passes it")
+        loose = loose_alternatives(p)
+        if loose:
+            problems.append(f"{q['id']}: '{p}' has unanchored {loose}; use \\b..\\b or a unit ('five \\(5\\) days')")
+    return problems
+
+
 def validate(questions: list[dict], default_as_of: str) -> tuple[list[str], list[str]]:
     chunks = [SimpleNamespace(**json.loads(l)) for l in (ROOT / "data" / "processed" / "chunks_structured.jsonl").open()]
     errors, warnings = [], []
@@ -52,6 +91,7 @@ def validate(questions: list[dict], default_as_of: str) -> tuple[list[str], list
                 str(qs[0].get("as_of", default_as_of)) == str(qs[1].get("as_of", default_as_of)):
             errors.append(f"pair {name}: needs two questions with the same text on different dates")
     for q in questions:
+        errors += lint(q)
         as_of = str(q.get("as_of", default_as_of))
         if q["kind"] == "unanswerable":
             if q.get("gold") or q.get("must_contain"):

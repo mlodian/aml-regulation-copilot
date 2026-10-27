@@ -22,34 +22,34 @@ questions:
     question: What is the peso threshold for a cash transaction to count as a covered transaction?
     gold: [irr2018:rule2:sec1, rrg2021:partii, gotracs2024:chi:sec2:sg]
     also: [dnfbp2021:titleii:sec3:sh, sec_mc16_2018:ch7:sec7.3]
-    must_contain: ['500,000|500 ?thousand|five hundred thousand']
+    must_contain: ['(?<![\d,.])500,000(?!\d|,\d)|500 ?thousand|five hundred thousand']
     kind: numeric
     source: pilot
   - id: q02
     question: What's the covered transaction threshold when the counterparty is a jewelry or precious metals dealer?
     gold: [irr2018:rule2:sec1, rrg2021:partii, gotracs2024:chi:sec2:sg]
     also: [dnfbp2021:titleii:sec3:sh]
-    must_contain: ['1,000,000|one million|1 million']
+    must_contain: ['(?<![\d,.])1,000,000(?!\d|,\d)|one million|1 million']
     kind: numeric
     source: pilot
   - id: q03
     question: Above what amount does a casino cash transaction become a covered transaction?
     gold: [irr2018:rule2:sec1, gotracs2024:chi:sec2:sg]
-    must_contain: ['5,000,000|five million|5 million']
+    must_contain: ['(?<![\d,.])5,000,000(?!\d|,\d)|five million|5 million']
     kind: numeric
     source: pilot
   - id: q04
     question: What is the covered transaction threshold for cash deals with real estate developers or brokers?
     gold: [irr2018:rule2:sec1, rrg2021:partii, gotracs2024:chi:sec2:sg, gotracs2024:chii:part1:sec2:s2.17]
     also: [dnfbp2021:titleii:sec3:sh]
-    must_contain: ['7,500,000|seven million five hundred thousand|7\.5 million']
+    must_contain: ['(?<![\d,.])7,500,000(?!\d|,\d)|seven million five hundred thousand|7\.5 million']
     kind: numeric
     source: pilot
   - id: q05
     question: How many working days does a covered person have to file a CTR?
     gold: [irr2018:rule22:sec2, rrg2021:partiii, gotracs2024:chi:sec4:s4.2]
     also: [bsp_morb_p9:sec922, ic_cl2019_65:sec21, dnfbp2021:titlevi:sec43, sec_mc16_2018:ch7:sec7.5]
-    must_contain: ['five|\b5\b']
+    must_contain: ['\bfive\b|\b5\b']
     kind: numeric
     source: pilot
   - id: q06
@@ -70,14 +70,14 @@ questions:
     question: What is the longest period the AMLC can prescribe for filing CTRs?
     gold: [irr2018:rule22:sec2]
     also: [ic_cl2019_65:sec21, bsp_morb_p9:sec922, sec_mc16_2018:ch7:sec7.5]
-    must_contain: ['fifteen|\b15\b']
+    must_contain: ['\bfifteen\b|\b15\b']
     kind: numeric
     source: pilot
   - id: q09
     question: How long must customer records and transaction documents be retained?
     gold: [irr2018:rule20:sec1, irr2018:rule20:sec2]
     also: [ic_cl2018_48:titlevi:sec48, dnfbp2021:titlev:sec40, bsp_morb_p9:sec924, sec_mc16_2018:ch6:sec6.2]
-    must_contain: ['five|\b5\b']
+    must_contain: ['\bfive\b|\b5\b']
     kind: numeric
     source: pilot
   - id: q10
@@ -98,76 +98,76 @@ questions:
     question: How often must a covered person conduct its institutional risk assessment?
     gold: [irr2018:rule15:sec1]
     also: [bsp_morb_p9:sec911:sriskassessment, dnfbp2021:titleiii:sec5:sf, ic_cl2019_65:sec2, ic_cl2024_16:main]
-    must_contain: ['two|\b2\b']
+    must_contain: ['\btwo\b|\b2\b']
     kind: numeric
     source: pilot
   - id: q13
     question: How frequently is the National Risk Assessment updated?
     gold: [irr2018:rule13:sec2]
-    must_contain: ['three|\b3\b']
+    must_contain: ['\bthree\b|\b3\b']
     kind: numeric
     source: pilot
   - id: q14
     question: How often should AML refresher training be provided to directors, officers and employees?
     gold: [irr2018:rule16:sec4]
     also: [ic_cl2019_65:sec4]
-    must_contain: ['three|\b3\b']
+    must_contain: ['\bthree\b|\b3\b']
     kind: numeric
     source: pilot
   - id: q15
     question: How long can a court-issued freeze order stay in effect?
     gold: [irr2018:rule10:sec2:s2.8]
-    must_contain: ['six|\b6\b']
+    must_contain: ['\bsix\b|\b6\b']
     kind: numeric
     source: pilot
   - id: q16
     question: What shareholding percentage makes someone a beneficial owner of a juridical person?
-    gold: [irr2018:rule2:sec1, gotracs2024:chi:sec2:se, sanctions2021:s4.1, bo2018:sec2:sd]
+    gold: [irr2018:rule2:sec1, gotracs2024:chi:sec2:sd, gotracs2024:chi:sec2:se, sanctions2021:s4.1, bo2018:sec4:sb]
     also: [bsp_morb_p9:sec904]
-    must_contain: ['20|twenty']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b']
     kind: numeric
     source: pilot
   - id: q17
     question: When a bearer share entity changes ownership, how quickly must the list of stockholders be updated?
     gold: [irr2018:rule19:sec7]
     also: [sec_mc16_2018:ch5:sec5.j.1, bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit]
-    must_contain: ['thirty|\b30\b']
+    must_contain: ['\bthirty\b|\b30\b']
     kind: numeric
     source: pilot
   - id: q18
     question: What is the maximum administrative fine the Council can impose per violation?
     gold: [irr2018:rule26:sec5, admin_sanctions2017:rulev:sec1]
-    must_contain: ['500,000|five hundred thousand']
+    must_contain: ['(?<![\d,.])500,000(?!\d|,\d)|five hundred thousand']
     kind: numeric
     source: pilot
   - id: q19
     question: What is the prison term for a person convicted of money laundering under Section 4(a) to (d) of the AMLA?
     gold: [irr2018:rule25:sec1]
-    must_contain: ['seven|\b7\b', 'fourteen|\b14\b']
+    must_contain: ['\bseven\b|\b7\b', 'fourteen|\b14\b']
     kind: numeric
     source: pilot
   - id: q20
     question: What penalty applies for failing to keep records as required by the AMLA?
     gold: [irr2018:rule25:sec3]
-    must_contain: ['six|\b6\b', 'one|\b1\b']
+    must_contain: ['\bsix\b|\b6\b', '\bone\b|\b1\b']
     kind: numeric
     source: pilot
   - id: q21
     question: What is the penalty for maliciously filing a false money laundering report?
     gold: [irr2018:rule25:sec4]
-    must_contain: ['six|\b6\b', 'four|\b4\b']
+    must_contain: ['\bsix\b|\b6\b', '\bfour\b|\b4\b']
     kind: numeric
     source: pilot
   - id: q22
     question: What penalty applies to breaching the confidentiality of covered or suspicious transaction reports?
     gold: [irr2018:rule25:sec5]
-    must_contain: ['three|\b3\b', 'eight|\b8\b']
+    must_contain: ['\bthree\b|\b3\b', '\beight\b|\b8\b']
     kind: numeric
     source: pilot
   - id: q23
     question: How long does a covered person have to determine suspicion for transactions flagged by the transaction monitoring system?
-    gold: [rrg2021:partiv, gotracs2024:chi:sec5:s5.4:sc:s3:sviii]
-    must_contain: ['sixty|\b60\b']
+    gold: [rrg2021:partiv:sd:se, gotracs2024:chi:sec5:s5.4:sc:s3:sviii]
+    must_contain: ['\bsixty\b|\b60\b']
     kind: numeric
     source: pilot
   - id: q24
@@ -179,25 +179,25 @@ questions:
   - id: q25
     question: Within how many days must suspicious circumstances under Section 3(b-1) of the AMLA be established?
     gold: [rrg2021:partiv, gotracs2024:chi:sec5:s5.4:sc:s3:si]
-    must_contain: ['ten|\b10\b']
+    must_contain: ['\bten\b|\b10\b']
     kind: numeric
     source: pilot
   - id: q26
     question: How long do we have to determine suspicion after receiving an AMLC referral that names a specific unlawful activity?
     gold: [rrg2021:partiv, gotracs2024:chi:sec5:s5.4:sc:s3:siv]
-    must_contain: ['ten|\b10\b']
+    must_contain: ['\bten\b|\b10\b']
     kind: numeric
     source: pilot
   - id: q27
     question: What is the determination period for STRs filed under the ZSTR transaction code, such as those triggered by negative news?
     gold: [rrg2021:partiv]
-    must_contain: ['sixty|\b60\b']
+    must_contain: ['\bsixty\b|\b60\b']
     kind: numeric
     source: pilot
   - id: q28
     question: For which unlawful activities must KYC documents be uploaded together with the STR?
-    gold: [rrg2021:partiv, gotracs2024:chii:part1:sec4:s4.8]
-    must_contain: ['kidnapping', 'drug', 'terroris']
+    gold: [rrg2021:partiv:se, gotracs2024:chii:part1:sec4:s4.8]
+    must_contain: ['kidnapping', 'drug', 'terroris', 'graft|corrupt']
     kind: list
     source: pilot
   - id: q29
@@ -218,14 +218,14 @@ questions:
     question: How should a transaction be reported if it is both a covered and a suspicious transaction?
     gold: [irr2018:rule22:sec1:s1.1, rrg2021:partiv]
     also: [sec_mc16_2018:ch7:sec7.6, bsp_morb_p9:sec922]
-    must_contain: ['suspicious transaction']
+    must_contain: ['as an? (suspicious transaction|STR)\b|report(ed)? .{0,20}as (an? )?(STR|ST\b|suspicious)']
     kind: factual
     source: pilot
   - id: q32
     question: Do attempted transactions need to be included in STRs?
     gold: [irr2018:rule22:sec1:s1.1, rrg2021:partiv, gotracs2024:chi:sec5:s5.4:sb]
     also: [sec_mc16_2018:ch7:sec7.7]
-    must_contain: ['attempt']
+    must_contain: ['\byes\b|whether completed or attempted|including attempts|attempts thereof|likewise file']
     kind: factual
     source: pilot
   - id: q33
@@ -246,7 +246,7 @@ questions:
     question: Is a reporting officer protected from liability for filing an STR in good faith?
     gold: [irr2018:rule22:sec6, rrg2021:parti]
     also: [bsp_morb_p9:sec922:ssafeharborprovision, sec_mc16_2018:ch7:sec7.11, ic_cl2018_48:titlevii:sec59, dnfbp2021:titlevi:sec47]
-    must_contain: ['good faith']
+    must_contain: ['\byes\b|no (administrative|criminal|civil)|proceedings shall lie|safe harbo']
     kind: factual
     source: pilot
   - id: q36
@@ -294,7 +294,7 @@ questions:
     question: What ID must a first-time customer present?
     gold: [irr2018:rule18:sec3:s3.2]
     also: [ic_cl2019_65:sec6:sd]
-    must_contain: ['original', 'one|\b1\b']
+    must_contain: ['original', '\bone\b|\b1\b']
     kind: factual
     source: pilot
   - id: q43
@@ -335,7 +335,7 @@ questions:
     question: If a covered person relies on a third party for CDD, who remains responsible?
     gold: [irr2018:rule21:sec1]
     also: [dnfbp2021:titleiv:sec31, ic_cl2018_48:titlev:sec37, bsp_morb_p9:sec921:scustomeridentification, bo2018:sec4:sd, sec_mc16_2018:ch5:sec5.a.12]
-    must_contain: ['relying|covered person']
+    must_contain: ['ultimate responsibility|remains? with the (relying )?(covered person|institution)|relying covered person']
     kind: factual
     source: pilot
   - id: q49
@@ -385,7 +385,7 @@ questions:
     question: What is the BSP's de minimis threshold amount for cross-border wire transfers?
     gold: [bsp_morb_p9:sec923:ssupervisoryenforcementaction]
     also: [sec_mc16_2018:ch5:sec5.k.1]
-    must_contain: ['50,000']
+    must_contain: ['(?<![\d,.])50,000(?!\d|,\d)']
     kind: numeric
     source: pilot
     note: 'relabelled: unanswerable in the pilot, answered by the BSP manual in Phase 2'
@@ -422,13 +422,13 @@ questions:
   - id: n004
     question: If the AMLC has not confirmed a potential target match, after how many hours may we ask to delete the STR we filed?
     gold: [gotracs2024:chi:sec5:s5.4:sc:s3:svii]
-    must_contain: ['36|thirty-six']
+    must_contain: ['(?<![\d,.])36(?!\d|,\d)|thirty-six']
     kind: numeric
     source: phase2
   - id: n005
     question: What is the determination period when an AMLC referral does not identify any specific unlawful activity?
     gold: [gotracs2024:chi:sec5:s5.4:sc:s3:siv, rrg2021:partiv:sd:sc]
-    must_contain: ['sixty|\b60\b']
+    must_contain: ['\bsixty\b|\b60\b']
     kind: numeric
     source: phase2
   - id: n006
@@ -452,7 +452,7 @@ questions:
   - id: n011
     question: When is reporting to the AMLC automatically suspended because the FTRF is unavailable?
     gold: [gotracs2024:chi:sec6:s6.3]
-    must_contain: ['four|\b4\b', '7|seven']
+    must_contain: ['\bfour\b|\b4\b', 'after 7|7 o.clock|7:00|7 ?pm|\bseven\b', 'one \(1\) hour|\bone hour|\b1 hour|within an hour']
     kind: factual
     source: phase2
   - id: n016
@@ -470,7 +470,7 @@ questions:
   - id: n018
     question: Under GoTRACS, when is beneficial ownership direct and when is it indirect?
     gold: [gotracs2024:chi:sec2:se]
-    must_contain: ['20|twenty', 'tiers|indirect']
+    must_contain: ['\b20\b|\btwenty\b', '\btiers?\b|series of (corporate )?ownership']
     kind: factual
     source: phase2
   - id: n019
@@ -514,14 +514,14 @@ questions:
     as_of: '2019-06-01'
     pair: v05
     gold: [irr2018_orig:rule19:sec6:s6.4]
-    must_contain: ['consent']
+    must_contain: ['secure the consent|\byes\b']
     kind: versioned
     source: phase2
   - id: v05b
     question: Under the 2018 IRR, must covered persons get their customers' consent to apply targeted financial sanctions?
     pair: v05
     gold: [irr2018:rule19:sec6:s6.4]
-    must_contain: ['comply']
+    must_contain: ['comply with (the )?(obligations|UNSC|United Nations)|\bno\b']
     kind: versioned
     source: phase2
   - id: v08a
@@ -536,25 +536,25 @@ questions:
     question: Under the Insurance Commission's AML rules, how often must insurers give refresher training?
     pair: v08
     gold: [ic_cl2019_65:sec4]
-    must_contain: ['three|\b3\b']
+    must_contain: ['\bthree\b|\b3\b']
     kind: versioned
     source: phase2
   - id: n025
     question: Are real estate brokers and developers covered persons under the AMLA rules?
     gold: [irr2018:rule4:sec1, gotracs2024:chi:sec3:s3.2:sf]
-    must_contain: ['real estate']
+    must_contain: ['\byes\b|designated non-financial|DNFBP|Rule 4']
     kind: factual
     source: phase2
   - id: n026
     question: Are offshore gaming operators covered persons?
     gold: [irr2018:rule4:sec1, gotracs2024:chi:sec3:s3.2:sg]
-    must_contain: ['offshore gaming']
+    must_contain: ['\byes\b|service providers|designated non-financial|DNFBP']
     kind: factual
     source: phase2
   - id: n028
     question: Must covered persons update beneficial ownership information when it changes?
     gold: [irr2018:rule18:sec8:s8.3]
-    must_contain: ['beneficial ownership']
+    must_contain: ['\byes\b|in case of any changes|are updated|be updated']
     kind: factual
     source: phase2
   - id: t01
@@ -566,7 +566,7 @@ questions:
   - id: t02
     question: What penalty applies to a responsible officer who fails to comply with a terrorism financing freeze order?
     gold: [tf_irr:rule16:s16.a]
-    must_contain: ['six|\b6\b', 'four|\b4\b']
+    must_contain: ['\bsix\b|\b6\b', '\bfour\b|\b4\b']
     kind: numeric
     source: phase2
   - id: t05
@@ -578,13 +578,13 @@ questions:
   - id: t06
     question: What basic expenses may a person whose funds are frozen be allowed to withdraw?
     gold: [tf_irr:rule13:s13.c]
-    must_contain: ['food|rent|medicine|medical']
+    must_contain: ['food', 'rent|mortgage', 'utilit|tax|insurance premium']
     kind: list
     source: phase2
   - id: t07
     question: Is a covered institution liable if it freezes funds because of mistaken identity?
     gold: [tf_irr:rule11:s11.b]
-    must_contain: ['mistaken identity']
+    must_contain: ['no (administrative|criminal|civil)|shall lie|not (be )?liable']
     kind: factual
     source: phase2
   - id: s02
@@ -602,31 +602,31 @@ questions:
   - id: s05
     question: What ownership share brings a company under financial sanctions through a designated owner?
     gold: [sanctions2021:s4.1]
-    must_contain: ['20|twenty']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b']
     kind: numeric
     source: phase2
   - id: s06
     question: Can interest still be credited to a frozen account?
     gold: [sanctions2021:s7.1]
-    must_contain: ['interest']
+    must_contain: ['\byes\b|prior authori[sz]ation|may be credited|permit']
     kind: factual
     source: phase2
   - id: s07
     question: Within how many days from publication can a person designated by the ATC ask to be delisted?
     gold: [sanctions2021:s9.1, sanctions2021:s15.1]
-    must_contain: ['fifteen|\b15\b']
+    must_contain: ['(fifteen|\b15\b)\)? (calendar |working )?days']
     kind: numeric
     source: phase2
   - id: s08
     question: After a delisting request is denied, how long must a designated person wait before filing another?
     gold: [sanctions2021:s15.2]
-    must_contain: ['six|\b6\b']
+    must_contain: ['\bsix\b|\b6\b']
     kind: numeric
     source: phase2
   - id: s09
     question: Which UN Security Council sanctions regimes do the AMLC's targeted financial sanctions cover?
     gold: [sanctions2021:s2.1]
-    must_contain: ['1267', '1718|DPRK', '2231|Iran']
+    must_contain: ['(?<![\d,.])1267(?!\d|,\d)', '(?<![\d,.])1718(?!\d|,\d)|DPRK', '(?<![\d,.])2231(?!\d|,\d)|Iran']
     kind: list
     source: phase2
   - id: b03
@@ -644,13 +644,13 @@ questions:
   - id: b05
     question: How long did covered persons have to record the beneficial owners of all existing customers under the 2018 BO Guidelines?
     gold: [bo2018:sec9]
-    must_contain: ['one|\b1\b']
+    must_contain: ['\bone\b|\b1\b']
     kind: numeric
     source: phase2
   - id: b06
     question: Who counts as a "legal owner" of a corporate vehicle?
     gold: [bo2018:sec2:sd]
-    must_contain: ['20|twenty']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b']
     kind: numeric
     source: phase2
   - id: c01
@@ -680,31 +680,31 @@ questions:
   - id: a04
     question: Within how many working days can a respondent ask the AMLC to reconsider a sanctions resolution?
     gold: [admin_sanctions2017:ruleiii:sec10]
-    must_contain: ['ten|\b10\b']
+    must_contain: ['(\bten\b|\b10\b)\)? (calendar |working )?days']
     kind: numeric
     source: phase2
   - id: a05
     question: What is the fine for a grave violation by a Large B covered person?
     gold: [admin_sanctions2017:rulev:sec2, admin_sanctions2017:rulev:sec3]
-    must_contain: ['500,000']
+    must_contain: ['(?<![\d,.])500,000(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: a06
     question: Can a respondent ask for more time to file its Answer to a Formal Charge?
     gold: [admin_sanctions2017:ruleiii:sec5]
-    must_contain: ['entertained']
+    must_contain: ['not (be )?(allowed|entertained|permitted|granted)|no (motion|extension)|cannot|prohibited']
     kind: factual
     source: phase2
   - id: a07
     question: From what date do the AMLC's administrative sanctions rules apply to violations?
     gold: [admin_sanctions2017:rulei:sec3]
-    must_contain: ['2013']
+    must_contain: ['(?<![\d,.])2013(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: d05
     question: What purity must gold or silver have to count as a precious metal for DNFBPs?
     gold: [dnfbp2021:titleii:sec3:sr]
-    must_contain: ['500|five hundred']
+    must_contain: ['(?<![\d,.])500(?!\d|,\d)|five hundred']
     kind: numeric
     source: phase2
   - id: d06
@@ -722,7 +722,7 @@ questions:
   - id: e01
     question: How often must internal audit evaluate AML compliance at SEC-supervised covered institutions?
     gold: [sec_mc16_2018:ch10:sec10.2]
-    must_contain: ['2 years|two']
+    must_contain: ['2 years|\btwo\b']
     kind: numeric
     source: phase2
   - id: e02
@@ -735,31 +735,31 @@ questions:
     question: Under SEC rules, what amount of wire transfer triggers full originator and beneficiary information?
     gold: [sec_mc16_2018:ch5:sec5.k.1]
     also: [bsp_morb_p9:sec923:ssupervisoryenforcementaction]
-    must_contain: ['50,000']
+    must_contain: ['(?<![\d,.])50,000(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: e05
     question: Do SEC-supervised financing and lending companies have to register with the AMLC?
     gold: [sec_mc4_2021:sec2]
-    must_contain: ['register']
+    must_contain: ['\byes\b|online reporting system|Rule 4']
     kind: factual
     source: phase2
   - id: e06
-    question: When did SEC Memorandum Circular No. 4, s. 2021 take effect?
+    question: How long after publication does SEC Memorandum Circular No. 4, s. 2021 take effect?
     gold: [sec_mc4_2021:sec9]
-    must_contain: ['fifteen|\b15\b']
+    must_contain: ['(fifteen|\b15\b)\)? (calendar |working )?days']
     kind: numeric
     source: phase2
   - id: i02
     question: How soon after notice of updated sanctions lists should insurers screen against them?
     gold: [ic_cl2022_27:sb]
-    must_contain: ['24|twenty-four']
+    must_contain: ['(?<![\d,.])24(?!\d|,\d)|twenty-four']
     kind: numeric
     source: phase2
   - id: i03
     question: What are the stages of an insurer's institutional risk assessment under the IC's 2024 guidance?
     gold: [ic_cl2024_16:titleiv]
-    must_contain: ['identif', 'analy|assess']
+    must_contain: ['identif', 'likelihood|impact', 'mitigat|strateg|priorit']
     kind: list
     source: phase2
   - id: i04
@@ -771,25 +771,25 @@ questions:
   - id: i07
     question: What is the maximum fine per violation for a grave violation under the Insurance Commission's AML rules?
     gold: [ic_cl2019_65:sec25]
-    must_contain: ['500,000']
+    must_contain: ['(?<![\d,.])500,000(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: m02
     question: Under BSP rules, what is a "relevant business transaction" for occasional customers?
     gold: [bsp_morb_p9:sec921]
-    must_contain: ['100,000', '5,000']
+    must_contain: ['(?<![\d,.])100,000(?!\d|,\d)', '(?<![\d,.])5,000(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: m03
     question: How long must a BSP-supervised institution keep customer identification records?
     gold: [bsp_morb_p9:sec924]
-    must_contain: ['as long as the account exists']
+    must_contain: ['as long as the account (exists|is open|remains)|life of the account', '(five|\b5\b)\)? years']
     kind: numeric
     source: phase2
   - id: m04
     question: How many officers must be responsible for the safekeeping of AML records at a bank?
     gold: [bsp_morb_p9:sec924:ssafekeepingofrecordsanddocuments]
-    must_contain: ['two|\b2\b']
+    must_contain: ['\btwo\b|\b2\b']
     kind: numeric
     source: phase2
   - id: m05
@@ -807,31 +807,31 @@ questions:
   - id: m08
     question: How are valid ID requirements relaxed for bank customers after a disastrous calamity?
     gold: [bsp_morb_p9:sec921:scustomeridentification]
-    must_contain: ['calamit']
+    must_contain: ['amount', 'condition|subject to']
     kind: factual
     source: phase2
   - id: m12
     question: Can AML rules be applied in a way that discriminates against customer types such as PEPs?
     gold: [bsp_morb_p9:sec921:snondiscriminationagainstcertaintypesofcu]
-    must_contain: ['discriminat']
+    must_contain: ['\bno\b|shall not be construed|not .{0,30}discriminat']
     kind: factual
     source: phase2
   - id: x02
     question: How often must a bank run AML training, and how does that compare with the general refresher training rule?
     gold: [bsp_morb_p9:sec931, irr2018:rule16:sec4]
-    must_contain: ['annual', 'three|\b3\b']
+    must_contain: ['annual', '\bthree\b|\b3\b']
     kind: cross_issuer
     source: phase2
   - id: x03
     question: A securities broker asks how often it must give AML refresher training. What do the SEC rules and the general rules say?
     gold: [sec_mc16_2018:ch11:sec11.4, irr2018:rule16:sec4]
-    must_contain: ['once a year|annual', 'three|\b3\b']
+    must_contain: ['once a year|annual', '\bthree\b|\b3\b']
     kind: cross_issuer
     source: phase2
   - id: x04
     question: For a bank, what shareholding makes someone a beneficial owner under BSP rules, and is it the same under the AMLC rules?
     gold: [bsp_morb_p9:sec904, irr2018:rule2:sec1, gotracs2024:chi:sec2:sd]
-    must_contain: ['20|twenty']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b']
     kind: cross_issuer
     source: phase2
   - id: x06
@@ -843,7 +843,7 @@ questions:
   - id: x07
     question: How long does a DNFBP have to file a CTR, and is that the same deadline banks have?
     gold: [dnfbp2021:titlevi:sec43, bsp_morb_p9:sec922, gotracs2024:chi:sec4:s4.2]
-    must_contain: ['five|\b5\b']
+    must_contain: ['(five|\b5\b)\)? working days']
     kind: cross_issuer
     source: phase2
   - id: u12

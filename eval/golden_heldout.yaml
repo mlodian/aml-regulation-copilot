@@ -82,13 +82,13 @@ questions:
   - id: n022
     question: How long do we have to determine that a transaction is related to an unlawful activity, and which report type is filed?
     gold: [gotracs2024:chi:sec5:s5.4:sc:s3:sii]
-    must_contain: ['sixty|\b60', 'STRR']
+    must_contain: ['\bsixty\b|\b60', 'STRR']
     kind: numeric
     source: phase2
   - id: n023
-    question: Must KYC documents be uploaded before or after the STR they support?
+    question: In what order must KYC documents and the STR they support be uploaded?
     gold: [gotracs2024:chii:part1:sec5:s5.1]
-    must_contain: ['prior to|before']
+    must_contain: ['prior to the upload|before (uploading|the upload|filing|submitting)']
     kind: factual
     source: phase2
   - id: n024
@@ -117,14 +117,14 @@ questions:
     as_of: '2019-06-01'
     pair: v03
     gold: [irr2018_orig:rule19:sec6:s6.1]
-    must_contain: ['five|\b5\b']
+    must_contain: ['\bfive\b|\b5\b']
     kind: versioned
     source: phase2
   - id: v03b
     question: When asked, how quickly must an originating financial institution make wire transfer information available?
     pair: v03
     gold: [irr2018:rule19:sec6:s6.1]
-    must_contain: ['three|\b3\b']
+    must_contain: ['\bthree\b|\b3\b']
     kind: versioned
     source: phase2
   - id: v06a
@@ -132,7 +132,7 @@ questions:
     as_of: '2015-06-01'
     pair: v06
     gold: [tf_irr:rule17:s17.b]
-    must_contain: ['five|\b5\b']
+    must_contain: ['(five|\b5\b)\)? working days']
     kind: versioned
     source: phase2
   - id: v06b
@@ -147,14 +147,14 @@ questions:
     as_of: '2019-06-01'
     pair: v07
     gold: [ic_cl2018_48:titlevii:sec57]
-    must_contain: ['thirty|\b30\b']
+    must_contain: ['\bthirty\b|\b30\b']
     kind: versioned
     source: phase2
   - id: v07b
     question: How soon after receiving its Certificate of Authority must a newly licensed insurer register with the AMLC?
     pair: v07
     gold: [ic_cl2019_65:sec23]
-    must_contain: ['ninety|\b90\b']
+    must_contain: ['\bninety\b|\b90\b']
     kind: versioned
     source: phase2
   - id: n027
@@ -166,13 +166,13 @@ questions:
   - id: t03
     question: What fine range applies to the crime of financing of terrorism?
     gold: [tf_irr:rule4]
-    must_contain: ['500,000|five hundred thousand', '1,000,000|one million']
+    must_contain: ['(?<![\d,.])500,000(?!\d|,\d)|five hundred thousand', '(?<![\d,.])1,000,000(?!\d|,\d)|one million']
     kind: numeric
     source: phase2
   - id: t04
     question: What administrative fines can the AMLC impose under the TFPSA rules?
     gold: [tf_irr:rule26]
-    must_contain: ['100,000|one hundred thousand', '500,000|five hundred thousand']
+    must_contain: ['(?<![\d,.])100,000(?!\d|,\d)|one hundred thousand', '(?<![\d,.])500,000(?!\d|,\d)|five hundred thousand']
     kind: numeric
     source: phase2
   - id: t08
@@ -185,25 +185,25 @@ questions:
     question: Within how many hours of freezing assets on a target match must a covered person file a return?
     gold: [sanctions2021:s5.1, sanctions2021:s6.1]
     also: [bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf]
-    must_contain: ['24|twenty-four']
+    must_contain: ['(?<![\d,.])24(?!\d|,\d)|twenty-four']
     kind: numeric
     source: phase2
   - id: s03
     question: How quickly must the AMLC confirm whether a freeze on a potential match was proper?
     gold: [sanctions2021:s2.3]
-    must_contain: ['36|thirty-six']
+    must_contain: ['(?<![\d,.])36(?!\d|,\d)|thirty-six']
     kind: numeric
     source: phase2
   - id: s10
     question: Within how many days can an aggrieved party challenge a proliferation-financing TFS before the Court of Appeals?
     gold: [sanctions2021:s10.5, irr2018:rule10:sec5:s5.6]
-    must_contain: ['twenty|\b20\b']
+    must_contain: ['\btwenty\b|\b20\b']
     kind: numeric
     source: phase2
   - id: b01
     question: What minimum information must we obtain on a corporate customer to identify its beneficial owners?
     gold: [bo2018:sec4]
-    must_contain: ['incorporation', 'directors', '20|twenty']
+    must_contain: ['incorporation', 'directors', '(?<![\d,.])20(?!\d|,\d)|\btwenty\b']
     kind: list
     source: phase2
   - id: b02
@@ -213,7 +213,7 @@ questions:
     kind: list
     source: phase2
   - id: c02
-    question: Should sanctions screening rely on exact name matching or fuzzy logic?
+    question: What name-matching method should sanctions screening use?
     gold: [screening2023:sec3:s3.5:s3.5.3]
     must_contain: ['fuzzy']
     kind: factual
@@ -245,13 +245,13 @@ questions:
   - id: d02
     question: What change of ownership in a DNFBP must be notified to the AMLC, and when?
     gold: [dnfbp2021:titlevii:sec53:sf]
-    must_contain: ['20|twenty', 'before']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b', 'before']
     kind: factual
     source: phase2
   - id: d03
     question: How often must a DNFBP conduct its institutional risk assessment?
     gold: [dnfbp2021:titleiii:sec5:sf]
-    must_contain: ['two|\b2\b']
+    must_contain: ['(two|\b2\b)\)? years|every two|biennial']
     kind: numeric
     source: phase2
   - id: d04
@@ -263,7 +263,7 @@ questions:
   - id: e04
     question: What range of fines can the SEC impose for AML violations?
     gold: [sec_mc16_2018:ch12:sec12.1]
-    must_contain: ['10,000', '1,000,000']
+    must_contain: ['(?<![\d,.])10,000(?!\d|,\d)', '(?<![\d,.])1,000,000(?!\d|,\d)']
     kind: numeric
     source: phase2
   - id: e07
@@ -275,13 +275,13 @@ questions:
   - id: e08
     question: What makes an entity an "affiliate" under the SEC AML guidelines?
     gold: [sec_mc16_2018:ch2:sec2.1]
-    must_contain: ['20|twenty', '50|fifty']
+    must_contain: ['(?<![\d,.])20(?!\d|,\d)|\btwenty\b', '(?<![\d,.])50(?!\d|,\d)|\bfifty\b']
     kind: numeric
     source: phase2
   - id: i01
     question: How long must insurers keep customer identification and transaction records?
     gold: [ic_cl2018_48:titlevi:sec48]
-    must_contain: ['five|\b5\b']
+    must_contain: ['\bfive\b|\b5\b']
     kind: numeric
     source: phase2
   - id: i05
@@ -311,7 +311,7 @@ questions:
   - id: m09
     question: What must a bank do when assets of a person designated for proliferation financing are found?
     gold: [bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf]
-    must_contain: ['freeze', '24|twenty-four']
+    must_contain: ['freeze', '(?<![\d,.])24(?!\d|,\d)|twenty-four']
     kind: factual
     source: phase2
   - id: m10
@@ -321,15 +321,15 @@ questions:
     kind: factual
     source: phase2
   - id: m11
-    question: Must banks assess ML/TF risks of new products before launching them?
+    question: When must banks assess the ML/TF risks of a new product?
     gold: [bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses]
-    must_contain: ['prior to|before']
+    must_contain: ['prior to (the )?launch|before (the |their |its )?launch|before launching|development process']
     kind: factual
     source: phase2
   - id: x01
     question: As an insurer, how long must we keep AML records, under both the general rules and the Insurance Commission's?
     gold: [irr2018:rule20:sec1, ic_cl2018_48:titlevi:sec48]
-    must_contain: ['five|\b5\b']
+    must_contain: ['\bfive\b|\b5\b']
     kind: cross_issuer
     source: phase2
   - id: x05

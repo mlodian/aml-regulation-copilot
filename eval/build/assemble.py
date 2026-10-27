@@ -3,7 +3,8 @@
     python -m eval.build.assemble
 
 Inputs: the pilot questions as they stood (eval/build/pilot_golden.yaml, a frozen copy),
-their relabel (relabel_pilot.py), and the Phase 2 questions (new_questions.yaml).
+their relabel (relabel_pilot.py), the Phase 2 questions (new_questions.yaml), and the
+fixes from the second review (review_fixes.py).
 Outputs: eval/golden.yaml (dev) and eval/golden_heldout.yaml (held-out).
 
 The split, seeded so it is reproducible:
@@ -21,6 +22,7 @@ from pathlib import Path
 
 import yaml
 
+from eval.build import review_fixes
 from eval.build.relabel_pilot import ALSO, GOLD_ADD, MUST_CONTAIN
 from ingest.download import load_manifest
 
@@ -134,7 +136,7 @@ def dump(path: Path, questions: list[dict], split_name: str) -> None:
 
 def main() -> None:
     issuers = {d["id"]: d["issuer"] for d in load_manifest()}
-    questions = pilot() + phase2()
+    questions = [review_fixes.apply(q) for q in pilot() + phase2()]
     dev, heldout = split(questions, issuers)
     dump(EVAL / "golden.yaml", dev, "dev")
     dump(EVAL / "golden_heldout.yaml", heldout, "held-out")
