@@ -1,6 +1,6 @@
 # Production plan
 
-Author: Lodian Mier · Status: Phase 1 complete
+Author: Lodian Mier · Status: Phase 1 complete; Phase 2 built and evaluated, exit criteria not yet met
 
 This document describes how the pilot grows from two public documents into a copilot that serves a compliance team over a full regulatory library and internal policy and control documents. The pilot was built so that each later phase changes components behind stable interfaces (`ingest`, `index`, `rag.retrieve`, `rag.llm`) rather than the pipeline's shape.
 
@@ -18,7 +18,38 @@ This document describes how the pilot grows from two public documents into a cop
 
 ## Phase 2: regulatory library
 
-**Scope.** BSP Manual of Regulations for Banks Part 8 and AML circulars; Insurance Commission and SEC AML circulars; AMLC regulatory issuances and guidance (for example the DNFBP guidelines and sanctions-related issuances); optionally the FATF Recommendations.
+**Result.**
+
+| | |
+|---|---|
+| Documents | 18, from AMLC, BSP, SEC and the Insurance Commission |
+| Chunks | 1,580, 4.3 times the pilot |
+| Golden set | 200 questions, 60 held out |
+
+Met on the held-out split:
+- retrieval latency: p95 0.41 s against the under-1-s target;
+- the right provision in the top 5 for 96% of questions;
+- both dates right on all four two-date pairs, with no stale or superseded rule given as current;
+- the transitional 2021 RRG flagged in every answer that cites it.
+
+Not met: fact accuracy is 88% and verified citations 92%, both below the 95% target. Three things cause most of it:
+- **Lists:** a list split across chunks is retrieved only in part.
+- **Answer hygiene:** comments about the excerpts and uncited summary sentences.
+- **One out-of-library trap** that the model answered.
+
+The fixes, in order:
+1. retrieve a list's sibling items together;
+2. a post-generation pass for comments about the excerpts and uncited summaries;
+3. an answerability check.
+
+Then the held-out split is run again, once. Full results are in the README.
+
+**Scope as built.**
+- **AMLC:** the 2018 IRR (both editions), the TFPSA IRR, the 2021 reporting guidelines (transitional), GoTRACS 2024, and guidelines on DNFBPs, sanctions, beneficial ownership and sanctions screening, plus the administrative sanctions rules.
+- **BSP:** MORB Part IX, the 2025 consolidated edition.
+- **SEC:** MC 16, s. 2018 and MC 4, s. 2021.
+- **Insurance Commission:** five circular letters.
+- **Not included:** the FATF Recommendations stay optional.
 
 **Work.**
 - **Effective-date versioning.** Store each provision with `effective_from`/`effective_to` and the amending issuance, so a question can be answered as of a date and superseded text is never served as current. In the pilot this is handled by dropping footnotes; at library scale it has to be modelled explicitly.
@@ -28,6 +59,13 @@ This document describes how the pilot grows from two public documents into a cop
 - **Change detection.** Re-run the manifest on a schedule, and when a document's SHA-256 changes, re-index it and run the evaluation automatically.
 
 **Exit criteria.** Fact accuracy and verified-citation rate stay at or above 95% on the held-out split with a corpus roughly ten times larger, and retrieval latency stays under one second before generation.
+
+**What changed from the plan.**
+- **Versioning became the centre of Phase 2.** GoTRACS (December 2024) repealed the 2021 RRG, which the pilot was built on, but kept it in force during the transition.
+- **Several first-guess thresholds were replaced once tested against data:**
+  - the OCR confidence gate became a floor for unreadable pages, and a check that numbers written twice agree took its place;
+  - a coverage percentage became a missed-heading check;
+  - a text-similarity cut-off became word-for-word comparison of IRR editions.
 
 ## Phase 3: internal documents
 
@@ -57,10 +95,11 @@ This document describes how the pilot grows from two public documents into a cop
 
 | Risk | Control |
 |---|---|
-| Superseded text served as current law | Footnote stripping now; effective-date versioning in Phase 2; superseded provisions excluded by default |
+| Superseded text served as current law | Effective-date versioning: retrieval filters on the question's date before ranking; transitional rules always shown with their replacement and flagged in the answer. Held-out: 0 superseded citations, 0 stale answers |
+| Wrong effective date on a document | Each date's basis recorded in the manifest. Most issuances do not print their publication date, so approval dates stand in and can be early by a few weeks; only consolidated editions exist for the BSP manual |
 | Fluent but unsupported answer | Deterministic citation and quote verification on every answer; refusal instruction; verifier failures logged and shown |
 | Retrieval misses the governing provision | Hybrid retrieval and reranking; per-question retrieval reports; misses added to the golden set |
-| Golden set overfitting | Held-out split run only at release; second annotator; new questions from real analyst queries |
+| Golden set overfitting | Held-out split drawn only from questions never used while building, run once per release; grading checked automatically for facts that echo the question or match inside other words; a sampled second review (automated so far, to be confirmed by a person); new questions from real analyst queries |
 | Confidential documents reaching the wrong user | Entitlement filtering before ranking; no customer data in the corpus |
 | Over-reliance by users | Positioned as research support with sources always shown; mapping results require reviewer sign-off |
 

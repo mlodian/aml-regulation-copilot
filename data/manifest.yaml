@@ -4,9 +4,10 @@
 # Versioning fields (Phase 2)
 #   issued          date the issuance was approved or signed
 #   effective_from  first day it applies; effective_basis says where the date comes from:
-#                   "stated" (the text gives the date) or "issued" (the text says it takes
-#                   effect on publication without printing the date, so the approval date
-#                   stands in for it)
+#                   "stated" (the text gives the date, or the publication date it counts
+#                   from) or "issued" (the text says it takes effect on publication, or 15
+#                   days after it, without printing that date, so the approval date stands
+#                   in: it can be early by the publication delay plus those 15 days)
 #   status          current | transitional | superseded | amendment
 #                   transitional: repealed by a newer issuance that keeps it in force
 #                   until the replacement is fully implemented
@@ -183,9 +184,9 @@ documents:
     short: SEC MC 4, s. 2021
     issuer: SEC
     doc_type: amendment
-    issued: 2021-04-05
-    effective_from: 2021-04-05
-    effective_basis: issued
+    issued: 2021-03-30     # signed in Pasay City, 30 March 2021
+    effective_from: 2021-04-20
+    effective_basis: stated # Sec. 9: 15 days after publication, which its cover gives as 5 April 2021
     status: current
     amends: [sec_mc16_2018]
     url: https://lpr.adb.org/sites/default/files/2024-04/philippines-2021-mc-no-04.pdf
@@ -260,6 +261,8 @@ documents:
     issued: 2025-12-31     # "Updated as of 31 December 2025" (consolidated edition)
     effective_from: 2025-12-31
     effective_basis: stated
+    # Only this consolidated edition is in the library, so BSP rules are unavailable for
+    # dates before 31 December 2025, though most of Part IX applied long before.
     status: current
     # bsp.gov.ph blocks scripted downloads. Save the 2025 MORB from the Bangko Sentral
     # website; the AML part is "Part 09/Part IX_01_AML CFT Regulations.pdf"

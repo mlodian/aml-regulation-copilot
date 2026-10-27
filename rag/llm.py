@@ -16,7 +16,7 @@ import time
 
 CLAUDE_BIN = os.environ.get("CLAUDE_BIN") or shutil.which("claude") or "claude"
 DEFAULT_MODEL = os.environ.get("COPILOT_MODEL", "sonnet")
-USAGE_LIMIT_MARKERS = ("usage limit", "rate limit", "limit reached", "overloaded")
+USAGE_LIMIT_MARKERS = ("usage limit", "rate limit", "limit reached", "session limit", "hit your", "overloaded")
 
 
 class LLMError(RuntimeError):

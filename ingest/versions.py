@@ -134,7 +134,7 @@ def _irr_editions(chunks: list, by_id: dict) -> list:
     if not orig:
         return chunks
     cons_date = iso(by_id["irr2018"]["issued"])
-    dated_targets = sorted((iso(by_id[a]["issued"]), ari_targets(a))
+    dated_targets = sorted((iso(by_id[a].get("effective_from") or by_id[a]["issued"]), ari_targets(a))
                            for a in ("ari2020_irr", "ari2021_irr") if (RAW / f"{a}.pdf").exists())
 
     def sections(doc_id: str) -> OrderedDict:
@@ -185,7 +185,7 @@ def _section_amendments(chunks: list, by_id: dict, amending: str, amended: str,
                         target: re.Pattern, section_pattern) -> None:
     if amending not in by_id or amended not in by_id:
         return
-    date = iso(by_id[amending]["issued"])
+    date = iso(by_id[amending].get("effective_from") or by_id[amending]["issued"])  # the day the new text applies
     for c in chunks:
         if c.doc_id != amending or not c.chunk_id.endswith("#0"):
             continue

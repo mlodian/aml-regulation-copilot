@@ -62,7 +62,7 @@ class MappingResult:
 
 def map_control(control: str, k: int = 8, as_of: str | None = None) -> MappingResult:
     """Map a control to the requirements in force on `as_of` (YYYY-MM-DD, default today)."""
-    from rag.answer import format_context
+    from rag.answer import format_context, source_text
 
     chunks = retrieve(control, k=k, as_of=as_of)
     provisions = format_context(chunks, as_of)
@@ -75,11 +75,11 @@ def map_control(control: str, k: int = 8, as_of: str | None = None) -> MappingRe
             continue
         status = item.get("status") if item.get("status") in STATUSES else "gap"
         quote = item.get("requirement_quote", "")
-        provision, verified = chunks[n - 1], bool(quote) and quote_supported(quote, [chunks[n - 1].text])
+        provision, verified = chunks[n - 1], bool(quote) and quote_supported(quote, [source_text(chunks[n - 1])])
         if quote and not verified:
             # the model sometimes labels a genuine quote with the wrong excerpt number;
             # re-point it to the supplied excerpt that actually contains the wording
-            match = next((c for c in chunks if quote_supported(quote, [c.text])), None)
+            match = next((c for c in chunks if quote_supported(quote, [source_text(c)])), None)
             if match is not None:
                 provision, verified = match, True
         result.assessments.append(Assessment(

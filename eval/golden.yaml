@@ -307,7 +307,7 @@ questions:
   - id: q44
     question: What should an insurer do before paying out a life policy when a beneficiary is a higher-risk PEP?
     gold: [irr2018:rule19:sec2]
-    must_contain: ['senior management', 'STR']
+    must_contain: ['senior management', 'STR|suspicious transaction report']
     kind: multi_doc
     source: pilot
   - id: q45
@@ -484,14 +484,14 @@ questions:
     as_of: '2022-06-01'
     pair: v02
     gold: [rrg2021:partiv:sd]
-    must_contain: ['next working day']
+    must_contain: ['from (the )?(occurrence|establishment of suspicion|date of establishment)']
     kind: versioned
     source: phase2
   - id: v02b
     question: Once the determination period for a TMS alert ends with a decision to report, when is the STR due?
     pair: v02
     gold: [gotracs2024:chi:sec5:s5.4:sc:s3:sviii, gotracs2024:chi:sec5:s5.4:sd]
-    must_contain: ['next working day after|after the (said )?60']
+    must_contain: ['after the (said )?60|end of the (60-day )?determination period|after the determination period']
     kind: versioned
     source: phase2
   - id: v04a
@@ -807,7 +807,7 @@ questions:
   - id: m08
     question: How are valid ID requirements relaxed for bank customers after a disastrous calamity?
     gold: [bsp_morb_p9:sec921:scustomeridentification]
-    must_contain: ['amount', 'condition|subject to']
+    must_contain: ['amount|(?<![\d,.])50,000(?!\d|,\d)', 'condition|subject to']
     kind: factual
     source: phase2
   - id: m12

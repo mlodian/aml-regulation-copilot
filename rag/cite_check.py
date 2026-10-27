@@ -20,13 +20,17 @@ QUOTE_RE = re.compile(r"\"([^\"]*)\"|“([^”]*)”")  # pair quotes first, fil
 MIN_QUOTE_CHARS = 12
 SENTENCE_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z(\-•*])")
 # citation abbreviations ("GoTRACS, Ch. I, Sec. 5", "ARI No. 1, s. 2020") do not end a sentence
-ABBREVIATION_END = re.compile(r"(?:\b(?:Ch|Sec|Secs|No|Nos|Art|Par|Rec|Pt|s|e\.g|i\.e|vs|cf)\.)$")
+ABBREVIATION_END = re.compile(r"(?:\b(?:Ch|Sec|Secs|Art|Par|Rec|Pt|s|e\.g|i\.e|vs|cf)\.)$")
+NUMBER_ABBREVIATION_END = re.compile(r"\bNos?\.$")  # "ARI No. 1"; a sentence "No." still ends
 
 
 def sentences(text: str) -> list[str]:
     out: list[str] = []
     for piece in SENTENCE_RE.split(text.strip()):
-        if out and ABBREVIATION_END.search(out[-1]):
+        open_quote = out and (out[-1].count('"') % 2 == 1 or out[-1].count("“") > out[-1].count("”"))
+        if out and (open_quote  # a quoted passage can contain full stops
+                    or ABBREVIATION_END.search(out[-1])
+                    or NUMBER_ABBREVIATION_END.search(out[-1]) and re.match(r"[\dIVXLC]", piece)):
             out[-1] += " " + piece
         else:
             out.append(piece)
@@ -68,8 +72,10 @@ def _normalise(s: str) -> str:
 
 
 def quote_supported(quote: str, sources: list[str]) -> bool:
-    """Every part of the quote (split on ellipses) must appear in one of the sources."""
-    parts = [p for p in re.split(r"\.{3}|…", quote) if len(p.strip()) >= 4]
+    """Every part of the quote must appear in one of the sources. Ellipses and bracketed
+    editorial insertions ("the [covered persons] relying") split the quote into parts; each
+    part is still checked verbatim."""
+    parts = [p for p in re.split(r"\.{3}|…|\[[^\]]*\]", quote) if len(p.strip()) >= 4]
     normed = [_normalise(s) for s in sources]
     for part in parts or [quote]:
         q = _normalise(part)

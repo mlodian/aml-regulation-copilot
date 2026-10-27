@@ -84,12 +84,18 @@ FIXES: dict[str, dict] = {
     "s06": {"must_contain": [r"\byes\b|prior authori[sz]ation|may be credited|permit"]},
     "e05": {"must_contain": [r"\byes\b|online reporting system|Rule 4"]},
     "i03": {"must_contain": ["identif", "likelihood|impact", "mitigat|strateg|priorit"]},
-    "m08": {"must_contain": ["amount", "condition|subject to"]},
     "m12": {"must_contain": [r"\bno\b|shall not be construed|not .{0,30}discriminat"]},
     "n023": {"question": "In what order must KYC documents and the STR they support be uploaded?",
              "must_contain": [r"prior to the upload|before (uploading|the upload|filing|submitting)"]},
     "c02": {"question": "What name-matching method should sanctions screening use?",
             "must_contain": ["fuzzy"]},
+    # --- after the dev run (eval/reports/answers_dev.jsonl): facts too strict for correct answers
+    "q44": {"must_contain": ["senior management", r"STR|suspicious transaction report"]},
+    "m08": {"must_contain": [r"amount|50,000", "condition|subject to"]},
+    # both dates say "next working day"; what changed is that GoTRACS counts from the end of the
+    # 60-day determination period
+    "v02a": {"must_contain": [r"from (the )?(occurrence|establishment of suspicion|date of establishment)"]},
+    "v02b": {"must_contain": [r"after the (said )?60|end of the (60-day )?determination period|after the determination period"]},
 }
 
 

@@ -120,6 +120,16 @@ def test_citation_abbreviations_do_not_split_sentences():
     ctx = ["Covered persons shall establish the suspicion within sixty (60) calendar days."]
     ans = ("- The current rule is GoTRACS, Ch. I, Sec. 5, 5.4(viii): \"within sixty (60) calendar days\" [1].")
     assert check(ans, ctx).ok
+    from rag.cite_check import sentences
+    assert sentences("Amended by ARI No. 1, s. 2020 [1]. Next.") == ["Amended by ARI No. 1, s. 2020 [1].", "Next."]
+    assert sentences("No. The rule does not apply to them [2].") == ["No.", "The rule does not apply to them [2]."]
+    assert len(sentences('It states: "2.2. STRs shall be promptly filed." [1]')) == 1  # full stop inside a quote
+
+
+def test_bracketed_insertions_in_quotes_are_checked_around():
+    src = ["the ultimate responsibility for CDD measures should remain with the CPs relying on the third party"]
+    assert quote_supported("should remain with the [covered persons] relying on the third party", src)
+    assert not quote_supported("should remain with the [covered persons] using the third party", src)
 
 
 def test_refusal_detected():
@@ -287,6 +297,32 @@ def test_cohen_kappa():
     from eval.review.agreement import cohen_kappa
     assert cohen_kappa(["accept", "accept", "reject", "accept"], ["accept", "reject", "reject", "accept"]) == 0.5
     assert cohen_kappa(["accept", "reject"], ["accept", "reject"]) == 1.0
+
+
+def test_named_source_scopes_retrieval():
+    from rag.retrieve import scope
+    assert scope("Under the 2018 IRR, must covered persons ...") == ("irr2018", "irr2018_orig")
+    assert "bsp_morb_p9" in scope("For a bank, what shareholding ...")
+    assert "ic_cl2019_65" in scope("How often must insurers give refresher training?")
+    assert scope("What is the CTR threshold?") == ()
+
+
+def test_answer_summary_date_metrics(monkeypatch):
+    from eval import run_eval
+    qs = [{"id": "p1", "pair": "p", "kind": "versioned", "as_of": "2019-06-01", "gold": ["d:s1"], "must_contain": [r"\bfive\b"]},
+          {"id": "p2", "pair": "p", "kind": "versioned", "as_of": "2026-10-24", "gold": ["d:s1"], "must_contain": [r"\bthree\b"]},
+          {"id": "lone", "pair": "x", "kind": "versioned", "as_of": "2026-10-24", "gold": ["d:s1"], "must_contain": ["a"]}]
+    rec = lambda i, a, ok, as_of: {"id": i, "kind": "versioned", "as_of": as_of, "answer": a, "refused": False,
+                                    "citation_valid": True, "cited_sections": [], "fact_ok": ok, "cited_gold": True,
+                                    "cited_general": True, "seconds": 1}
+    recs = [rec("p1", "Within five working days.", True, "2019-06-01"),
+            rec("p2", "Within three working days; it was five.", True, "2026-10-24"),   # stale: no change word
+            rec("lone", "a", False, "2026-10-24")]                                     # its pair is missing
+    s = run_eval.summarise(recs, qs)
+    assert s["pairs"] == 1 and s["pair_accuracy"] == 1.0   # the incomplete pair is not scored
+    assert s["stale_fact_rate"] == 0.5                       # p2 states p1's fact without saying it changed
+    recs[1]["answer"] = "Within three working days; previously it was five."
+    assert run_eval.summarise(recs, qs)["stale_fact_rate"] == 0.0
 
 
 def _chunk(**kw):

@@ -1,0 +1,24 @@
+{
+  "answered_questions": 52,
+  "unanswerable_questions": 8,
+  "fact_accuracy": 0.8846153846153846,
+  "cited_gold_provision": 0.9423076923076923,
+  "cited_general_rule": 0.9423076923076923,
+  "citation_valid": 0.9230769230769231,
+  "false_refusal_rate": 0.0,
+  "correct_refusal_rate": 0.875,
+  "median_seconds": 16.576765666512074,
+  "superseded_cited": 0.0,
+  "stale_fact_rate": 0.0,
+  "transitional_cited": 8,
+  "transitional_flagged": 1.0,
+  "pairs": 4,
+  "pair_accuracy": 1.0,
+  "fact_accuracy_by_kind": {
+    "cross_issuer": 1.0,
+    "factual": 0.941,
+    "list": 0.333,
+    "numeric": 0.944,
+    "versioned": 1.0
+  }
+}

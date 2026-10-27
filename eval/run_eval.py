@@ -14,7 +14,8 @@ Retrieval metrics
                     only a sector restatement of it?
   evidence_recall@k the top-k chunk texts together contain every required fact; this is
                     comparable across chunking strategies
-  mrr               reciprocal rank of the first gold provision
+  mrr               reciprocal rank of the first gold or `also` provision within the top 5
+                    (0 when none is in the top 5)
   context_words@5   words handed to the LLM; evidence recall rises with chunk size, so
                     compare strategies at similar context budgets
   ms_p50, ms_p95    retrieval latency per query, warm
@@ -28,6 +29,7 @@ Answer metrics
 from __future__ import annotations
 
 import argparse
+import collections
 import json
 import re
 import time
@@ -54,7 +56,13 @@ def is_gold(section_id: str, gold: list[str]) -> bool:
     return any(section_id == g or section_id.startswith(g + ":") for g in gold)
 
 
+CITATION_MARK = re.compile(r"\[\d+(?:\s*[,–-]\s*\d+)*\]")
+
+
 def facts_present(text: str, patterns: list[str]) -> bool:
+    """Every pattern matches. Citation markers are removed first: "[3]" must not count as
+    the number three."""
+    text = CITATION_MARK.sub(" ", text)
     return all(re.search(p, text, re.I) for p in patterns)
 
 
@@ -62,8 +70,9 @@ def eval_retrieval(split: str = "dev") -> pd.DataFrame:
     from rag.retrieve import MODES, retrieve
 
     questions = [q for q in load_golden(split) if q["kind"] != "unanswerable"]
-    for q in questions[:1]:  # load models and indexes before timing
-        retrieve(q["question"], k=1, mode="hybrid_rerank", as_of=q["as_of"])
+    for strategy in ("fixed", "structured"):  # load models and both indexes before timing
+        for mode in MODES:
+            retrieve(questions[0]["question"], k=1, mode=mode, strategy=strategy, as_of=questions[0]["as_of"])
     rows, per_q = [], []
     for strategy in ("fixed", "structured"):
         for mode in MODES:
@@ -147,6 +156,7 @@ def eval_answers(limit: int | None = None, mode: str = "hybrid_rerank", split: s
                 if q["kind"] != "unanswerable" else None,
                 "cited_gold": any(is_gold(s, q["gold"] + q.get("also", [])) for s in cited_sections)
                 if q["gold"] else None,
+                "cited_general": any(is_gold(s, q["gold"]) for s in cited_sections) if q["gold"] else None,
                 "seconds": res.seconds,
             }
             f.write(json.dumps(rec) + "\n")
@@ -156,20 +166,79 @@ def eval_answers(limit: int | None = None, mode: str = "hybrid_rerank", split: s
                   f"cite_ok={rec['citation_valid']} ({rec['seconds']:.0f}s)")
 
     recs = [done[q["id"]] for q in questions if q["id"] in done]
+    summary = summarise(recs, questions)
+    (REPORTS / f"answers_summary_{split}.json").write_text(json.dumps(summary, indent=2))
+    return pd.DataFrame([{k: v for k, v in summary.items() if not isinstance(v, dict)}])
+
+
+def summarise(recs: list[dict], questions: list[dict]) -> dict:
+    """Answer metrics, plus the effective-date ones:
+
+    superseded_cited     share of answers citing a provision not in force on the question's date.
+                         Retrieval filters on the date first, so this is 0 by construction; it
+                         is reported as a guard against that filter breaking.
+    stale_fact_rate      for two-date pairs: share of answers whose opening line (the direct
+                         answer) states the other date's fact without saying it changed
+                         ("previously", "amended", "transitional", ...). The body may legitimately
+                         mention the other version as history or as a sector rule, so only the
+                         direct answer is tested.
+    transitional_flagged of answers citing a transitional provision (the 2021 RRG today), the
+                         share that say so ("transitional", "repealed", "being replaced", ...)
+    pair_accuracy        complete two-date pairs with both dates answered correctly
+    """
+    from types import SimpleNamespace
+
+    from ingest.versions import status
+
+    chunks = {}
+    for line in (ROOT / "data" / "processed" / "chunks_structured.jsonl").open():
+        c = json.loads(line)
+        chunks.setdefault(c["section_id"], SimpleNamespace(**c))
     ans = [r for r in recs if r["kind"] != "unanswerable"]
     una = [r for r in recs if r["kind"] == "unanswerable"]
-    summary = {
+    cited_status = {r["id"]: [status(chunks[s], r["as_of"]) for s in r["cited_sections"] if s in chunks] for r in recs}
+    transitional = [r for r in recs if "transitional" in cited_status[r["id"]]]
+    pairs = collections.defaultdict(list)
+    by_id = {r["id"]: r for r in recs}
+    qmap = {q["id"]: q for q in questions}
+    for q in questions:
+        if q.get("pair") and q["id"] in by_id:
+            pairs[q["pair"]].append(by_id[q["id"]])
+    pairs = {k: v for k, v in pairs.items() if len(v) == 2}
+    stale = []
+    for a, b in pairs.values():
+        for this, other in ((a, b), (b, a)):
+            opening = this["answer"].strip().splitlines()[0] if this["answer"].strip() else ""
+            states_other = facts_present(opening, qmap[other["id"]]["must_contain"])
+            stale.append(states_other and not CHANGE_WORDS.search(opening))
+    for r in ans:  # rescore facts with the current patterns (fixes apply without a rerun)
+        r["fact_ok"] = not r["refused"] and facts_present(r["answer"], qmap[r["id"]]["must_contain"])
+    kinds = collections.defaultdict(list)
+    for r in ans:
+        kinds[r["kind"]].append(r["fact_ok"])
+    return {
         "answered_questions": len(ans),
         "unanswerable_questions": len(una),
         "fact_accuracy": _mean(r["fact_ok"] for r in ans),
         "cited_gold_provision": _mean(r["cited_gold"] for r in ans),
+        "cited_general_rule": _mean(r["cited_general"] for r in ans if "cited_general" in r),
         "citation_valid": _mean(r["citation_valid"] for r in ans if not r["refused"]),
         "false_refusal_rate": _mean(r["refused"] for r in ans),
         "correct_refusal_rate": _mean(r["refused"] for r in una),
         "median_seconds": float(pd.Series([r["seconds"] for r in recs]).median()) if recs else None,
+        "superseded_cited": _mean("superseded" in cited_status[r["id"]] for r in recs),
+        "stale_fact_rate": _mean(stale),
+        "transitional_cited": len(transitional),
+        "transitional_flagged": _mean(bool(STATUS_WORDS.search(r["answer"])) for r in transitional),
+        "pairs": len(pairs),
+        "pair_accuracy": _mean(all(r["fact_ok"] for r in v) for v in pairs.values()),
+        "fact_accuracy_by_kind": {k: round(sum(map(bool, v)) / len(v), 3) for k, v in sorted(kinds.items())},
     }
-    (REPORTS / f"answers_summary_{split}.json").write_text(json.dumps(summary, indent=2))
-    return pd.DataFrame([summary])
+
+
+STATUS_WORDS = re.compile(r"transitional|repealed|superseded|being replaced|no longer", re.I)
+CHANGE_WORDS = re.compile(r"transitional|repealed|superseded|amended|previously|formerly|no longer|"
+                          r"was changed|has changed|replaced|earlier|old rule|prior rule", re.I)
 
 
 def _mean(values) -> float | None:

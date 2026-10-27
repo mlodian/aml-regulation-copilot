@@ -73,19 +73,24 @@ class Index:
     # so it cannot crowd out the current provision or reach the prompt.
     IN_FORCE = "COALESCE(effective_from, '') <= ? AND (effective_to IS NULL OR effective_to > ?)"
 
-    def vector_search(self, query: str, k: int = 20, as_of: str | None = None) -> list[str]:
+    def vector_search(self, query: str, k: int = 20, as_of: str | None = None,
+                      docs: tuple[str, ...] | None = None) -> list[str]:
+        """Nearest chunks in force on `as_of`, optionally only from the documents `docs`."""
         q = embedder().encode(QUERY_PREFIX + query, normalize_embeddings=True).tolist()
         as_of = as_of or today()
+        only = f" AND doc_id IN ({', '.join('?' * len(docs))})" if docs else ""
         rows = self.con.execute(
-            f"SELECT chunk_id FROM chunks WHERE {self.IN_FORCE} "
+            f"SELECT chunk_id FROM chunks WHERE {self.IN_FORCE}{only} "
             f"ORDER BY array_cosine_similarity(embedding, ?::FLOAT[{EMBED_DIM}]) DESC LIMIT ?",
-            [as_of, as_of, q, k]).fetchall()
+            [as_of, as_of, *(docs or ()), q, k]).fetchall()
         return [r[0] for r in rows]
 
-    def bm25_search(self, query: str, k: int = 20, as_of: str | None = None) -> list[str]:
+    def bm25_search(self, query: str, k: int = 20, as_of: str | None = None,
+                    docs: tuple[str, ...] | None = None) -> list[str]:
         scores = self._bm25.get_scores(tokenize(query))
         allowed = self.in_force_mask(as_of or today())
-        order = sorted((i for i in range(len(scores)) if allowed[i]), key=lambda i: -scores[i])[:k]
+        keep = (lambda i: allowed[i] and self.chunks[self._ids[i]].doc_id in docs) if docs else (lambda i: allowed[i])
+        order = sorted((i for i in range(len(scores)) if keep(i)), key=lambda i: -scores[i])[:k]
         return [self._ids[i] for i in order if scores[i] > 0]
 
     @lru_cache(maxsize=16)

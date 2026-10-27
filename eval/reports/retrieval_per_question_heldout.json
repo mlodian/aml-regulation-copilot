@@ -1,0 +1,5410 @@
+[
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed13",
+   "gotracs2024:fixed45",
+   "gotracs2024:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed15",
+   "bsp_morb_p9:fixed62",
+   "sanctions2021:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed8",
+   "gotracs2024:fixed9",
+   "sec_mc16_2018:fixed50"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "gotracs2024:fixed8",
+   "dnfbp2021:fixed41"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "rrg2021:fixed15",
+   "bsp_morb_p9:fixed82"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed17",
+   "rrg2021:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed20",
+   "gotracs2024:fixed21",
+   "gotracs2024:fixed18"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed40",
+   "ic_cl2018_48:fixed58",
+   "gotracs2024:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed11",
+   "gotracs2024:fixed11",
+   "dnfbp2021:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed13",
+   "ic_cl2018_48:fixed48",
+   "gotracs2024:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed13",
+   "ic_cl2018_48:fixed48",
+   "gotracs2024:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed47",
+   "gotracs2024:fixed46",
+   "gotracs2024:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed22",
+   "irr2018:fixed30",
+   "gotracs2024:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed48",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed16",
+   "ic_cl2018_48:fixed48",
+   "gotracs2024:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "irr2018_orig:fixed90",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "bsp_morb_p9:fixed13",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "tf_irr:fixed19",
+   "tf_irr:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed49",
+   "sec_mc16_2018:fixed48",
+   "rrg2021:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed51",
+   "ic_cl2018_48:fixed52",
+   "ic_cl2018_48:fixed55"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed51",
+   "ic_cl2019_65:fixed29",
+   "ic_cl2018_48:fixed52"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed115",
+   "irr2018:fixed116",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed6",
+   "tf_irr:fixed8",
+   "tf_irr:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed117",
+   "admin_sanctions2017:fixed9",
+   "ic_cl2018_48:fixed53"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "sanctions2021:fixed9",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed15",
+   "sanctions2021:fixed16",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed62",
+   "sanctions2021:fixed7",
+   "gotracs2024:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed31",
+   "irr2018:fixed63",
+   "irr2018:fixed64"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bo2018:fixed3",
+   "bo2018:fixed4",
+   "sec_mc16_2018:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed109",
+   "irr2018:fixed86",
+   "irr2018:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed1",
+   "screening2023:fixed11",
+   "screening2023:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed1",
+   "screening2023:fixed4",
+   "ic_cl2022_27:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed9",
+   "admin_sanctions2017:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2020_113:fixed2",
+   "dnfbp2021:fixed5",
+   "irr2018:fixed18"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed34",
+   "sanctions2021:fixed8",
+   "dnfbp2021:fixed38"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed74",
+   "ic_cl2022_27:fixed2",
+   "ic_cl2024_16:fixed0"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed27",
+   "gotracs2024:fixed23",
+   "dnfbp2021:fixed30"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:fixed30",
+   "ic_cl2018_48:fixed54",
+   "admin_sanctions2017:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed59",
+   "ic_cl2022_27:fixed8",
+   "sec_mc16_2018:fixed57"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed35",
+   "sec_mc16_2018:fixed6",
+   "sanctions2021:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed46",
+   "dnfbp2021:fixed28",
+   "bsp_morb_p9:fixed79"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2024_16:fixed5",
+   "dnfbp2021:fixed8",
+   "ic_cl2022_27:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed19",
+   "ic_cl2018_48:fixed59",
+   "gotracs2024:fixed40"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed30",
+   "bsp_morb_p9:fixed31",
+   "bsp_morb_p9:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2022_27:fixed8",
+   "bsp_morb_p9:fixed80",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed28",
+   "sanctions2021:fixed8",
+   "sanctions2021:fixed27"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed75",
+   "irr2018:fixed30",
+   "gotracs2024:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2024_16:fixed4",
+   "ic_cl2018_48:fixed36",
+   "bsp_morb_p9:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed46",
+   "dnfbp2021:fixed28",
+   "ic_cl2022_27:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed15",
+   "bsp_morb_p9:fixed62",
+   "bsp_morb_p9:fixed63"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "bm25",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed21",
+   "gotracs2024:fixed40",
+   "gotracs2024:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed15",
+   "gotracs2024:fixed45",
+   "gotracs2024:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed7",
+   "sanctions2021:fixed17",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "gotracs2024:fixed42",
+   "gotracs2024:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "sec_mc16_2018:fixed48",
+   "gotracs2024:fixed42"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed17",
+   "gotracs2024:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed17",
+   "gotracs2024:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed22",
+   "rrg2021:fixed21",
+   "gotracs2024:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed40",
+   "gotracs2024:fixed22",
+   "ic_cl2019_65:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed11",
+   "rrg2021:fixed11",
+   "gotracs2024:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed12",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed49",
+   "rrg2021:fixed13",
+   "gotracs2024:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed46",
+   "gotracs2024:fixed49",
+   "gotracs2024:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc4_2021:fixed1",
+   "irr2018:fixed77",
+   "ic_cl2022_27:fixed0"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "ic_cl2018_48:fixed48",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed13",
+   "gotracs2024:fixed12",
+   "ic_cl2018_48:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "irr2018_orig:fixed90",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed71",
+   "irr2018:fixed99",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed5",
+   "tf_irr:fixed18",
+   "tf_irr:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed49",
+   "sec_mc16_2018:fixed48",
+   "rrg2021:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed41",
+   "irr2018:fixed33",
+   "irr2018_orig:fixed38"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed32",
+   "ic_cl2020_113:fixed0",
+   "dnfbp2021:fixed33"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed67",
+   "irr2018:fixed115",
+   "admin_sanctions2017:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed7",
+   "tf_irr:fixed6",
+   "tf_irr:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed26",
+   "tf_irr:fixed25",
+   "irr2018:fixed116"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "bsp_morb_p9:fixed58",
+   "tf_irr:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed15",
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed7",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed31",
+   "sanctions2021:fixed28",
+   "tf_irr:fixed19"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:fixed10",
+   "bo2018:fixed4",
+   "bo2018:fixed6"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed108",
+   "gotracs2024:fixed1",
+   "bsp_morb_p9:fixed33"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed11",
+   "screening2023:fixed1",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed1",
+   "bsp_morb_p9:fixed61",
+   "screening2023:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed5",
+   "tf_irr:fixed26"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed38",
+   "dnfbp2021:fixed5",
+   "irr2018:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed34",
+   "dnfbp2021:fixed33",
+   "dnfbp2021:fixed36"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed8",
+   "dnfbp2021:fixed9",
+   "bsp_morb_p9:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed27",
+   "dnfbp2021:fixed29",
+   "dnfbp2021:fixed30"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed56",
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed59",
+   "sec_mc16_2018:fixed18",
+   "bsp_morb_p9:fixed81"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed2",
+   "sec_mc16_2018:fixed3",
+   "sec_mc16_2018:fixed0"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed79",
+   "irr2018:fixed102",
+   "dnfbp2021:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2024_16:fixed0",
+   "ic_cl2024_16:fixed20",
+   "ic_cl2019_65:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed21",
+   "gotracs2024:fixed22",
+   "ic_cl2019_65:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed30",
+   "bsp_morb_p9:fixed31",
+   "bsp_morb_p9:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed81",
+   "sec_mc16_2018:fixed59",
+   "ic_cl2018_48:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed28",
+   "irr2018:fixed18",
+   "bsp_morb_p9:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed34",
+   "bsp_morb_p9:fixed75",
+   "bsp_morb_p9:fixed76"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed29",
+   "ic_cl2018_48:fixed23",
+   "ic_cl2018_48:fixed36"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "sec_mc16_2018:fixed46",
+   "bsp_morb_p9:fixed79"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed7",
+   "sanctions2021:fixed16",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "vector",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed22",
+   "rrg2021:fixed21",
+   "ic_cl2018_48:fixed37"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed45",
+   "gotracs2024:fixed13",
+   "gotracs2024:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed7",
+   "gotracs2024:fixed15",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "gotracs2024:fixed8",
+   "gotracs2024:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "irr2018:fixed6",
+   "gotracs2024:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed16",
+   "gotracs2024:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed17",
+   "rrg2021:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed21",
+   "rrg2021:fixed20",
+   "gotracs2024:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed40",
+   "gotracs2024:fixed22",
+   "rrg2021:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed11",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed12",
+   "gotracs2024:fixed13",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed48",
+   "gotracs2024:fixed12",
+   "gotracs2024:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed46",
+   "gotracs2024:fixed47",
+   "gotracs2024:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc4_2021:fixed1",
+   "ic_cl2020_113:fixed0",
+   "ic_cl2018_48:fixed0"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed48",
+   "rrg2021:fixed13",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed48",
+   "gotracs2024:fixed12",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "irr2018_orig:fixed90",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "irr2018:fixed98",
+   "bsp_morb_p9:fixed71"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "tf_irr:fixed5",
+   "tf_irr:fixed25"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed49",
+   "sec_mc16_2018:fixed48",
+   "rrg2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed51",
+   "ic_cl2018_48:fixed52",
+   "irr2018_orig:fixed87"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed32",
+   "ic_cl2018_48:fixed51",
+   "dnfbp2021:fixed33"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed115",
+   "irr2018:fixed116",
+   "bsp_morb_p9:fixed67"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed6",
+   "tf_irr:fixed7",
+   "tf_irr:fixed8"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed116",
+   "admin_sanctions2017:fixed10",
+   "tf_irr:fixed25"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "sanctions2021:fixed17",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed15",
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed62",
+   "sanctions2021:fixed7",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed31",
+   "irr2018:fixed63",
+   "irr2018:fixed64"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bo2018:fixed4",
+   "bo2018:fixed6",
+   "dnfbp2021:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed87",
+   "irr2018:fixed108",
+   "bsp_morb_p9:fixed33"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed1",
+   "screening2023:fixed11",
+   "screening2023:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed1",
+   "screening2023:fixed4",
+   "screening2023:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed5",
+   "admin_sanctions2017:fixed4"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed5",
+   "dnfbp2021:fixed38",
+   "ic_cl2020_113:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed34",
+   "dnfbp2021:fixed43",
+   "dnfbp2021:fixed33"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed8",
+   "irr2018:fixed74",
+   "dnfbp2021:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed27",
+   "dnfbp2021:fixed30",
+   "dnfbp2021:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed56",
+   "ic_cl2018_48:fixed54",
+   "admin_sanctions2017:fixed10"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed59",
+   "sec_mc16_2018:fixed18",
+   "ic_cl2018_48:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed6",
+   "sec_mc16_2018:fixed0",
+   "bsp_morb_p9:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed79",
+   "ic_cl2018_48:fixed46",
+   "dnfbp2021:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:fixed4",
+   "dnfbp2021:fixed8",
+   "ic_cl2018_48:fixed14"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed59",
+   "gotracs2024:fixed40",
+   "rrg2021:fixed21"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed30",
+   "bsp_morb_p9:fixed31",
+   "bsp_morb_p9:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:fixed8",
+   "ic_cl2022_27:fixed8",
+   "irr2018:fixed39"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed28",
+   "bsp_morb_p9:fixed17",
+   "sanctions2021:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed75",
+   "gotracs2024:fixed34",
+   "bsp_morb_p9:fixed76"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed29",
+   "ic_cl2018_48:fixed36",
+   "ic_cl2018_48:fixed23"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed28",
+   "ic_cl2018_48:fixed46",
+   "irr2018:fixed102"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed62",
+   "sanctions2021:fixed15",
+   "sanctions2021:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed21",
+   "gotracs2024:fixed22",
+   "ic_cl2019_65:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed14",
+   "rrg2021:fixed7",
+   "gotracs2024:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed17",
+   "sanctions2021:fixed15",
+   "gotracs2024:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "gotracs2024:fixed42",
+   "gotracs2024:fixed41"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed9",
+   "gotracs2024:fixed42",
+   "sec_mc16_2018:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed16",
+   "gotracs2024:fixed17",
+   "gotracs2024:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed17",
+   "rrg2021:fixed16",
+   "gotracs2024:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed21",
+   "rrg2021:fixed20",
+   "gotracs2024:fixed22"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed40",
+   "gotracs2024:fixed22",
+   "ic_cl2018_48:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "gotracs2024:fixed11",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed11",
+   "rrg2021:fixed11",
+   "rrg2021:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed13",
+   "gotracs2024:fixed12",
+   "sec_mc16_2018:fixed49"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed46",
+   "gotracs2024:fixed49",
+   "gotracs2024:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc4_2021:fixed1",
+   "ic_cl2018_48:fixed0",
+   "ic_cl2020_113:fixed0"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:fixed12",
+   "rrg2021:fixed13",
+   "rrg2021:fixed11"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed13",
+   "rrg2021:fixed12",
+   "rrg2021:fixed13"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "irr2018_orig:fixed90",
+   "irr2018:fixed98"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed99",
+   "bsp_morb_p9:fixed71",
+   "bsp_morb_p9:fixed72"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed19",
+   "tf_irr:fixed18",
+   "tf_irr:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed49",
+   "gotracs2024:fixed15",
+   "sec_mc16_2018:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed52",
+   "ic_cl2018_48:fixed51",
+   "ic_cl2018_48:fixed55"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed52",
+   "ic_cl2019_65:fixed8",
+   "ic_cl2018_48:fixed51"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed116",
+   "irr2018:fixed115",
+   "bsp_morb_p9:fixed67"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed8",
+   "tf_irr:fixed6",
+   "bsp_morb_p9:fixed1"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed26",
+   "irr2018:fixed117",
+   "tf_irr:fixed25"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "tf_irr:fixed18",
+   "tf_irr:fixed17",
+   "sanctions2021:fixed16"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed15",
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed15",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed31",
+   "irr2018:fixed63",
+   "tf_irr:fixed12"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bo2018:fixed4",
+   "ic_cl2019_65:fixed10",
+   "dnfbp2021:fixed17"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed87",
+   "bsp_morb_p9:fixed33",
+   "irr2018:fixed86"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed11",
+   "screening2023:fixed1",
+   "bsp_morb_p9:fixed62"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "screening2023:fixed0",
+   "bsp_morb_p9:fixed61",
+   "screening2023:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "admin_sanctions2017:fixed6",
+   "admin_sanctions2017:fixed10",
+   "admin_sanctions2017:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2020_113:fixed1",
+   "rrg2021:fixed3",
+   "gotracs2024:fixed7"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed34",
+   "dnfbp2021:fixed33",
+   "dnfbp2021:fixed43"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed9",
+   "dnfbp2021:fixed13",
+   "bsp_morb_p9:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:fixed30",
+   "dnfbp2021:fixed27",
+   "dnfbp2021:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc4_2021:fixed2",
+   "bsp_morb_p9:fixed83",
+   "ic_cl2018_48:fixed56"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed59",
+   "sec_mc16_2018:fixed21",
+   "ic_cl2019_65:fixed9"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:fixed6",
+   "sec_mc16_2018:fixed2",
+   "sec_mc16_2018:fixed19"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed79",
+   "ic_cl2018_48:fixed46",
+   "dnfbp2021:fixed28"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed37",
+   "ic_cl2022_27:fixed6",
+   "bsp_morb_p9:fixed29"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:fixed47",
+   "ic_cl2019_65:fixed28",
+   "ic_cl2018_48:fixed48"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed30",
+   "bsp_morb_p9:fixed31",
+   "bsp_morb_p9:fixed32"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:fixed8",
+   "bsp_morb_p9:fixed80",
+   "bsp_morb_p9:fixed81"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed17",
+   "sanctions2021:fixed28",
+   "bsp_morb_p9:fixed60"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed76",
+   "bsp_morb_p9:fixed75",
+   "gotracs2024:fixed34"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:fixed29",
+   "ic_cl2018_48:fixed23",
+   "ic_cl2024_16:fixed5"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:fixed102",
+   "bsp_morb_p9:fixed80",
+   "ic_cl2018_48:fixed52"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sanctions2021:fixed17",
+   "bsp_morb_p9:fixed63",
+   "sanctions2021:fixed15"
+  ]
+ },
+ {
+  "strategy": "fixed",
+  "mode": "hybrid_rerank",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:fixed40",
+   "gotracs2024:fixed22",
+   "rrg2021:fixed21"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "gotracs2024:chii:part1:sec4:s4.6",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sv",
+   "tf_irr:rule7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "sanctions2021:s5.1",
+   "sanctions2021:s2.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.5",
+   "gotracs2024:chi:sec4:s4.4",
+   "sec_mc16_2018:ch7:sec7.8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.6",
+   "gotracs2024:chi:sec3:s3.2:sf",
+   "gotracs2024:chi:sec2:sg:s3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "rrg2021:partv:sa",
+   "sec_mc16_2018:ch5:sec5.d.2",
+   "ic_cl2024_16:titleiv:stage2:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec6:s6.4",
+   "rrg2021:partv:sc",
+   "rrg2021:partv:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "rrg2021:partvii:sd",
+   "rrg2021:partvii:sa:sg",
+   "gotracs2024:chii:part1:sec2:s2.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.5:sb",
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "rrg2021:partvii:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.3:sc:s5",
+   "dnfbp2021:titlevi:sec43",
+   "gotracs2024:chi:sec5:s5.4:sc:s3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "irr2018:rule22:sec2",
+   "rrg2021:partiv:sd",
+   "gotracs2024:chi:sec5:s5.4:sc:s1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sii",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:si",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svi"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "gotracs2024:chii:part1:sec5:s5.3",
+   "rrg2021:partiv:se",
+   "gotracs2024:chii:part1:sec1:s1.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "dnfbp2021:titleii:sec3:sk",
+   "ic_cl2018_48:main",
+   "rrg2021:partvii:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "sec_mc16_2018:ch7:sec7.5",
+   "rrg2021:partiv:sd:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sviii",
+   "rrg2021:partiv:sd:sb",
+   "sec_mc16_2018:ch7:sec7.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018_orig:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2",
+   "irr2018:rule19:sec6:s6.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec6:s6.1",
+   "bsp_morb_p9:sec923:ssupervisoryenforcementaction",
+   "bsp_morb_p9:sec923:ssupervisoryenforcementaction"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule17:s17.b",
+   "tf_irr:rule10:s10.b",
+   "tf_irr:rule3:s3.a:s3.a.15"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:ch7:sec7.5",
+   "bsp_morb_p9:sec922",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2018_48:titlevii:sec57",
+   "ic_cl2018_48:titleix:sec63",
+   "sec_mc16_2018:ch7:sec7.8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2019_65:sec23",
+   "dnfbp2021:titlevii:sec52",
+   "ic_cl2019_65:sec3:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec5",
+   "irr2018:rule25:sec4",
+   "irr2018:rule6:sec1:s1.6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "tf_irr:rule7",
+   "tf_irr:rule4",
+   "tf_irr:rule6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bo2018:sec8",
+   "admin_sanctions2017:rulev:sec1",
+   "irr2018:rule26:sec5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule16:s16.d",
+   "sanctions2021:s3.1:s3.1.2",
+   "sec_mc16_2018:ch7:sec7.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s5.1",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s2.3",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s10.5",
+   "irr2018:rule10:sec5:s5.6",
+   "irr2018:rule10:sec5:s5.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bo2018:sec4:sa",
+   "bo2018:sec4:sc",
+   "sec_mc16_2018:ch5:sec5.f.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "irr2018:rule23:sec3:s3.1",
+   "bo2018:sec4:si",
+   "irr2018:rule31:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec3:s3.5:s3.5.3",
+   "screening2023:sec1:s1.3",
+   "screening2023:sec3:s3.6:s3.6.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec1:s1.3",
+   "screening2023:sec2",
+   "ic_cl2022_27:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:ruleiii:sec13"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec13"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2020_113:main",
+   "ic_cl2019_65:sec3:sb",
+   "irr2018:rule16:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titlevii:sec53:sf",
+   "dnfbp2021:titlexii:sec62:sd",
+   "sanctions2021:s3.1:s3.1.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "bsp_morb_p9:sec911:sriskassessment",
+   "ic_cl2024_16:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:titleiv:sec35",
+   "dnfbp2021:titlevi:sec45:sb",
+   "sec_mc16_2018:ch7:sec7.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2019_65:sec25",
+   "ic_cl2019_65:sec25:sc",
+   "bo2018:sec8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch11:sec11.4",
+   "sec_mc16_2018:ch11:sec11.5",
+   "ic_cl2022_27:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "sec_mc16_2018:ch5:sec5.d.2",
+   "bsp_morb_p9:sec903",
+   "gotracs2024:chi:sec7:s7.2:sg"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "dnfbp2021:titlev:sec40",
+   "ic_cl2018_48:titlevi:sec48",
+   "bsp_morb_p9:sec924"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "ic_cl2024_16:titleiv",
+   "ic_cl2024_16:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2018_48:titlex:sec67",
+   "gotracs2024:chi:sec4:s4.5",
+   "sec_mc16_2018:ch5:sec5.a.8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "ic_cl2024_16:titleiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "ic_cl2022_27:sd",
+   "bsp_morb_p9:sec931",
+   "sec_mc16_2018:ch11:sec11.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "sanctions2021:s15.4",
+   "sanctions2021:s3.1:s3.1.2",
+   "sanctions2021:s3.1:s3.1.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit",
+   "gotracs2024:chi:sec3:s3.1:sa:s8",
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "ic_cl2018_48:titlev:sec32:sb",
+   "ic_cl2024_16:titleiv",
+   "bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "dnfbp2021:titlev:sec40",
+   "ic_cl2018_48:titlevi:sec48",
+   "tf_irr:rule27"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s5.1",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "bm25",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "rrg2021:partvii:se",
+   "gotracs2024:chi:sec7:s7.5:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sv",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "sanctions2021:s2.3",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.5",
+   "gotracs2024:chi:sec4:s4.4",
+   "gotracs2024:chii:part1:sec1:s1.12"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.6",
+   "gotracs2024:chi:sec4:s4.5",
+   "gotracs2024:chi:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "rrg2021:partv:sa",
+   "gotracs2024:chi:sec6:s6.2",
+   "rrg2021:partv:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec6:s6.4",
+   "rrg2021:partv:sc",
+   "gotracs2024:chi:sec6:s6.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.4:se",
+   "gotracs2024:chi:sec7:s7.1:sg",
+   "ic_cl2019_65:sec10:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.5:sb",
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "rrg2021:partiii:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.3:sc:s5",
+   "gotracs2024:chi:sec5:s5.4:sd",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s1",
+   "gotracs2024:chi:sec5:s5.4:sc:s3",
+   "rrg2021:partiv:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sii",
+   "bsp_morb_p9:sec922",
+   "rrg2021:partiv:sd:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "gotracs2024:chii:part1:sec4:s4.8",
+   "gotracs2024:chii:part1:sec5:s5.1",
+   "rrg2021:partiv:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec3:s3.1:sb",
+   "dnfbp2021:titleii:sec3:sg",
+   "gotracs2024:chi:sec3:s3.1:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "sec_mc16_2018:ch7:sec7.5",
+   "rrg2021:partiv:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3",
+   "gotracs2024:chi:sec5:s5.4:sc:s1",
+   "rrg2021:partiv:sd:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018_orig:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2",
+   "sec_mc16_2018:ch5:sec5.k.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2",
+   "sec_mc16_2018:ch5:sec5.k.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule17:s17.b",
+   "tf_irr:rule3:s3.a:s3.a.15",
+   "tf_irr:rule16:s16.d"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:ch7:sec7.5",
+   "bsp_morb_p9:sec922",
+   "tf_irr:rule3:s3.a:s3.a.15"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "irr2018:rule4:sec3:s3.2",
+   "ic_cl2018_48:titlevii:sec57",
+   "irr2018:rule6:sec1:s1.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "dnfbp2021:titlevii:sec52",
+   "dnfbp2021:titlevii:sec49:sc",
+   "ic_cl2020_113:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec5",
+   "irr2018:rule22:sec6",
+   "bsp_morb_p9:sec922:ssafeharborprovision"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule4",
+   "tf_irr:rule5",
+   "gotracs2024:chi:sec2:sy"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule26",
+   "dnfbp2021:titlei:sec1:se",
+   "bo2018:sec8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "tf_irr:rule16:s16.a",
+   "sanctions2021:s7.1",
+   "tf_irr:rule16:s16.c"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s5.1",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "irr2018:rule10:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "irr2018:rule10:sec2:s2.8",
+   "tf_irr:rule11:s11.a"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec5:s5.6",
+   "sanctions2021:s10.5",
+   "sanctions2021:s15.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bo2018:sec4:sc",
+   "bo2018:sec2:sc",
+   "irr2018:rule18:sec6:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "gotracs2024:chi:sec2:se",
+   "irr2018:rule18:sec6:s6.4",
+   "irr2018:rule24:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec3:s3.5:s3.5.3",
+   "screening2023:sec1:s1.3",
+   "screening2023:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec1:s1.3",
+   "screening2023:sec2",
+   "screening2023:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "admin_sanctions2017:ruleiv",
+   "admin_sanctions2017:rulev:sec1",
+   "ic_cl2019_65:sec25:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:ruleiii:sec14",
+   "tf_irr:rule26",
+   "admin_sanctions2017:ruleiii:sec9"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titleii:sec3:sm",
+   "dnfbp2021:titleii:sec3:ss",
+   "dnfbp2021:titlexii:sec62:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titlevii:sec53:sf",
+   "dnfbp2021:titlevii:sec53:se",
+   "dnfbp2021:titlevii:sec53:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titleiii:sec5:sf",
+   "dnfbp2021:titleiii:sec5:sb",
+   "irr2018:rule15:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "dnfbp2021:titlevi:sec45:sb",
+   "dnfbp2021:titlev:sec42",
+   "dnfbp2021:titlevi:sec45"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "sec_mc16_2018:ch12:sec12.1",
+   "admin_sanctions2017:rulev:sec3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch11:sec11.4",
+   "bsp_morb_p9:sec931",
+   "irr2018:rule16:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "irr2018:rule4:sec1",
+   "sec_mc16_2018:ch2:sec2.1",
+   "bo2018:sec1:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "bsp_morb_p9:sec924",
+   "irr2018:rule20:sec1",
+   "ic_cl2018_48:titlevi:sec48"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2024_16:titleiv:stage3",
+   "ic_cl2024_16:main",
+   "irr2018:rule15:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "ic_cl2019_65:sec21",
+   "ic_cl2018_48:titlex:sec67"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "dnfbp2021:titleiii:sec5:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec931",
+   "bsp_morb_p9:sec911:smoneylaunderingandterroristfinancingprev",
+   "dnfbp2021:titleiii:sec9:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "sanctions2021:s15.4",
+   "bsp_morb_p9:sec904",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit",
+   "gotracs2024:chii:part1:sec1:s1.15",
+   "gotracs2024:chii:part1:sec2:s2.6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "ic_cl2018_48:titlev:sec32:sb",
+   "bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses",
+   "dnfbp2021:titleiii:sec16"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec1",
+   "ic_cl2018_48:titlevi:sec48"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s2.3",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "vector",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "irr2018:rule18:sec8:s8.3",
+   "ic_cl2019_65:sec15:sc",
+   "gotracs2024:chii:part1:sec2:s2.15"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sv",
+   "gotracs2024:chii:part1:sec4:s4.6",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "sanctions2021:s2.3",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.5",
+   "gotracs2024:chi:sec4:s4.4",
+   "gotracs2024:chi:sec3:s3.2:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.6",
+   "gotracs2024:chi:sec2:sg:s3",
+   "gotracs2024:chi:sec4:s4.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "rrg2021:partv:sa",
+   "rrg2021:partv:sb",
+   "gotracs2024:chi:sec6:s6.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec6:s6.4",
+   "rrg2021:partv:sc",
+   "rrg2021:partv:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.4:se",
+   "gotracs2024:chi:sec7:s7.1:sg",
+   "rrg2021:partvii:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.5:sb",
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "rrg2021:partvii:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.3:sc:s5",
+   "ic_cl2018_48:titlevii:sec53:sd",
+   "gotracs2024:chi:sec5:s5.4:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s1",
+   "rrg2021:partiv:sd",
+   "gotracs2024:chi:sec5:s5.4:sc:s3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sii",
+   "rrg2021:partiv:sd:sb",
+   "bsp_morb_p9:sec922"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "gotracs2024:chii:part1:sec5:s5.3",
+   "rrg2021:partiv:se",
+   "gotracs2024:chii:part1:sec5:s5.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec3:s3.1:sb",
+   "irr2018:rule4:sec1",
+   "ic_cl2022_27:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "sec_mc16_2018:ch7:sec7.5",
+   "rrg2021:partiv:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "sec_mc16_2018:ch7:sec7.5",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sviii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018_orig:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2",
+   "sec_mc16_2018:ch5:sec5.k.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2",
+   "bsp_morb_p9:sec923:ssupervisoryenforcementaction"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule17:s17.b",
+   "tf_irr:rule3:s3.a:s3.a.15",
+   "tf_irr:rule10:s10.b"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:ch7:sec7.5",
+   "bsp_morb_p9:sec922",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svi"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2018_48:titlevii:sec57",
+   "irr2018:rule22:sec4",
+   "sec_mc16_2018:ch7:sec7.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "dnfbp2021:titlevii:sec52",
+   "dnfbp2021:titlevii:sec49:sc",
+   "ic_cl2019_65:sec23"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec5",
+   "irr2018:rule25:sec4",
+   "gotracs2024:chii:part1:sec1:s1.11"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule4",
+   "tf_irr:rule5",
+   "tf_irr:rule6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "bo2018:sec8",
+   "admin_sanctions2017:rulev:sec1",
+   "irr2018:rule6:sec1:s1.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule16:s16.d",
+   "tf_irr:rule16:s16.a",
+   "sanctions2021:s10.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s5.1",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s2.3",
+   "sanctions2021:s5.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec5:s5.6",
+   "sanctions2021:s10.5",
+   "sanctions2021:s15.4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bo2018:sec4:sc",
+   "bo2018:sec4:sb",
+   "dnfbp2021:titleiv:sec20:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "irr2018:rule23:sec3:s3.1",
+   "irr2018:rule18:sec6:s6.1",
+   "irr2018:rule24:sec4"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec3:s3.5:s3.5.3",
+   "screening2023:sec1:s1.3",
+   "screening2023:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec1:s1.3",
+   "screening2023:sec2",
+   "screening2023:sec3:s3.5:s3.5.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:rulei:sec8"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec9"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "ic_cl2020_113:main",
+   "dnfbp2021:titlexii:sec62:sa",
+   "dnfbp2021:titleii:sec3:sj"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titlevii:sec53:sf",
+   "dnfbp2021:titlevii:sec53:se",
+   "dnfbp2021:titlevii:sec53:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "bsp_morb_p9:sec911:sriskassessment",
+   "dnfbp2021:titleiii:sec5:sf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "dnfbp2021:titlevi:sec45:sb",
+   "dnfbp2021:titleiv:sec35",
+   "dnfbp2021:titlevi:sec45:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "bo2018:sec8",
+   "sec_mc16_2018:ch12:sec12.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch11:sec11.4",
+   "bsp_morb_p9:sec931",
+   "sec_mc16_2018:ch11:sec11.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch2:sec2.1",
+   "bsp_morb_p9:sec903",
+   "sec_mc16_2018:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "bsp_morb_p9:sec924",
+   "ic_cl2018_48:titlevi:sec48",
+   "dnfbp2021:titlev:sec40"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": 5,
+  "first_general_rank": 5,
+  "top3": [
+   "irr2018:rule15:sec1",
+   "bsp_morb_p9:sec911:sriskassessment",
+   "ic_cl2024_16:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "ic_cl2019_65:sec21",
+   "ic_cl2018_48:titlex:sec67"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "ic_cl2024_16:titleiv"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec931",
+   "ic_cl2022_27:sd",
+   "sec_mc16_2018:ch11:sec11.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "sanctions2021:s15.4",
+   "bsp_morb_p9:sec904",
+   "sanctions2021:s3.1:s3.1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit",
+   "gotracs2024:chi:sec3:s3.1:sa:s8",
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "ic_cl2018_48:titlev:sec32:sb",
+   "bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses",
+   "dnfbp2021:titleiii:sec16"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "dnfbp2021:titlev:sec40",
+   "ic_cl2018_48:titlevi:sec48",
+   "bsp_morb_p9:sec924:sformofrecords"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s2.3",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "gotracs2024:chi:sec7:s7.5:sb",
+   "rrg2021:partvii:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n001",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sv",
+   "gotracs2024:chii:part1:sec4:s4.6",
+   "ic_cl2018_48:titlevii:sec53:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n003",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "sanctions2021:s5.1",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n008",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.5",
+   "gotracs2024:chi:sec4:s4.4",
+   "gotracs2024:chi:sec7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n009",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec4:s4.6",
+   "gotracs2024:chi:sec4:s4.4",
+   "gotracs2024:chi:sec2:sg:s3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n012",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "rrg2021:partv:sa",
+   "gotracs2024:chi:sec6:s6.2",
+   "rrg2021:partv:sb"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n013",
+  "kind": "list",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "rrg2021:partv:sc",
+   "gotracs2024:chi:sec6:s6.4",
+   "rrg2021:partv:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n014",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.4:se",
+   "rrg2021:partvii:sd",
+   "rrg2021:partvii:sa:sg"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n015",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec7:s7.5:sb",
+   "rrg2021:partvii:se",
+   "gotracs2024:chii:part1:sec2:s2.15"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n020",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.3:sc:s5",
+   "gotracs2024:chi:sec5:s5.4:sc:s3",
+   "rrg2021:partiv:sd"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n021",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s1",
+   "rrg2021:partiv:sd",
+   "gotracs2024:chi:sec5:s5.4:sc:s3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n022",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sii",
+   "rrg2021:partiv:sd:sb",
+   "bsp_morb_p9:sec922"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n023",
+  "kind": "factual",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "rrg2021:partiv:se",
+   "gotracs2024:chii:part1:sec5:s5.1",
+   "gotracs2024:chii:part1:sec5:s5.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n024",
+  "kind": "list",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "ic_cl2018_48:main",
+   "irr2018:rule4:sec1",
+   "ic_cl2020_113:main"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v01a",
+  "kind": "versioned",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "rrg2021:partiv:sd:se",
+   "sec_mc16_2018:ch7:sec7.5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v01b",
+  "kind": "versioned",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "rrg2021:partiv:sd:sb",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sii",
+   "gotracs2024:chi:sec5:s5.4:sc:s3:sviii"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v03a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018_orig:rule19:sec6:s6.1",
+   "irr2018_orig:rule19:sec6:s6.1",
+   "irr2018:rule19:sec6:s6.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v03b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule19:sec6:s6.1",
+   "bsp_morb_p9:sec923:ssupervisoryenforcementaction",
+   "irr2018:rule19:sec6:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v06a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule17:s17.b",
+   "tf_irr:rule3:s3.a:s3.a.15",
+   "tf_irr:rule16:s16.d"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v06b",
+  "kind": "versioned",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "sec_mc16_2018:ch7:sec7.5",
+   "bsp_morb_p9:sec922",
+   "sanctions2021:s6.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v07a",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2018_48:titlevii:sec57",
+   "ic_cl2018_48:titleix:sec63",
+   "irr2018:rule6:sec1:s1.7"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "v07b",
+  "kind": "versioned",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2019_65:sec23",
+   "ic_cl2019_65:sec3:sc",
+   "dnfbp2021:titlevii:sec52"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "n027",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule25:sec5",
+   "sec_mc16_2018:ch7:sec7.10",
+   "irr2018:rule22:sec6"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "t03",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule4",
+   "tf_irr:rule7",
+   "tf_irr:rule5"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "t04",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule26",
+   "tf_irr:rule16:s16.a",
+   "admin_sanctions2017:rulev:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "t08",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "tf_irr:rule16:s16.d",
+   "tf_irr:rule16:s16.a",
+   "sanctions2021:s10.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "s01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sanctions2021:s5.1",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "s03",
+  "kind": "numeric",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "gotracs2024:chi:sec5:s5.4:sc:s3:svii",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s5.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "s10",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "irr2018:rule10:sec5:s5.6",
+   "sanctions2021:s10.5",
+   "tf_irr:rule11:s11.a"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "b01",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bo2018:sec4:sc",
+   "dnfbp2021:titleiv:sec22:sd",
+   "dnfbp2021:titleiv:sec22"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "b02",
+  "kind": "list",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "irr2018:rule18:sec6:s6.1",
+   "irr2018:rule24:sec4",
+   "irr2018:rule23:sec3:s3.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "c02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec3:s3.5:s3.5.3",
+   "screening2023:sec1:s1.3",
+   "screening2023:sec3:s3.6:s3.6.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "c04",
+  "kind": "list",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "screening2023:sec1:s1.3",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "screening2023:sec1:s1.2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "a01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:rulev:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "a02",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "admin_sanctions2017:ruleiii:sec14",
+   "admin_sanctions2017:rulev:sec1",
+   "admin_sanctions2017:ruleiii:sec13"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "d01",
+  "kind": "numeric",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "ic_cl2020_113:main",
+   "dnfbp2021:titlexii:sec62:sa",
+   "dnfbp2021:titleii:sec3:sm"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "d02",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titlevii:sec53:sf",
+   "dnfbp2021:titlevii:sec53:sd",
+   "dnfbp2021:titlevii:sec53:se"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "d03",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "dnfbp2021:titleiii:sec5:sf",
+   "bsp_morb_p9:sec911:sriskassessment",
+   "dnfbp2021:titleiii:sec5:sa"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "d04",
+  "kind": "numeric",
+  "first_gold_rank": 2,
+  "first_general_rank": 2,
+  "top3": [
+   "dnfbp2021:titleiv:sec35",
+   "dnfbp2021:titlevi:sec43",
+   "dnfbp2021:titlev:sec41"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "e04",
+  "kind": "numeric",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "admin_sanctions2017:rulev:sec1",
+   "irr2018:rule25:sec5",
+   "sec_mc16_2018:ch12:sec12.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "e07",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch11:sec11.4",
+   "sec_mc16_2018:ch11:sec11.5",
+   "bsp_morb_p9:sec931"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "e08",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "sec_mc16_2018:ch2:sec2.1",
+   "bsp_morb_p9:sec903",
+   "sec_mc16_2018:ch4:sec4.1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "i01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2018_48:titlevi:sec48",
+   "ic_cl2018_48:titleiv:sec15",
+   "bsp_morb_p9:sec924"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "i05",
+  "kind": "list",
+  "first_gold_rank": null,
+  "first_general_rank": null,
+  "top3": [
+   "ic_cl2022_27:main",
+   "ic_cl2024_16:main",
+   "ic_cl2019_65:sec2"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "i06",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2019_65:sec21",
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "rrg2021:partiii:sc"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "m01",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir",
+   "bsp_morb_p9:sec911",
+   "bsp_morb_p9:sec911:smltfpfriskreportingandnotificationrequir"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "m06",
+  "kind": "numeric",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec931",
+   "bsp_morb_p9:sec911:smoneylaunderingandterroristfinancingprev",
+   "bsp_morb_p9:sec911:ssubmissionoftherevisedandupdatedmtpp"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "m09",
+  "kind": "factual",
+  "first_gold_rank": 3,
+  "first_general_rank": 3,
+  "top3": [
+   "bsp_morb_p9:sec904",
+   "sanctions2021:s15.4",
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "m10",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit",
+   "bsp_morb_p9:sec923:sforeignexchangedealersmoneychangersremit",
+   "bsp_morb_p9:sec921"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "m11",
+  "kind": "factual",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec911:snewproductsandbusinesspracticesriskasses",
+   "dnfbp2021:titleiii:sec16",
+   "ic_cl2018_48:titleiv:sec18"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "x01",
+  "kind": "cross_issuer",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "ic_cl2018_48:titlevi:sec48",
+   "irr2018:rule20:sec3",
+   "irr2018:rule20:sec1"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "x05",
+  "kind": "cross_issuer",
+  "first_gold_rank": 1,
+  "first_general_rank": 1,
+  "top3": [
+   "bsp_morb_p9:sec921:stfsrelatedtoproliferationofwmdandpf",
+   "sanctions2021:s5.1",
+   "sanctions2021:s2.3"
+  ]
+ },
+ {
+  "strategy": "structured",
+  "mode": "hybrid_rerank",
+  "id": "x08",
+  "kind": "cross_issuer",
+  "first_gold_rank": 4,
+  "first_general_rank": 4,
+  "top3": [
+   "rrg2021:partvii:se",
+   "gotracs2024:chii:part1:sec2:s2.15",
+   "ic_cl2019_65:sec21"
+  ]
+ }
+]

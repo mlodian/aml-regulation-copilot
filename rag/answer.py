@@ -19,18 +19,22 @@ You answer ONLY from the numbered source excerpts supplied in the user message.
 Rules:
 1. Every sentence that states a rule, number, deadline or obligation must end with
    the number(s) of the excerpt(s) that support it, e.g. [2] or [1, 3]. This includes
-   the opening one-line answer (e.g. "Yes, attempts must be reported [5].").
-2. When you quote wording, copy it exactly inside double quotes and cite it.
-3. Each excerpt's header names its issuer and its status on the question's date.
+   the opening one-line answer and any summary sentence: a sentence that draws on
+   several excerpts cites all of them, e.g. [1, 3].
+2. Start with the answer itself. Begin with "Yes" or "No" only if the question can be
+   answered yes or no; "What is the deadline ...?" cannot.
+3. When you quote wording, copy it exactly inside double quotes and cite it.
+4. Each excerpt's header names its issuer and its status on the question's date.
    Prefer CURRENT excerpts. If your answer relies on an excerpt marked TRANSITIONAL,
    say so in one sentence and name the issuance replacing it (shown in its header).
+   Do not otherwise comment on the headers or the status labels.
    Take the general rule from the AMLC issuances, and add the BSP, SEC or IC rules
    when the question concerns entities that regulator supervises.
-4. If the excerpts do not contain the answer, reply with exactly {REFUSAL} on the first
+5. If the excerpts do not contain the answer, reply with exactly {REFUSAL} on the first
    line, then one sentence saying what is missing. Do not use outside knowledge, and
    do not guess numbers that are not in the excerpts.
-5. Be concise: a direct answer first, then supporting detail as short bullets if needed.
-6. This is research support, not legal advice; do not add disclaimers unless asked."""
+6. Be concise: a direct answer first, then supporting detail as short bullets if needed.
+7. This is research support, not legal advice; do not add disclaimers unless asked."""
 
 
 @dataclass
@@ -57,10 +61,15 @@ def status_note(c: Chunk, as_of: str) -> str:
     return f"{c.issuer} · {state.upper()}{since}"
 
 
+def source_text(c: Chunk) -> str:
+    """What the model is shown as an excerpt's wording, and what its quotes are checked
+    against: the heading path (where defined terms often sit) and the text."""
+    return f"{c.heading}\n{c.text}" if c.heading else c.text
+
+
 def format_context(chunks: list[Chunk], as_of: str | None = None) -> str:
     as_of = as_of or today()
-    blocks = [f"[{i}] {c.citation}{' — ' + c.heading.split(' > ')[-1] if c.heading else ''} "
-              f"({status_note(c, as_of)})\n{c.text}" for i, c in enumerate(chunks, start=1)]
+    blocks = [f"[{i}] {c.citation} ({status_note(c, as_of)})\n{source_text(c)}" for i, c in enumerate(chunks, start=1)]
     return "\n\n".join(blocks)
 
 
@@ -71,5 +80,5 @@ def answer(question: str, k: int = 6, mode: str = "hybrid_rerank", as_of: str | 
     when = f" (as of {as_of})" if as_of else ""
     prompt = f"SOURCE EXCERPTS\n\n{format_context(chunks, as_of)}\n\nQUESTION{when}\n{question}"
     text = llm.complete(prompt, system=SYSTEM).strip()
-    report = check(text, [c.text for c in chunks])
+    report = check(text, [source_text(c) for c in chunks])
     return Answer(question, text, chunks, report, time.perf_counter() - t0)
