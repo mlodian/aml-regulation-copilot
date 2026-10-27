@@ -103,7 +103,7 @@ The new 140 include:
 - cross-regulator questions;
 - 27 unanswerable questions in total, counting the pilot's.
 
-**The held-out split.** 60 questions are held out, drawn only from the new questions and stratified by question type and issuer. They were never used while building, and were run once. The dev split (140) was used to tune; its retrieval figures for questions that name a source are flattered, because the bonus for named sources was set on dev. [eval/review/adjudication.md](eval/review/adjudication.md) records how the questions were checked.
+**The held-out split.** 60 questions are held out, drawn only from the new questions and stratified by question type and issuer. They were never used while building, and were run once. The dev split (140) was used to tune; its retrieval figures for questions that name a source are flattered, because the bonus for named sources was set on dev. How the questions were checked is under [Design decisions](#design-decisions-worth-knowing).
 
 #### Retrieval (no LLM involved)
 
