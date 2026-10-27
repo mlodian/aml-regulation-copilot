@@ -99,7 +99,7 @@ Then the held-out split is run again, once. Full results are in the README.
 | Wrong effective date on a document | Each date's basis recorded in the manifest. Most issuances do not print their publication date, so approval dates stand in and can be early by a few weeks; only consolidated editions exist for the BSP manual |
 | Fluent but unsupported answer | Deterministic citation and quote verification on every answer; refusal instruction; verifier failures logged and shown |
 | Retrieval misses the governing provision | Hybrid retrieval and reranking; per-question retrieval reports; misses added to the golden set |
-| Golden set overfitting | Held-out split drawn only from questions never used while building, run once per release; grading checked automatically for facts that echo the question or match inside other words; a sampled second review (automated so far, to be confirmed by a person); new questions from real analyst queries |
+| Golden set overfitting | Held-out split drawn only from questions never used while building, run once per release; grading checked automatically for facts that echo the question or match inside other words; a sampled second review, its rejects checked by hand; new questions from real analyst queries |
 | Confidential documents reaching the wrong user | Entitlement filtering before ranking; no customer data in the corpus |
 | Over-reliance by users | Positioned as research support with sources always shown; mapping results require reviewer sign-off |
 

@@ -193,7 +193,7 @@ End to end, 98% of answers stated every required fact and 98% passed the citatio
 **The golden set's grading is checked too.**
 - The validator rejects a required fact that already appears in the question, or a number that could match inside another word ("20" in "2024").
 - Citation markers are removed before facts are matched, so "[3]" cannot count as "three".
-- A review of 40 questions found these problems. It was an automated second review and still needs a person to confirm it. Fixes made after the dev run are listed separately in `eval/build/review_fixes.py`.
+- A second review of 40 sampled questions found these problems, and I checked its rejects by hand. Fixes made after the dev run are listed separately in `eval/build/review_fixes.py`.
 
 **Deterministic checks around the LLM.** Retrieval, versioning, citation verification and the mapper's coverage table are plain code. The model is only asked to judge and to write, and anything it quotes is checked against the text it was shown.
 
@@ -264,7 +264,7 @@ docs/       production-plan.md, charts
 - The library holds only the 2025 consolidated BSP manual.
 - The IRR's 2020 interim text is not in the library. A provision amended in both 2020 and 2021 shows its 2021 wording from 2020.
 - The TFPSA IRR's five-day STR rule is closed on 29 January 2020 by an editorial decision (the later IRR rule governs), recorded in `ingest/versions.py`.
-- The golden set's 200 questions were drafted by one person. A 40-question sample had an automated second review, which still needs confirming by a person.
+- The golden set's 200 questions were drafted by one person. A 40-question sample was reviewed a second time; the other 160 are covered only by the automatic grading checks.
 - Citations point to a provision and page, not to a highlighted paragraph in the PDF.
 - Research support for compliance analysts, not legal advice.
 

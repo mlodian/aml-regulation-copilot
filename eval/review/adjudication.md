@@ -2,8 +2,8 @@
 
 Sample: 40 questions (`sample.csv`), drawn by `make_sample.py` before any evaluation run.
 Annotator A drafted the questions (`annotator_a.csv`). Annotator B reviewed them
-independently: an automated second review, without access to A's labels. It still
-needs a person to confirm it.
+independently: an automated second review, without access to A's labels. Its rejects
+were then checked by hand by the author.
 
 | | A | B |
 |---|---|---|
