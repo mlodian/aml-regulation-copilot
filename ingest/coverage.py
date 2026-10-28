@@ -2,21 +2,35 @@
 
 A heading grammar that silently misses a document's headings still produces
 chunks, just bad ones: whole Titles glued into one section, or text before the
-first recognised heading dropped. Two checks, per document:
+first recognised heading dropped. Three checks, per document:
 
 1. Missed headings (the main check). Every line shaped like a heading in any of
    the corpus's layouts ("Section 5. Title", "CHAPTER II", "5.4 Title", "921 Title",
    a bold run-in title) must either be consumed by the document's grammar or match
    one of the profile's `not_headings`, each of which says why (numbered paragraphs,
-   headings quoted from an amended issuance). Any other such line flags the document,
-   with the lines listed. There is no tolerance: every exception is written down, so
-   one unexplained line is one thing to look at. Removing a level from a grammar is
-   caught at once (tests/test_core.py breaks the 2018 IRR grammar to prove it).
+   headings quoted from an amended issuance). Lines before the first heading count
+   too, except a transmitting circular's own headings (`cover_headings`). Any other
+   such line flags the document, with the lines listed. There is no tolerance: every
+   exception is written down, so one unexplained line is one thing to look at.
 2. Lead-in text. Text before the first recognised heading is a cover letter for
    circulars whose profile sets `preamble` (it is indexed as `<doc>:main`); anywhere
    else it is dropped text, and over 10% of a document (MIN_COVERAGE 0.90) means the
    grammar missed the opening headings. This catches a grammar that fails from the
    start; it cannot see headings missed later on, which is what check 1 is for.
+3. No sections: a grammar that finds no heading at all.
+
+What they catch (eval/heading_sweep.py: remove each level of each grammar in turn,
+46 broken grammars, every one changing the sections): check 1 flags 23, check 2 a
+further 4 (all losing the top level), check 3 a further 2; 29 in all, and none of
+the intact documents. Intact documents score 0.973 to 1.000 on coverage and the 4
+broken ones 0.00 to 0.76, so any floor in between separates them; 0.90 sits in
+that gap. The other 17 are not flagged. 16 lose a lower level (lettered, numbered
+or roman items, the TFPSA IRR's sub-rules, IC CL 2024-16's Stages): those items
+merge into the passage above, so citations get coarser but no text is lost. One
+loses the 2021 RRG's Parts, written "IV. Title": its coverage falls from 0.992
+to 0.970, still above the floor, as the text before its first lettered heading is
+dropped. Patterns for these forms would also match the lists in the body text:
+one for "IV. Title" flags real lists in four intact documents.
 """
 from __future__ import annotations
 
@@ -58,7 +72,7 @@ class Coverage:
     def flagged(self) -> bool:
         if not PROFILES[self.doc_id]["levels"]:
             return False  # a short letter with no internal headings
-        if self.missed_headings:
+        if self.missed_headings or not self.sections:
             return True
         if self.preamble_indexed:  # judge the guidelines, not the cover letter
             body = self.words - self.preamble_words
@@ -67,14 +81,18 @@ class Coverage:
 
 
 def missed_headings(doc: dict, trace: dict) -> list[str]:
-    """Heading-shaped lines after the first heading that the grammar neither consumed nor explains."""
+    """Heading-shaped lines the grammar neither consumed nor explains. Lines before the
+    first heading count too (a grammar that loses its top level pushes them there),
+    except the profile's `cover_headings`: headings of a transmitting circular."""
     heads, lines = trace.get("heads", set()), trace.get("lines", [])
     if not heads:
         return []
-    skip = PROFILES[doc["id"]].get("not_headings", [])
+    profile = PROFILES[doc["id"]]
+    skip, cover = profile.get("not_headings", []), profile.get("cover_headings", [])
     return [l.text for i, l in enumerate(lines)
-            if i > min(heads) and i not in heads
-            and any(p.match(l.text) for p in HEADING_LIKE) and not any(p.match(l.text) for p in skip)]
+            if i not in heads and any(p.match(l.text) for p in HEADING_LIKE)
+            and not any(p.match(l.text) for p in skip)
+            and not (i < min(heads) and any(p.match(l.text) for p in cover))]
 
 
 def measure(doc: dict) -> Coverage:

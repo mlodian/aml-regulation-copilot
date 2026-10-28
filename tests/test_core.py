@@ -265,6 +265,31 @@ def test_missed_heading_flags_a_grammar_that_lost_a_level(monkeypatch):
     assert row.missed_headings == ["Section 1. Title", "Section 2. Scope"] and row.flagged  # "2.1." is declared
 
 
+def test_missed_heading_counts_lines_before_the_first_heading(monkeypatch):
+    from ingest import coverage
+    from ingest.parse import Line
+    lines = [Line(1, t) for t in ("SECTION 1. The circular", "TITLE I", "body", "a. Item", "body")]
+    profile = {"levels": ["x"], "preamble": True, "cover_headings": [coverage.re.compile(r"^SECTION \d\. ")]}
+    monkeypatch.setitem(coverage.PROFILES, "d1", profile)
+
+    def parse(doc, trace):  # a grammar that lost TITLE: everything before "a." looks like a cover letter
+        trace.update(lines=lines, heads={3})
+        return [([], lines[:3]), ([("lv", "a", "")], lines[4:])]
+    monkeypatch.setattr(coverage, "parse_sections", parse)
+    row = coverage.measure({"id": "d1"})
+    assert row.missed_headings == ["TITLE I"] and row.flagged  # the circular's own SECTION 1 is declared
+
+
+def test_coverage_flags_a_grammar_that_finds_no_sections(monkeypatch):
+    from ingest import coverage
+    from ingest.parse import Line
+    lines = [Line(1, "word " * 50)]
+    monkeypatch.setitem(coverage.PROFILES, "d1", {"levels": ["x"], "preamble": True})
+    monkeypatch.setattr(coverage, "parse_sections", lambda doc, trace: [([], lines)])
+    row = coverage.measure({"id": "d1"})
+    assert row.sections == 0 and row.flagged  # all of it indexed as a cover letter, yet nothing is headed
+
+
 def test_one_changed_word_is_a_new_version():
     from ingest.versions import words
     old = "6.1. MVTS providers shall make the information available within five (5) working days " * 20

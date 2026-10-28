@@ -1,0 +1,848 @@
+{
+ "summary": {
+  "grammars_tested": 17,
+  "removals": 46,
+  "breaks": 46,
+  "flagged_by_missed_headings": 23,
+  "flagged_by_coverage": 4,
+  "flagged_by_no_sections": 2,
+  "flagged": 29,
+  "intact_coverage_range": [
+   0.973,
+   1.0
+  ],
+  "intact_flagged": 0,
+  "coverage_of_breaks_flagged_by_coverage": [
+   0.0,
+   0.0,
+   0.0,
+   0.7574
+  ],
+  "min_coverage": 0.9
+ },
+ "intact": [
+  {
+   "doc_id": "irr2018",
+   "coverage": 0.9999,
+   "flagged": false
+  },
+  {
+   "doc_id": "irr2018_orig",
+   "coverage": 0.9999,
+   "flagged": false
+  },
+  {
+   "doc_id": "tf_irr",
+   "coverage": 0.999,
+   "flagged": false
+  },
+  {
+   "doc_id": "rrg2021",
+   "coverage": 0.9921,
+   "flagged": false
+  },
+  {
+   "doc_id": "gotracs2024",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "dnfbp2021",
+   "coverage": 0.9944,
+   "flagged": false
+  },
+  {
+   "doc_id": "sanctions2021",
+   "coverage": 0.9993,
+   "flagged": false
+  },
+  {
+   "doc_id": "bo2018",
+   "coverage": 0.973,
+   "flagged": false
+  },
+  {
+   "doc_id": "screening2023",
+   "coverage": 0.9932,
+   "flagged": false
+  },
+  {
+   "doc_id": "admin_sanctions2017",
+   "coverage": 0.9859,
+   "flagged": false
+  },
+  {
+   "doc_id": "sec_mc16_2018",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "sec_mc4_2021",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2018_48",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2019_65",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2024_16",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2022_27",
+   "coverage": 1.0,
+   "flagged": false
+  },
+  {
+   "doc_id": "bsp_morb_p9",
+   "coverage": 0.9995,
+   "flagged": false
+  }
+ ],
+ "broken": [
+  {
+   "doc_id": "irr2018",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    276,
+    274
+   ],
+   "coverage": 0.9997,
+   "missed_headings": 35,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "irr2018",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    276,
+    173
+   ],
+   "coverage": 0.9999,
+   "missed_headings": 162,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "irr2018",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    276,
+    165
+   ],
+   "coverage": 0.9999,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "irr2018_orig",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    260,
+    258
+   ],
+   "coverage": 0.9996,
+   "missed_headings": 35,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "irr2018_orig",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    260,
+    162
+   ],
+   "coverage": 0.9999,
+   "missed_headings": 156,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "irr2018_orig",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    260,
+    159
+   ],
+   "coverage": 0.9999,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "tf_irr",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    71,
+    1
+   ],
+   "coverage": 0.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": true,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "tf_irr",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    71,
+    48
+   ],
+   "coverage": 0.999,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "tf_irr",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    71,
+    53
+   ],
+   "coverage": 0.999,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "rrg2021",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    69,
+    64
+   ],
+   "coverage": 0.9702,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "rrg2021",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    69,
+    53
+   ],
+   "coverage": 0.9922,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "rrg2021",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    69,
+    25
+   ],
+   "coverage": 0.9922,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 0,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    94
+   ],
+   "coverage": 0.9997,
+   "missed_headings": 3,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 1,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    270
+   ],
+   "coverage": 1.0,
+   "missed_headings": 2,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 2,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    203
+   ],
+   "coverage": 1.0,
+   "missed_headings": 80,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 3,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    196
+   ],
+   "coverage": 1.0,
+   "missed_headings": 83,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 4,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    164
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 5,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    199
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "gotracs2024",
+   "level_removed": 6,
+   "levels": 7,
+   "changed": true,
+   "sections": [
+    269,
+    257
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "dnfbp2021",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    192,
+    190
+   ],
+   "coverage": 0.9941,
+   "missed_headings": 12,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "dnfbp2021",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    192,
+    140
+   ],
+   "coverage": 0.9947,
+   "missed_headings": 62,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "dnfbp2021",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    192,
+    65
+   ],
+   "coverage": 0.9945,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "sanctions2021",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    45,
+    1
+   ],
+   "coverage": 0.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": true,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "sanctions2021",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    45,
+    36
+   ],
+   "coverage": 0.9993,
+   "missed_headings": 9,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "bo2018",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    43,
+    33
+   ],
+   "coverage": 0.9622,
+   "missed_headings": 11,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "bo2018",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    43,
+    12
+   ],
+   "coverage": 0.9733,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "screening2023",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    32,
+    1
+   ],
+   "coverage": 0.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": true,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "screening2023",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    32,
+    27
+   ],
+   "coverage": 0.9932,
+   "missed_headings": 12,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "screening2023",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    32,
+    15
+   ],
+   "coverage": 0.9932,
+   "missed_headings": 23,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "admin_sanctions2017",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    30,
+    29
+   ],
+   "coverage": 0.985,
+   "missed_headings": 5,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "admin_sanctions2017",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    30,
+    6
+   ],
+   "coverage": 0.9864,
+   "missed_headings": 28,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "sec_mc16_2018",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    87,
+    85
+   ],
+   "coverage": 1.0,
+   "missed_headings": 12,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "sec_mc16_2018",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    87,
+    13
+   ],
+   "coverage": 1.0,
+   "missed_headings": 84,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "sec_mc4_2021",
+   "level_removed": 0,
+   "levels": 1,
+   "changed": true,
+   "sections": [
+    10,
+    1
+   ],
+   "coverage": null,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": true,
+   "flagged": true
+  },
+  {
+   "doc_id": "ic_cl2018_48",
+   "level_removed": 0,
+   "levels": 4,
+   "changed": true,
+   "sections": [
+    202,
+    202
+   ],
+   "coverage": 1.0,
+   "missed_headings": 9,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "ic_cl2018_48",
+   "level_removed": 1,
+   "levels": 4,
+   "changed": true,
+   "sections": [
+    202,
+    145
+   ],
+   "coverage": 1.0,
+   "missed_headings": 67,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "ic_cl2018_48",
+   "level_removed": 2,
+   "levels": 4,
+   "changed": true,
+   "sections": [
+    202,
+    174
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2018_48",
+   "level_removed": 3,
+   "levels": 4,
+   "changed": true,
+   "sections": [
+    202,
+    96
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2019_65",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    61,
+    36
+   ],
+   "coverage": 1.0,
+   "missed_headings": 25,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "ic_cl2019_65",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    61,
+    26
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2024_16",
+   "level_removed": 0,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    27,
+    23
+   ],
+   "coverage": 1.0,
+   "missed_headings": 4,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "ic_cl2024_16",
+   "level_removed": 1,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    27,
+    24
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2024_16",
+   "level_removed": 2,
+   "levels": 3,
+   "changed": true,
+   "sections": [
+    27,
+    8
+   ],
+   "coverage": 1.0,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": false
+  },
+  {
+   "doc_id": "ic_cl2022_27",
+   "level_removed": 0,
+   "levels": 1,
+   "changed": true,
+   "sections": [
+    5,
+    1
+   ],
+   "coverage": null,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": false,
+   "by_no_sections": true,
+   "flagged": true
+  },
+  {
+   "doc_id": "bsp_morb_p9",
+   "level_removed": 0,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    45,
+    32
+   ],
+   "coverage": 0.7574,
+   "missed_headings": 0,
+   "by_missed_headings": false,
+   "by_coverage": true,
+   "by_no_sections": false,
+   "flagged": true
+  },
+  {
+   "doc_id": "bsp_morb_p9",
+   "level_removed": 1,
+   "levels": 2,
+   "changed": true,
+   "sections": [
+    45,
+    14
+   ],
+   "coverage": 0.9995,
+   "missed_headings": 31,
+   "by_missed_headings": true,
+   "by_coverage": false,
+   "by_no_sections": false,
+   "flagged": true
+  }
+ ]
+}

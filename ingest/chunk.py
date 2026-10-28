@@ -67,6 +67,7 @@ PROFILES: dict[str, dict] = {
             # period in Part IV-D, so no item is split across chunks
             Level("", re.compile(r"^([a-u])\.(?:\s+(.+))?$"), sentence_body=True, sequential=True),
         ],
+        "cover_headings": [re.compile(r"^PART 1$")],  # the title page: this is Part 1 of the RRG
     },
     # --- Phase 2 -------------------------------------------------------------
     "tf_irr": {
@@ -151,6 +152,7 @@ PROFILES: dict[str, dict] = {
             Level("Sec.", re.compile(r"^Section (\d+\.[A-Z0-9]+(?:\.\d+)?)\.\s+(.+)$"), split=True),
         ],
         "not_headings": [re.compile(r"^\d+\.\d+(?:\.\d+)*\.?(?:\s|$)")],  # numbered lists inside a section ("1.2.1 Securities Brokers ...")
+        "cover_headings": [re.compile(r"^SECTION \d\. ")],  # the transmitting circular's own five sections
     },
     "sec_mc4_2021": {
         "pages": (1, None),

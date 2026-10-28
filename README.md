@@ -184,7 +184,7 @@ End to end, 98% of answers stated every required fact and 98% passed the citatio
 **Every threshold is tested against data.**
 - **OCR:** Vision's confidence barely tracks OCR accuracy (rank correlation 0.26 on pages with a known text layer, degraded on purpose; [eval/ocr_calibration.py](eval/ocr_calibration.py)). So 0.80 is only a floor for unreadable pages.
 - **Numbers:** a page is held for review when a spelled-out number and its digits disagree, as in "sixty (60)". That check caught a text layer whose amounts read "PhpSOO,OOO.OO".
-- **Headings:** a check that every heading-shaped line is either matched or a listed exception catches a grammar that lost a level. The earlier coverage percentage could not.
+- **Headings:** three checks run on every document: every heading-shaped line must be matched or a listed exception; at least 90% of the text must sit under a heading; and the grammar must find a heading at all. Removing each level of each grammar in turn ([eval/heading_sweep.py](eval/heading_sweep.py)) gives 46 broken grammars; the checks flag 29 and no intact document. The 0.90 floor sits between the intact documents (0.973 or more) and the broken ones it catches (0.76 or less). Of the 17 missed, 16 lose a lower level such as lettered items, which merge into the passage above; one loses the 2021 RRG's Parts.
 
 **Questions that name a source are scoped to it.**
 - "Under the 2018 IRR", "for a bank" or "the Insurance Commission's rules" pull extra candidates from those documents and earn a fixed reranker bonus.
